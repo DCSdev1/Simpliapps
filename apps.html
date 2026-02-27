@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simpli — Apps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ====== APPS PAGE ====== */
+        .apps-hero {
+            padding: 10rem 2rem 5rem;
+            text-align: center;
+        }
+
+        .apps-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--dark);
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.2s forwards;
+        }
+
+        .apps-hero p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 540px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 300;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.4s forwards;
+        }
+
+        /* Apps grid */
+        .apps-section { background: var(--light); }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3.5rem;
+        }
+
+        .app-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .app-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(26,26,46,0.08);
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .app-card[data-app="supli"]::before { background: var(--accent); }
+        .app-card[data-app="bloom"]::before { background: var(--teal); }
+        .app-card[data-app="dose"]::before { background: var(--warm); }
+        .app-card[data-app="project"]::before { background: var(--gold); }
+
+        .app-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .app-icon img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        .app-card[data-app="supli"] .app-icon { background: var(--accent-light); }
+        .app-card[data-app="bloom"] .app-icon { background: #E0FFF8; }
+        .app-card[data-app="dose"] .app-icon { background: #FFE8E8; }
+        .app-card[data-app="project"] .app-icon { background: #FFF5DD; }
+
+        .app-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+
+        .app-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .app-card[data-app="supli"] .app-tag { color: var(--accent); }
+        .app-card[data-app="bloom"] .app-tag { color: var(--teal); }
+        .app-card[data-app="dose"] .app-tag { color: var(--warm); }
+        .app-card[data-app="project"] .app-tag { color: var(--gold); }
+
+        .app-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        .app-store-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s;
+            opacity: 0.6;
+        }
+
+        .app-store-link:hover { opacity: 1; gap: 0.7rem; }
+
+        .app-store-link svg { width: 16px; height: 16px; }
+
+        /* Ecosystem note */
+        .ecosystem-note {
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .ecosystem-note-inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .ecosystem-note h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+        }
+
+        .ecosystem-note p {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .my-prefix {
+            display: inline-block;
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 0.3rem 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .apps-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== HERO ====== -->
+    <section class="apps-hero">
+        <h1 data-es="Nuestras Apps" data-en="Our Apps"></h1>
+        <p data-es="Cada app del ecosistema Simpli esta diseñada con un unico proposito: hacer tu vida un poco mas facil." data-en="Every app in the Simpli ecosystem is designed with a single purpose: to make your life a little easier."></p>
+    </section>
+
+    <!-- ====== APPS GRID ====== -->
+    <section class="section apps-section">
+        <div class="container">
+            <div class="apps-grid">
+                <!-- mySupli -->
+                <div class="app-card reveal reveal-delay-1" data-app="supli">
+                    <div class="app-icon"><img src="icons/icon-supli.png" alt="mySupli"></div>
+                    <h3>mySupli</h3>
+                    <span class="app-tag" data-es="Suplementacion" data-en="Supplements"></span>
+                    <p data-es="Gestion inteligente de tu suplementacion diaria. Control simple de lo que tu cuerpo necesita. Registra, organiza y nunca olvides tus suplementos." data-en="Smart daily supplement management. Simple tracking of what your body needs. Log, organize and never forget your supplements."></p>
+                    <a href="#" class="app-store-link">
+                        App Store
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </a>
+                </div>
+                <!-- myBloom -->
+                <div class="app-card reveal reveal-delay-2" data-app="bloom">
+                    <div class="app-icon"><img src="icons/icon-bloom.png" alt="myBloom"></div>
+                    <h3>myBloom</h3>
+                    <span class="app-tag" data-es="Bienestar" data-en="Wellbeing"></span>
+                    <p data-es="Crecimiento personal al alcance de tu mano. Florece con habitos saludables paso a paso. Cuida tu planta virtual mientras cuidas de ti." data-en="Personal growth at your fingertips. Bloom with healthy habits, step by step. Nurture your virtual plant while nurturing yourself."></p>
+                    <a href="#" class="app-store-link">
+                        <span data-es="Proximamente" data-en="Coming soon"></span>
+                    </a>
+                </div>
+                <!-- myDose -->
+                <div class="app-card reveal reveal-delay-3" data-app="dose">
+                    <div class="app-icon"><img src="icons/icon-dose.png" alt="myDose"></div>
+                    <h3>myDose</h3>
+                    <span class="app-tag" data-es="Medicacion" data-en="Medication"></span>
+                    <p data-es="Control de dosis y medicacion sin complicaciones. Tu salud, organizada y segura. Recordatorios inteligentes para que nunca se te pase una toma." data-en="Dose and medication tracking without complications. Your health, organized and safe. Smart reminders so you never miss a dose."></p>
+                    <a href="#" class="app-store-link">
+                        <span data-es="Proximamente" data-en="Coming soon"></span>
+                    </a>
+                </div>
+                <!-- myProject -->
+                <div class="app-card reveal reveal-delay-4" data-app="project">
+                    <div class="app-icon"><img src="icons/icon-project.png" alt="myProject"></div>
+                    <h3>myProject</h3>
+                    <span class="app-tag" data-es="Productividad" data-en="Productivity"></span>
+                    <p data-es="Gestion de proyectos clara y efectiva. Logra mas haciendo menos, pero mejor. Organiza tus tareas sin distracciones innecesarias." data-en="Clear and effective project management. Achieve more by doing less, but better. Organize your tasks without unnecessary distractions."></p>
+                    <a href="#" class="app-store-link">
+                        <span data-es="Proximamente" data-en="Coming soon"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ECOSYSTEM NOTE ====== -->
+    <section class="ecosystem-note">
+        <div class="ecosystem-note-inner reveal">
+            <span class="my-prefix">my</span>
+            <h2 data-es="Un prefijo, una promesa" data-en="One prefix, one promise"></h2>
+            <p data-es="Cada app lleva el prefijo 'my' porque es tuya. Personalizada, cercana, diseñada para adaptarse a tu vida. Cuando ves 'my', sabes que detras esta Simpli." data-en="Every app carries the 'my' prefix because it's yours. Personalized, close, designed to adapt to your life. When you see 'my', you know Simpli is behind it."></p>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
