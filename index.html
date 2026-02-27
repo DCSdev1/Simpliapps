@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simpli — Simpli Apps for a Simpli Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #1A1A2E;
+            --accent: #4361EE;
+            --accent-light: #E8EDFF;
+            --success: #2EC4B6;
+            --warm: #FF6B6B;
+            --gold: #FFD166;
+            --teal: #06D6A0;
+            --gray: #6C757D;
+            --light: #F8F9FA;
+            --white: #FFFFFF;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-body: 'DM Sans', -apple-system, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--dark);
+            background: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ====== NAVIGATION ====== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 30px rgba(26,26,46,0.06);
+            padding: 0.9rem 2rem;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            color: var(--dark);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-logo .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-left: 2px;
+            vertical-align: super;
+            font-size: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark);
+        }
+
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--light);
+            border-radius: 100px;
+            padding: 0.3rem;
+            cursor: pointer;
+        }
+
+        .lang-btn {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: none;
+            background: none;
+            padding: 0.35rem 0.7rem;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--gray);
+            letter-spacing: 0.03em;
+        }
+
+        .lang-btn.active {
+            background: var(--white);
+            color: var(--dark);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 28px;
+            height: 20px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--dark);
+            border-radius: 2px;
+            transition: all 0.3s;
+            position: absolute;
+            left: 0;
+        }
+
+        .mobile-menu-btn span:nth-child(1) { top: 0; }
+        .mobile-menu-btn span:nth-child(2) { top: 9px; }
+        .mobile-menu-btn span:nth-child(3) { top: 18px; }
+
+        .mobile-menu-btn.open span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+        .mobile-menu-btn.open span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.open span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+        /* ====== HERO ====== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(67,97,238,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -5%;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(46,196,182,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            background: var(--accent-light);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.2s forwards;
+        }
+
+        .hero-badge .badge-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.4s forwards;
+        }
+
+        .hero h1 .accent {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            color: var(--gray);
+            max-width: 520px;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.6s forwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.8s forwards;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: var(--dark);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(67,97,238,0.25);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: transparent;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: 1.5px solid #E0E0E0;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--dark);
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 1.2s forwards;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.7rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--gray), transparent);
+            animation: scrollBounce 2s infinite;
+        }
+
+        /* ====== APPS SECTION ====== */
+        .section {
+            padding: 7rem 2rem;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -0.02em;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--gray);
+            max-width: 560px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .apps-section {
+            background: var(--light);
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3.5rem;
+        }
+
+        .app-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .app-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 60px rgba(26,26,46,0.08);
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .app-card[data-app="supli"]::before { background: var(--accent); }
+        .app-card[data-app="bloom"]::before { background: var(--teal); }
+        .app-card[data-app="dose"]::before { background: var(--warm); }
+        .app-card[data-app="project"]::before { background: var(--gold); }
+
+        .app-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+        }
+
+        .app-card[data-app="supli"] .app-icon { background: var(--accent-light); }
+        .app-card[data-app="bloom"] .app-icon { background: #E0FFF8; }
+        .app-card[data-app="dose"] .app-icon { background: #FFE8E8; }
+        .app-card[data-app="project"] .app-icon { background: #FFF5DD; }
+
+        .app-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+
+        .app-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .app-card[data-app="supli"] .app-tag { color: var(--accent); }
+        .app-card[data-app="bloom"] .app-tag { color: var(--teal); }
+        .app-card[data-app="dose"] .app-tag { color: var(--warm); }
+        .app-card[data-app="project"] .app-tag { color: var(--gold); }
+
+        .app-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            font-weight: 300;
+        }
+
+        .app-store-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--dark);
+            text-decoration: none;
+            transition: all 0.3s;
+            opacity: 0.6;
+        }
+
+        .app-store-link:hover {
+            opacity: 1;
+            gap: 0.7rem;
+        }
+
+        .app-store-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ====== ABOUT / VALUES ====== */
+        .about-section {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            margin-top: 3.5rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            line-height: 1.8;
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .values-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            padding: 1.5rem;
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .value-item:hover {
+            background: var(--light);
+        }
+
+        .value-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+
+        .value-item:nth-child(1) .value-dot { background: var(--accent); }
+        .value-item:nth-child(2) .value-dot { background: var(--success); }
+        .value-item:nth-child(3) .value-dot { background: var(--warm); }
+        .value-item:nth-child(4) .value-dot { background: var(--gold); }
+
+        .value-item h4 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .value-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* ====== PHILOSOPHY BANNER ====== */
+        .philosophy-banner {
+            background: var(--dark);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .philosophy-banner blockquote {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            color: var(--white);
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        /* ====== CONTACT / SUPPORT ====== */
+        .contact-section {
+            background: var(--light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3.5rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            box-shadow: 0 10px 40px rgba(26,26,46,0.06);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-weight: 300;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-decoration: none;
+            transition: gap 0.3s;
+        }
+
+        .contact-link:hover {
+            gap: 0.7rem;
+        }
+
+        /* ====== FOOTER ====== */
+        footer {
+            background: var(--dark);
+            padding: 4rem 2rem 2rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-content {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .footer-brand .nav-logo {
+            color: var(--white);
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            max-width: 280px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .footer-col h5 {
+            color: var(--white);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255,255,255,0.45);
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .footer-bottom {
+            max-width: 1140px;
+            margin: 3rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+        }
+
+        /* ====== ANIMATIONS ====== */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: scaleY(1); transform-origin: top; }
+            50% { transform: scaleY(0.5); transform-origin: top; }
+        }
+
+        /* Scroll animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .nav-links.mobile-open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--white);
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                z-index: 999;
+            }
+            .nav-links.mobile-open a { font-size: 1.2rem; color: var(--dark); }
+            .mobile-menu-btn { display: block; }
+
+            .apps-grid { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+
+            .footer-content { flex-direction: column; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; gap: 0.5rem; }
+
+            .hero h1 { font-size: 2.8rem; }
+        }
+
+        @media (max-width: 600px) {
+            .hero-cta { flex-direction: column; align-items: center; }
+            .section { padding: 4.5rem 1.5rem; }
+            nav { padding: 1rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== NAV ====== -->
+    <nav id="navbar">
+        <a href="#" class="nav-logo">Simpli<span class="dot"></span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#apps" data-es="Apps" data-en="Apps">Apps</a></li>
+            <li><a href="#about" data-es="Nosotros" data-en="About">Nosotros</a></li>
+            <li><a href="#contact" data-es="Contacto" data-en="Contact">Contacto</a></li>
+            <li>
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
+                    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+                </div>
+            </li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ====== HERO ====== -->
+    <section class="hero" id="hero">
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span data-es="Ecosistema de apps para tu bienestar" data-en="An app ecosystem for your wellbeing"></span>
+        </div>
+        <h1>
+            <span data-es="Apps simples" data-en="Simple apps"></span><br>
+            <span data-es="para una vida " data-en="for a "></span><span class="accent" data-es="mejor" data-en="better life"></span>
+        </h1>
+        <p class="hero-subtitle" data-es="Creamos herramientas digitales que mejoran tu calidad de vida sin complicaciones. Simplicidad, calidad y bienestar en cada app." data-en="We create digital tools that improve your quality of life without complications. Simplicity, quality and wellbeing in every app."></p>
+        <div class="hero-cta">
+            <a href="#apps" class="btn-primary" data-es="Descubre nuestras apps →" data-en="Discover our apps →"></a>
+            <a href="#about" class="btn-secondary" data-es="Conoce Simpli" data-en="About Simpli"></a>
+        </div>
+        <div class="scroll-indicator">
+            <span data-es="Explora" data-en="Explore"></span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ====== APPS ====== -->
+    <section class="section apps-section" id="apps">
+        <div class="container">
+            <div class="reveal">
+                <p class="section-label" data-es="Ecosistema" data-en="Ecosystem"></p>
+                <h2 class="section-title" data-es="Nuestras Apps" data-en="Our Apps"></h2>
+                <p class="section-subtitle" data-es='Cada app lleva el prefijo "my", reforzando la personalizacion y pertenencia. Todas comparten la misma filosofia de simplicidad.' data-en='Every app carries the "my" prefix, reinforcing personalization and belonging. All share the same philosophy of simplicity.'></p>
+            </div>
+            <div class="apps-grid">
+                <!-- mySupli -->
+                <div class="app-card reveal reveal-delay-1" data-app="supli">
+                    <div class="app-icon"><img src="icons/icon-supli.png" alt="mySupli"></div>
+                    <h3>mySupli</h3>
+                    <span class="app-tag" data-es="Suplementacion" data-en="Supplements"></span>
+                    <p data-es="Gestion inteligente de tu suplementacion diaria. Control simple de lo que tu cuerpo necesita." data-en="Smart daily supplement management. Simple tracking of what your body needs."></p>
+                    <a href="#" class="app-store-link">
+                        App Store
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </a>
+                </div>
+                <!-- myBloom -->
+                <div class="app-card reveal reveal-delay-2" data-app="bloom">
+                    <div class="app-icon"><img src="icons/icon-bloom.png" alt="myBloom"></div>
+                    <h3>myBloom</h3>
+                    <span class="app-tag" data-es="Bienestar" data-en="Wellbeing"></span>
+                    <p data-es="Crecimiento personal al alcance de tu mano. Florece con habitos saludables paso a paso." data-en="Personal growth at your fingertips. Bloom with healthy habits, step by step."></p>
+                    <a href="#" class="app-store-link">
+                        <span data-es="Proximamente" data-en="Coming soon"></span>
+                    </a>
+                </div>
+                <!-- myDose -->
+                <div class="app-card reveal reveal-delay-3" data-app="dose">
+                    <div class="app-icon"><img src="icons/icon-dose.png" alt="myDose"></div>
+                    <h3>myDose</h3>
+                    <span class="app-tag" data-es="Medicacion" data-en="Medication"></span>
+                    <p data-es="Control de dosis y medicacion sin complicaciones. Tu salud, organizada y segura." data-en="Dose and medication tracking without complications. Your health, organized and safe."></p>
+                    <a href="#" class="app-store-link">
+                        <span data-es="Proximamente" data-en="Coming soon"></span>
+                    </a>
+                </div>
+                <!-- myProject -->
+                <div class="app-card reveal reveal-delay-4" data-app="project">
+                    <div class="app-icon"><img src="icons/icon-project.png" alt="myProject"></div>
+                    <h3>myProject</h3>
+                    <span class="app-tag" data-es="Productividad" data-en="Productivity"></span>
+                    <p data-es="Gestion de proyectos clara y efectiva. Logra mas haciendo menos, pero mejor." data-en="Clear and effective project management. Achieve more by doing less, but better."></p>
+                    <a href="#" class="app-store-link">
+                        <span data-es="Proximamente" data-en="Coming soon"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ABOUT ====== -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="reveal">
+                <p class="section-label" data-es="Sobre Simpli" data-en="About Simpli"></p>
+                <h2 class="section-title" data-es="Una firma, una filosofia" data-en="One brand, one philosophy"></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p data-es="Simpli no es una empresa tradicional. Es una firma personal que representa una apuesta decidida por las aplicaciones de calidad: simples, efectivas y accesibles." data-en="Simpli is not a traditional company. It's a personal brand that represents a firm commitment to quality apps: simple, effective and accessible."></p>
+                    <p data-es="Ponemos a las personas en el centro, creando herramientas digitales que mejoran la calidad de vida sin complicaciones innecesarias. Porque creemos que lo simple es poderoso." data-en="We put people at the center, creating digital tools that improve quality of life without unnecessary complications. Because we believe simplicity is powerful."></p>
+                    <p data-es="Cada app del ecosistema Simpli esta diseñada con un unico proposito: hacer tu vida un poco mas facil, un poco mejor." data-en="Every app in the Simpli ecosystem is designed with a single purpose: to make your life a little easier, a little better."></p>
+                </div>
+                <div class="values-list reveal reveal-delay-1">
+                    <div class="value-item">
+                        <div class="value-dot"></div>
+                        <div>
+                            <h4 data-es="Simplicidad" data-en="Simplicity"></h4>
+                            <p data-es="Lo simple es poderoso. Cada funcion, cada pantalla, cada interaccion esta diseñada para ser intuitiva y clara." data-en="Simplicity is powerful. Every function, every screen, every interaction is designed to be intuitive and clear."></p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-dot"></div>
+                        <div>
+                            <h4 data-es="Calidad" data-en="Quality"></h4>
+                            <p data-es="Cada detalle importa. Desde el diseño hasta el rendimiento, buscamos la excelencia en cada app." data-en="Every detail matters. From design to performance, we pursue excellence in every app."></p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-dot"></div>
+                        <div>
+                            <h4 data-es="Bienestar" data-en="Wellbeing"></h4>
+                            <p data-es="Nuestro proposito es mejorar vidas. Cada app esta pensada para impactar positivamente en tu dia a dia." data-en="Our purpose is to improve lives. Every app is designed to positively impact your day to day."></p>
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-dot"></div>
+                        <div>
+                            <h4 data-es="Accesibilidad" data-en="Accessibility"></h4>
+                            <p data-es="Para todos, sin barreras. Apps que cualquier persona puede usar y disfrutar sin complicaciones." data-en="For everyone, without barriers. Apps that anyone can use and enjoy without complications."></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== PHILOSOPHY BANNER ====== -->
+    <section class="philosophy-banner">
+        <div class="container reveal">
+            <blockquote data-es='"Hacemos que lo complejo sea simple, no lo simple complicado."' data-en='"We make the complex simple, not the simple complicated."'></blockquote>
+        </div>
+    </section>
+
+    <!-- ====== CONTACT ====== -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="reveal">
+                <p class="section-label" data-es="Contacto" data-en="Contact"></p>
+                <h2 class="section-title" data-es="Hablemos" data-en="Let's talk"></h2>
+                <p class="section-subtitle" data-es="¿Tienes alguna pregunta, sugerencia o necesitas ayuda? Estamos aqui para ti." data-en="Have a question, suggestion or need help? We're here for you."></p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card reveal reveal-delay-1">
+                    <div class="contact-icon">✉️</div>
+                    <h3 data-es="Soporte" data-en="Support"></h3>
+                    <p data-es="¿Necesitas ayuda con alguna de nuestras apps? Escríbenos y te respondemos lo antes posible." data-en="Need help with any of our apps? Write to us and we'll respond as soon as possible."></p>
+                    <a href="mailto:support@simpli.app" class="contact-link">
+                        support@simpli.app →
+                    </a>
+                </div>
+                <div class="contact-card reveal reveal-delay-2">
+                    <div class="contact-icon">💬</div>
+                    <h3 data-es="Sugerencias" data-en="Feedback"></h3>
+                    <p data-es="Tu opinion nos importa. Si tienes ideas para mejorar nuestras apps, queremos escucharte." data-en="Your opinion matters. If you have ideas to improve our apps, we want to hear from you."></p>
+                    <a href="mailto:hello@simpli.app" class="contact-link">
+                        hello@simpli.app →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">Simpli<span class="dot"></span></a>
+                <p data-es="Simpli Apps for a Simpli Life" data-en="Simpli Apps for a Simpli Life"></p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h5>Apps</h5>
+                    <a href="#">mySupli</a>
+                    <a href="#">myBloom</a>
+                    <a href="#">myDose</a>
+                    <a href="#">myProject</a>
+                </div>
+                <div class="footer-col">
+                    <h5 data-es="Legal" data-en="Legal"></h5>
+                    <a href="#" data-es="Privacidad" data-en="Privacy"></a>
+                    <a href="#" data-es="Terminos" data-en="Terms"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Simpli. <span data-es="Todos los derechos reservados." data-en="All rights reserved."></span></span>
+            <span data-es="Hecho con ♥ para simplificar tu vida" data-en="Made with ♥ to simplify your life"></span>
+        </div>
+    </footer>
+
+    <script>
+        // ====== LANGUAGE SYSTEM ======
+        let currentLang = 'es';
+
+        function setLang(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            // Update all translatable elements
+            document.querySelectorAll('[data-es]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = text;
+                    } else {
+                        el.textContent = text;
+                    }
+                }
+            });
+
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+
+        // ====== NAV SCROLL ======
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // ====== MOBILE MENU ======
+        function toggleMobileMenu() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const links = document.getElementById('navLinks');
+            btn.classList.toggle('open');
+            links.classList.toggle('mobile-open');
+        }
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.addEventListener('click', () => {
+                document.getElementById('mobileMenuBtn').classList.remove('open');
+                document.getElementById('navLinks').classList.remove('mobile-open');
+            });
+        });
+
+        // ====== SCROLL REVEAL ======
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ====== SMOOTH SCROLL ======
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Initialize language
+        setLang('es');
+    </script>
+</body>
+</html>
