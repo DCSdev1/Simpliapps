@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simpli — Contacto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .contact-hero {
+            padding: 10rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--dark);
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.2s forwards;
+        }
+
+        .contact-hero p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 300;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.4s forwards;
+        }
+
+        .form-section { background: var(--light); }
+
+        .form-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .form-info h2 {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .form-info > p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.2rem 0;
+            border-top: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .info-card:last-child { border-bottom: 1px solid rgba(0,0,0,0.06); }
+
+        .info-card-icon {
+            width: 40px; height: 40px;
+            border-radius: 10px;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        .info-card h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .info-card p {
+            color: var(--gray);
+            font-size: 0.85rem;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        .info-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .form-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0,0,0,0.04);
+            box-shadow: 0 4px 30px rgba(26,26,46,0.04);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group { margin-bottom: 1.2rem; }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border: 1.5px solid #E8E8E8;
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            color: var(--dark);
+            background: var(--white);
+            transition: all 0.3s;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(67,97,238,0.08);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #B0B0B0;
+            font-weight: 300;
+        }
+
+        .form-group select { cursor: pointer; }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+            line-height: 1.6;
+        }
+
+        .type-selector {
+            display: flex;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .type-pill {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1.5px solid #E8E8E8;
+            border-radius: 12px;
+            background: var(--white);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .type-pill:hover { border-color: var(--accent); color: var(--accent); }
+
+        .type-pill.active {
+            background: var(--accent-light);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .type-pill .pill-icon { font-size: 1rem; }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--dark);
+            color: var(--white);
+            border: none;
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(67,97,238,0.25);
+        }
+
+        .form-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .form-success.show { display: block; }
+
+        .success-icon {
+            width: 64px; height: 64px;
+            border-radius: 50%;
+            background: #E0FFF8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .form-success h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-success p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-success button {
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .form-success button:hover { opacity: 0.7; }
+
+        .faq-section { padding: 6rem 2rem; }
+        .faq-inner { max-width: 700px; margin: 0 auto; }
+
+        .faq-item {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            cursor: pointer;
+        }
+
+        .faq-item:last-child { border-bottom: none; }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .faq-question h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .faq-toggle {
+            width: 28px; height: 28px;
+            border-radius: 50%;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+            color: var(--gray);
+            line-height: 1;
+        }
+
+        .faq-item.open .faq-toggle {
+            background: var(--accent-light);
+            color: var(--accent);
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.open .faq-answer { max-height: 200px; padding-top: 1rem; }
+
+        .faq-answer p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .contact-cta {
+            background: var(--dark);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .contact-cta h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--white);
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-cta p {
+            color: rgba(255,255,255,0.5);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        @media (max-width: 900px) {
+            .form-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 500px) {
+            .type-selector { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== HERO ====== -->
+    <section class="contact-hero">
+        <h1 data-es="Hablemos" data-en="Let's talk"></h1>
+        <p data-es="¿Tienes alguna pregunta, sugerencia o necesitas ayuda? Estamos aqui para ti." data-en="Have a question, suggestion or need help? We're here for you."></p>
+    </section>
+
+    <!-- ====== FORM ====== -->
+    <section class="section form-section">
+        <div class="container">
+            <div class="form-layout">
+
+                <div class="form-info reveal">
+                    <h2 data-es="Escribenos" data-en="Write to us"></h2>
+                    <p data-es="Rellena el formulario y te responderemos lo antes posible. Cada mensaje importa." data-en="Fill out the form and we'll get back to you as soon as possible. Every message matters."></p>
+                    <div class="info-card">
+                        <div class="info-card-icon">✉️</div>
+                        <div>
+                            <h4 data-es="Soporte tecnico" data-en="Technical support"></h4>
+                            <p data-es="¿Problemas con alguna app? Te ayudamos." data-en="Issues with an app? We'll help."></p>
+                            <a href="mailto:support@simpli.app">support@simpli.app</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon">💬</div>
+                        <div>
+                            <h4 data-es="Ideas y sugerencias" data-en="Ideas & feedback"></h4>
+                            <p data-es="Tu opinion nos ayuda a mejorar." data-en="Your feedback helps us improve."></p>
+                            <a href="mailto:hello@simpli.app">hello@simpli.app</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-icon">⏱️</div>
+                        <div>
+                            <h4 data-es="Tiempo de respuesta" data-en="Response time"></h4>
+                            <p data-es="Normalmente respondemos en menos de 48 horas." data-en="We usually respond within 48 hours."></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card reveal reveal-delay-1">
+                    <div id="contactForm">
+                        <div class="type-selector">
+                            <div class="type-pill active" data-value="soporte" onclick="selectType(this)">
+                                <span class="pill-icon">🛠️</span>
+                                <span data-es="Soporte" data-en="Support"></span>
+                            </div>
+                            <div class="type-pill" data-value="sugerencia" onclick="selectType(this)">
+                                <span class="pill-icon">💡</span>
+                                <span data-es="Sugerencia" data-en="Suggestion"></span>
+                            </div>
+                            <div class="type-pill" data-value="otro" onclick="selectType(this)">
+                                <span class="pill-icon">📩</span>
+                                <span data-es="Otro" data-en="Other"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label data-es="Nombre" data-en="Name"></label>
+                                <input type="text" id="fieldName" data-es-placeholder="Tu nombre" data-en-placeholder="Your name" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label data-es="Email" data-en="Email"></label>
+                                <input type="email" id="fieldEmail" data-es-placeholder="tu@email.com" data-en-placeholder="you@email.com" placeholder="tu@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label data-es="App relacionada" data-en="Related app"></label>
+                            <select id="fieldApp">
+                                <option value="" data-es="Selecciona una app (opcional)" data-en="Select an app (optional)"></option>
+                                <option value="mySupli">mySupli</option>
+                                <option value="myBloom">myBloom</option>
+                                <option value="myDose">myDose</option>
+                                <option value="myProject">myProject</option>
+                                <option value="general" data-es="General / Simpli" data-en="General / Simpli"></option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label data-es="Mensaje" data-en="Message"></label>
+                            <textarea id="fieldMessage" data-es-placeholder="Cuentanos en que podemos ayudarte..." data-en-placeholder="Tell us how we can help..." placeholder="Cuentanos en que podemos ayudarte..." required></textarea>
+                        </div>
+
+                        <button type="button" class="form-submit" id="submitBtn" onclick="submitForm()">
+                            <span data-es="Enviar mensaje →" data-en="Send message →"></span>
+                        </button>
+                    </div>
+
+                    <div class="form-success" id="formSuccess">
+                        <div class="success-icon">✓</div>
+                        <h3 data-es="¡Mensaje enviado!" data-en="Message sent!"></h3>
+                        <p data-es="Gracias por escribirnos. Te responderemos lo antes posible." data-en="Thanks for reaching out. We'll get back to you as soon as possible."></p>
+                        <button onclick="resetForm()" data-es="← Enviar otro mensaje" data-en="← Send another message"></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FAQ ====== -->
+    <section class="faq-section">
+        <div class="faq-inner">
+            <div class="reveal">
+                <p class="section-label" data-es="Preguntas frecuentes" data-en="FAQ"></p>
+                <h2 class="section-title" data-es="¿Tienes dudas?" data-en="Have questions?"></h2>
+            </div>
+            <div class="faq-item reveal" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <h3 data-es="¿Que es Simpli?" data-en="What is Simpli?"></h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-es="Simpli es una firma personal dedicada a crear apps de calidad: simples, efectivas y accesibles. No somos una empresa tradicional, somos una filosofia de desarrollo que pone a las personas en el centro." data-en="Simpli is a personal brand dedicated to creating quality apps: simple, effective and accessible. We're not a traditional company, we're a development philosophy that puts people at the center."></p>
+                </div>
+            </div>
+            <div class="faq-item reveal reveal-delay-1" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <h3 data-es="¿Las apps son gratuitas?" data-en="Are the apps free?"></h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-es="Cada app tiene su propio modelo. Nuestro objetivo es que las funciones esenciales sean siempre accesibles para todos." data-en="Each app has its own model. Our goal is to keep essential features always accessible for everyone."></p>
+                </div>
+            </div>
+            <div class="faq-item reveal reveal-delay-2" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <h3 data-es="¿En que plataformas estan disponibles?" data-en="What platforms are they available on?"></h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-es="Actualmente nuestras apps estan disponibles para iOS en el App Store de Apple." data-en="Currently our apps are available for iOS on the Apple App Store."></p>
+                </div>
+            </div>
+            <div class="faq-item reveal reveal-delay-3" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <h3 data-es="¿Como puedo sugerir una nueva app o funcion?" data-en="How can I suggest a new app or feature?"></h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p data-es="¡Nos encanta recibir ideas! Usa el formulario de arriba seleccionando 'Sugerencia' o escribenos a hello@simpli.app." data-en="We love receiving ideas! Use the form above selecting 'Suggestion' or write to hello@simpli.app."></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CTA ====== -->
+    <section class="contact-cta">
+        <div class="container reveal">
+            <h2>Simpli Apps for a Simpli Life</h2>
+            <p data-es="Gracias por confiar en Simpli." data-en="Thank you for trusting Simpli."></p>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script>
+        /* ============================================
+           CONTACT FORM — Formspree Integration
+           ============================================ */
+
+        // ⚠️ REEMPLAZA con tu endpoint de Formspree
+        // Crea tu formulario gratis en https://formspree.io
+        const FORMSPREE_URL = 'https://formspree.io/f/TU_ID_AQUI';
+
+        let selectedType = 'soporte';
+
+        function selectType(pill) {
+            document.querySelectorAll('.type-pill').forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            selectedType = pill.dataset.value;
+        }
+
+        async function submitForm() {
+            const name = document.getElementById('fieldName').value.trim();
+            const email = document.getElementById('fieldEmail').value.trim();
+            const app = document.getElementById('fieldApp').value;
+            const message = document.getElementById('fieldMessage').value.trim();
+            const lang = document.documentElement.lang || 'es';
+
+            if (!name || !email || !message) {
+                alert(lang === 'es'
+                    ? 'Por favor, completa los campos obligatorios (nombre, email y mensaje).'
+                    : 'Please fill in the required fields (name, email and message).');
+                return;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                alert(lang === 'es' ? 'Por favor, introduce un email valido.' : 'Please enter a valid email.');
+                return;
+            }
+
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.querySelector('span').textContent = lang === 'es' ? 'Enviando...' : 'Sending...';
+
+            const typeLabels = {
+                soporte:    { es: 'Soporte', en: 'Support' },
+                sugerencia: { es: 'Sugerencia', en: 'Suggestion' },
+                otro:       { es: 'Otro', en: 'Other' }
+            };
+
+            try {
+                const response = await fetch(FORMSPREE_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        _subject: '[Simpli ' + typeLabels[selectedType][lang] + '] ' + name,
+                        tipo: typeLabels[selectedType][lang],
+                        nombre: name,
+                        email: email,
+                        app: app || (lang === 'es' ? 'No especificada' : 'Not specified'),
+                        mensaje: message
+                    })
+                });
+
+                if (response.ok) {
+                    document.getElementById('contactForm').style.display = 'none';
+                    document.getElementById('formSuccess').classList.add('show');
+                } else {
+                    throw new Error('Error');
+                }
+            } catch (err) {
+                alert(lang === 'es'
+                    ? 'Hubo un error al enviar. Intentalo de nuevo o escribenos a support@simpli.app.'
+                    : 'Error sending message. Please try again or write to support@simpli.app.');
+                btn.disabled = false;
+                btn.querySelector('span').textContent = lang === 'es' ? 'Enviar mensaje →' : 'Send message →';
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('fieldName').value = '';
+            document.getElementById('fieldEmail').value = '';
+            document.getElementById('fieldApp').value = '';
+            document.getElementById('fieldMessage').value = '';
+            selectedType = 'soporte';
+            document.querySelectorAll('.type-pill').forEach(p => p.classList.remove('active'));
+            document.querySelector('.type-pill[data-value="soporte"]').classList.add('active');
+            document.getElementById('formSuccess').classList.remove('show');
+            document.getElementById('contactForm').style.display = 'block';
+            const lang = document.documentElement.lang || 'es';
+            document.getElementById('submitBtn').disabled = false;
+            document.getElementById('submitBtn').querySelector('span').textContent =
+                lang === 'es' ? 'Enviar mensaje →' : 'Send message →';
+        }
+
+        // Update placeholders & select options on language change
+        new MutationObserver(() => {
+            const lang = document.documentElement.lang || 'es';
+            document.querySelectorAll('[data-es-placeholder]').forEach(el => {
+                el.placeholder = el.getAttribute('data-' + lang + '-placeholder') || el.placeholder;
+            });
+            document.querySelectorAll('select option[data-es]').forEach(el => {
+                el.textContent = el.getAttribute('data-' + lang) || el.textContent;
+            });
+        }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+
+        // FAQ
+        function toggleFaq(item) {
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        }
+    </script>
+</body>
+</html>
