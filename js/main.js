@@ -1,207 +1,264 @@
 /* ============================================
    SIMPLI — Main JavaScript
-   Shared components: Nav, Footer, Language, Animations
+   Nav, Footer, Language, Animations
    ============================================ */
 
-// ====== TRANSLATIONS (nav & footer) ======
-const i18n = {
-    nav: {
-        home:      { es: 'Inicio',    en: 'Home' },
-        apps:      { es: 'Apps',      en: 'Apps' },
-        manifesto: { es: 'Manifiesto', en: 'Manifesto' },
-        contact:   { es: 'Contacto',  en: 'Contact' },
-    },
-    footer: {
-        tagline:    { es: 'Simpli Apps for a Simpli Life', en: 'Simpli Apps for a Simpli Life' },
-        pages:      { es: 'Paginas',   en: 'Pages' },
-        legal:      { es: 'Legal',     en: 'Legal' },
-        privacy:    { es: 'Privacidad', en: 'Privacy' },
-        terms:      { es: 'Terminos',  en: 'Terms' },
-        copyright:  { es: 'Todos los derechos reservados.', en: 'All rights reserved.' },
-        madeWith:   { es: 'Hecho con ♥ para simplificar tu vida', en: 'Made with ♥ to simplify your life' },
-    }
-};
+(function() {
+    'use strict';
 
-let currentLang = 'es';
+    // ====== TRANSLATIONS ======
+    var i18n = {
+        nav: {
+            home:      { es: 'Inicio',     en: 'Home' },
+            apps:      { es: 'Apps',        en: 'Apps' },
+            manifesto: { es: 'Manifiesto',  en: 'Manifesto' },
+            contact:   { es: 'Contacto',    en: 'Contact' }
+        },
+        footer: {
+            tagline:   { es: 'Simpli Apps for a Simpli Life', en: 'Simpli Apps for a Simpli Life' },
+            pages:     { es: 'Paginas',     en: 'Pages' },
+            legal:     { es: 'Legal',       en: 'Legal' },
+            privacy:   { es: 'Privacidad',  en: 'Privacy' },
+            terms:     { es: 'Terminos',    en: 'Terms' },
+            copyright: { es: 'Todos los derechos reservados.', en: 'All rights reserved.' },
+            madeWith:  { es: 'Hecho con \u2665 para simplificar tu vida', en: 'Made with \u2665 to simplify your life' }
+        }
+    };
 
-// ====== DETECT CURRENT PAGE ======
-function getCurrentPage() {
-    const path = window.location.pathname;
-    if (path.includes('apps')) return 'apps';
-    if (path.includes('manifiesto')) return 'manifesto';
-    if (path.includes('contacto')) return 'contact';
-    return 'home';
-}
-
-// ====== RENDER NAV ======
-function renderNav() {
-    const currentPage = getCurrentPage();
-    const navEl = document.createElement('nav');
-    navEl.id = 'navbar';
-
-    // Check if page wants dark nav
-    if (document.body.dataset.navDark === 'true') {
-        navEl.classList.add('nav-dark');
+    // ====== SAFE STORAGE ======
+    function safeGet(key) {
+        try { return localStorage.getItem(key); }
+        catch(e) { return null; }
     }
 
-    navEl.innerHTML = `
-        <a href="index.html" class="nav-logo">Simpli<span class="dot"></span></a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" data-i18n="nav.home" class="${currentPage === 'home' ? 'active' : ''}"></a></li>
-            <li><a href="apps.html" data-i18n="nav.apps" class="${currentPage === 'apps' ? 'active' : ''}"></a></li>
-            <li><a href="manifiesto.html" data-i18n="nav.manifesto" class="${currentPage === 'manifesto' ? 'active' : ''}"></a></li>
-            <li><a href="contacto.html" data-i18n="nav.contact" class="${currentPage === 'contact' ? 'active' : ''}"></a></li>
-            <li>
-                <div class="lang-toggle">
-                    <button class="lang-btn active" data-lang="es" onclick="setLang('es')">ES</button>
-                    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-                </div>
-            </li>
-        </ul>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
-            <span></span><span></span><span></span>
-        </button>
-    `;
+    function safeSet(key, val) {
+        try { localStorage.setItem(key, val); }
+        catch(e) { /* silently fail */ }
+    }
 
-    document.body.prepend(navEl);
-}
+    // ====== DETECT CURRENT PAGE ======
+    function getCurrentPage() {
+        var path = window.location.pathname.toLowerCase();
+        if (path.indexOf('apps') !== -1) return 'apps';
+        if (path.indexOf('manifiesto') !== -1) return 'manifesto';
+        if (path.indexOf('contacto') !== -1) return 'contact';
+        return 'home';
+    }
 
-// ====== RENDER FOOTER ======
-function renderFooter() {
-    const footerEl = document.createElement('footer');
-    footerEl.innerHTML = `
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="index.html" class="nav-logo">Simpli<span class="dot"></span></a>
-                <p data-i18n="footer.tagline"></p>
-            </div>
-            <div class="footer-links">
-                <div class="footer-col">
-                    <h5>Apps</h5>
-                    <a href="apps.html">mySupli</a>
-                    <a href="apps.html">myBloom</a>
-                    <a href="apps.html">myDose</a>
-                    <a href="apps.html">myProject</a>
-                </div>
-                <div class="footer-col">
-                    <h5 data-i18n="footer.pages"></h5>
-                    <a href="index.html" data-i18n="nav.home"></a>
-                    <a href="manifiesto.html" data-i18n="nav.manifesto"></a>
-                    <a href="contacto.html" data-i18n="nav.contact"></a>
-                </div>
-                <div class="footer-col">
-                    <h5 data-i18n="footer.legal"></h5>
-                    <a href="#" data-i18n="footer.privacy"></a>
-                    <a href="#" data-i18n="footer.terms"></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span>© 2026 Simpli. <span data-i18n="footer.copyright"></span></span>
-            <span data-i18n="footer.madeWith"></span>
-        </div>
-    `;
-    document.body.append(footerEl);
-}
+    // ====== RENDER NAV ======
+    function renderNav() {
+        var currentPage = getCurrentPage();
+        var navEl = document.createElement('nav');
+        navEl.id = 'navbar';
 
-// ====== LANGUAGE SYSTEM ======
-function setLang(lang) {
-    currentLang = lang;
-    document.documentElement.lang = lang;
-
-    // Update data-i18n elements (nav & footer)
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        const keys = key.split('.');
-        let value = i18n;
-        for (const k of keys) {
-            value = value?.[k];
+        if (document.body.getAttribute('data-nav-dark') === 'true') {
+            navEl.className = 'nav-dark';
         }
-        if (value && value[lang]) {
-            el.textContent = value[lang];
+
+        var html = '';
+        html += '<a href="index.html" class="nav-logo">Simpli<span class="dot"></span></a>';
+        html += '<ul class="nav-links" id="navLinks">';
+        html += '<li><a href="index.html" data-i18n="nav.home" class="' + (currentPage === 'home' ? 'active' : '') + '">Inicio</a></li>';
+        html += '<li><a href="apps.html" data-i18n="nav.apps" class="' + (currentPage === 'apps' ? 'active' : '') + '">Apps</a></li>';
+        html += '<li><a href="manifiesto.html" data-i18n="nav.manifesto" class="' + (currentPage === 'manifesto' ? 'active' : '') + '">Manifiesto</a></li>';
+        html += '<li><a href="contacto.html" data-i18n="nav.contact" class="' + (currentPage === 'contact' ? 'active' : '') + '">Contacto</a></li>';
+        html += '<li>';
+        html += '<div class="lang-toggle">';
+        html += '<button class="lang-btn active" data-lang="es" id="btnES">ES</button>';
+        html += '<button class="lang-btn" data-lang="en" id="btnEN">EN</button>';
+        html += '</div>';
+        html += '</li>';
+        html += '</ul>';
+        html += '<button class="mobile-menu-btn" id="mobileMenuBtn">';
+        html += '<span></span><span></span><span></span>';
+        html += '</button>';
+
+        navEl.innerHTML = html;
+        document.body.insertBefore(navEl, document.body.firstChild);
+
+        // Attach events
+        document.getElementById('btnES').addEventListener('click', function() { setLang('es'); });
+        document.getElementById('btnEN').addEventListener('click', function() { setLang('en'); });
+        document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
+    }
+
+    // ====== RENDER FOOTER ======
+    function renderFooter() {
+        var footerEl = document.createElement('footer');
+        var html = '';
+        html += '<div class="footer-content">';
+        html += '  <div class="footer-brand">';
+        html += '    <a href="index.html" class="nav-logo">Simpli<span class="dot"></span></a>';
+        html += '    <p data-i18n="footer.tagline">Simpli Apps for a Simpli Life</p>';
+        html += '  </div>';
+        html += '  <div class="footer-links">';
+        html += '    <div class="footer-col">';
+        html += '      <h5>Apps</h5>';
+        html += '      <a href="apps.html">mySupli</a>';
+        html += '      <a href="apps.html">myBloom</a>';
+        html += '      <a href="apps.html">myDose</a>';
+        html += '      <a href="apps.html">myProject</a>';
+        html += '    </div>';
+        html += '    <div class="footer-col">';
+        html += '      <h5 data-i18n="footer.pages">Paginas</h5>';
+        html += '      <a href="index.html" data-i18n="nav.home">Inicio</a>';
+        html += '      <a href="manifiesto.html" data-i18n="nav.manifesto">Manifiesto</a>';
+        html += '      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>';
+        html += '    </div>';
+        html += '    <div class="footer-col">';
+        html += '      <h5 data-i18n="footer.legal">Legal</h5>';
+        html += '      <a href="#" data-i18n="footer.privacy">Privacidad</a>';
+        html += '      <a href="#" data-i18n="footer.terms">Terminos</a>';
+        html += '    </div>';
+        html += '  </div>';
+        html += '</div>';
+        html += '<div class="footer-bottom">';
+        html += '  <span>&copy; 2026 Simpli. <span data-i18n="footer.copyright">Todos los derechos reservados.</span></span>';
+        html += '  <span data-i18n="footer.madeWith">Hecho con \u2665 para simplificar tu vida</span>';
+        html += '</div>';
+
+        footerEl.innerHTML = html;
+        document.body.appendChild(footerEl);
+    }
+
+    // ====== LANGUAGE ======
+    function setLang(lang) {
+        document.documentElement.lang = lang;
+
+        // Update data-i18n elements (nav & footer)
+        var els = document.querySelectorAll('[data-i18n]');
+        for (var i = 0; i < els.length; i++) {
+            var key = els[i].getAttribute('data-i18n');
+            var keys = key.split('.');
+            var value = i18n;
+            for (var j = 0; j < keys.length; j++) {
+                value = value ? value[keys[j]] : null;
+            }
+            if (value && value[lang]) {
+                els[i].textContent = value[lang];
+            }
         }
-    });
 
-    // Update page-specific data-es / data-en elements
-    document.querySelectorAll('[data-es]').forEach(el => {
-        const text = el.getAttribute(`data-${lang}`);
-        if (text) {
-            el.innerHTML = text;
+        // Update data-es / data-en elements (page content)
+        var pageEls = document.querySelectorAll('[data-es]');
+        for (var i = 0; i < pageEls.length; i++) {
+            var text = pageEls[i].getAttribute('data-' + lang);
+            if (text) {
+                pageEls[i].innerHTML = text;
+            }
         }
-    });
 
-    // Update active button
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-
-    // Store preference
-    localStorage.setItem('simpli-lang', lang);
-}
-
-// ====== NAV SCROLL ======
-function initNavScroll() {
-    window.addEventListener('scroll', () => {
-        const nav = document.getElementById('navbar');
-        if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
-    });
-}
-
-// ====== MOBILE MENU ======
-function toggleMobileMenu() {
-    const btn = document.getElementById('mobileMenuBtn');
-    const links = document.getElementById('navLinks');
-    btn.classList.toggle('open');
-    links.classList.toggle('mobile-open');
-}
-
-function initMobileMenuClose() {
-    document.addEventListener('click', (e) => {
-        if (e.target.closest('.nav-links a') && !e.target.closest('.lang-toggle')) {
-            document.getElementById('mobileMenuBtn')?.classList.remove('open');
-            document.getElementById('navLinks')?.classList.remove('mobile-open');
+        // Update lang buttons
+        var btns = document.querySelectorAll('.lang-btn');
+        for (var i = 0; i < btns.length; i++) {
+            if (btns[i].getAttribute('data-lang') === lang) {
+                btns[i].classList.add('active');
+            } else {
+                btns[i].classList.remove('active');
+            }
         }
-    });
-}
 
-// ====== SCROLL REVEAL ======
-function initScrollReveal() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+        safeSet('simpli-lang', lang);
+    }
+
+    // Make setLang globally available
+    window.setLang = setLang;
+
+    // ====== NAV SCROLL ======
+    function initNavScroll() {
+        window.addEventListener('scroll', function() {
+            var nav = document.getElementById('navbar');
+            if (nav) {
+                if (window.scrollY > 50) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-}
+    // ====== MOBILE MENU ======
+    function toggleMobileMenu() {
+        var btn = document.getElementById('mobileMenuBtn');
+        var links = document.getElementById('navLinks');
+        if (btn) btn.classList.toggle('open');
+        if (links) links.classList.toggle('mobile-open');
+    }
 
-// ====== SMOOTH SCROLL ======
-function initSmoothScroll() {
-    document.addEventListener('click', (e) => {
-        const anchor = e.target.closest('a[href^="#"]');
-        if (anchor) {
-            e.preventDefault();
-            const target = document.querySelector(anchor.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    function initMobileMenuClose() {
+        document.addEventListener('click', function(e) {
+            var link = e.target.closest('.nav-links a');
+            if (link && !e.target.closest('.lang-toggle')) {
+                var btn = document.getElementById('mobileMenuBtn');
+                var links = document.getElementById('navLinks');
+                if (btn) btn.classList.remove('open');
+                if (links) links.classList.remove('mobile-open');
             }
+        });
+    }
+
+    // ====== SCROLL REVEAL ======
+    function initScrollReveal() {
+        if (!('IntersectionObserver' in window)) {
+            // Fallback: show everything
+            var els = document.querySelectorAll('.reveal');
+            for (var i = 0; i < els.length; i++) {
+                els[i].classList.add('visible');
+            }
+            return;
         }
-    });
-}
 
-// ====== INIT ======
-document.addEventListener('DOMContentLoaded', () => {
-    renderNav();
-    renderFooter();
+        var observer = new IntersectionObserver(function(entries) {
+            for (var i = 0; i < entries.length; i++) {
+                if (entries[i].isIntersecting) {
+                    entries[i].target.classList.add('visible');
+                }
+            }
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    // Restore language preference
-    const savedLang = localStorage.getItem('simpli-lang') || 'es';
-    setLang(savedLang);
+        var els = document.querySelectorAll('.reveal');
+        for (var i = 0; i < els.length; i++) {
+            observer.observe(els[i]);
+        }
+    }
 
-    initNavScroll();
-    initMobileMenuClose();
-    initScrollReveal();
-    initSmoothScroll();
-});
+    // ====== SMOOTH SCROLL ======
+    function initSmoothScroll() {
+        document.addEventListener('click', function(e) {
+            var anchor = e.target.closest('a[href^="#"]');
+            if (anchor) {
+                var href = anchor.getAttribute('href');
+                if (href && href.length > 1) {
+                    var target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            }
+        });
+    }
+
+    // ====== INIT ======
+    function init() {
+        renderNav();
+        renderFooter();
+
+        var savedLang = safeGet('simpli-lang') || 'es';
+        setLang(savedLang);
+
+        initNavScroll();
+        initMobileMenuClose();
+        initScrollReveal();
+        initSmoothScroll();
+    }
+
+    // Run on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+})();
