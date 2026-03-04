@@ -240,6 +240,31 @@
         });
     }
 
+    // ====== GOOGLE ANALYTICS 4 ======
+    // Para activar GA4:
+    // 1. Ve a https://analytics.google.com
+    // 2. Crea una cuenta y propiedad web
+    // 3. Copia tu Measurement ID (empieza con G-)
+    // 4. Reemplaza 'G-XXXXXXXXXX' abajo con tu ID
+    function initAnalytics() {
+        var GA_ID = 'G-9FVQWDBWGG'; // <-- TU ID AQUI
+        if (GA_ID === 'G-9FVQWDBWGG') return; // No cargar si no esta configurado
+
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', GA_ID, {
+            page_title: document.title,
+            page_location: window.location.href
+        });
+    }
+
     // ====== INIT ======
     function init() {
         renderNav();
@@ -252,6 +277,7 @@
         initMobileMenuClose();
         initScrollReveal();
         initSmoothScroll();
+        initAnalytics();
     }
 
     // Run on DOM ready
