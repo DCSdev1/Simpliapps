@@ -40,6 +40,8 @@
     function getCurrentPage() {
         var path = window.location.pathname.toLowerCase();
         if (path.indexOf('apps') !== -1) return 'apps';
+        if (path.indexOf('mysupli') !== -1) return 'apps';
+        if (path.indexOf('mydose') !== -1) return 'apps';
         if (path.indexOf('manifiesto') !== -1) return 'manifesto';
         if (path.indexOf('contacto') !== -1) return 'contact';
         return 'home';
@@ -94,10 +96,8 @@
         html += '  <div class="footer-links">';
         html += '    <div class="footer-col">';
         html += '      <h5>Apps</h5>';
-        html += '      <a href="apps.html">mySupli</a>';
-        html += '      <a href="apps.html">myBloom</a>';
+        html += '      <a href="mysupli.html">mySupli</a>';
         html += '      <a href="apps.html">myDose</a>';
-        html += '      <a href="apps.html">myProject</a>';
         html += '    </div>';
         html += '    <div class="footer-col">';
         html += '      <h5 data-i18n="footer.pages">Paginas</h5>';
