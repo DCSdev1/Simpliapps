@@ -54,11 +54,40 @@
             --supli-dark: #2D5A60;
         }
 
+        /* ====== BREADCRUMB ====== */
+        .supli-breadcrumb {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 5.5rem 2rem 0;
+        }
+
+        .supli-breadcrumb .container {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+        }
+
+        .supli-breadcrumb a {
+            color: var(--gray, #9999AA);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .supli-breadcrumb a:hover { color: var(--supli); }
+
+        .supli-breadcrumb .sep { color: #ccc; }
+
+        .supli-breadcrumb .current {
+            color: var(--supli);
+            font-weight: 500;
+        }
+
         /* ====== HERO ====== */
         .supli-hero {
             max-width: 1140px;
             margin: 0 auto;
-            padding: 9rem 2rem 5rem;
+            padding: 2rem 2rem 5rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 5rem;
@@ -407,7 +436,7 @@
         @media (max-width: 900px) {
             .supli-hero {
                 grid-template-columns: 1fr;
-                padding-top: 7rem;
+                padding-top: 2rem;
                 text-align: center;
             }
             .supli-hero-text > p { margin: 0 auto 2rem; }
@@ -427,18 +456,64 @@
             .supli-cta-box { padding: 3rem 1.5rem; }
             .supli-hero-actions { flex-direction: column; align-items: center; }
         }
+        /* ====== PRIVACY BUTTON ====== */
+        .privacy-btn {
+            position: fixed;
+            top: 5rem;
+            right: 1.5rem;
+            z-index: 900;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.45rem 1rem;
+            background: var(--white, #fff);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--gray, #9999AA);
+            text-decoration: none;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+        }
+
+        .privacy-btn:hover {
+            color: var(--supli);
+            border-color: var(--supli);
+            box-shadow: 0 4px 16px rgba(65,126,134,0.12);
+        }
+
+        .privacy-btn svg {
+            width: 12px;
+            height: 12px;
+            opacity: 0.5;
+        }
     </style>
 </head>
 <body>
 
+    <!-- ====== PRIVACY BUTTON ====== -->
+    <a href="privacy-mysupli.html" class="privacy-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span data-es="Privacidad" data-en="Privacy"></span>
+    </a>
+
+    <!-- ====== BREADCRUMB ====== -->
+    <div class="supli-breadcrumb">
+        <div class="container">
+            <a href="index.html">Simpli</a>
+            <span class="sep">›</span>
+            <a href="apps.html">Apps</a>
+            <span class="sep">›</span>
+            <span class="current">mySupli</span>
+        </div>
+    </div>
+
     <!-- ====== HERO ====== -->
     <section class="supli-hero">
         <div class="supli-hero-text">
-            <span class="supli-hero-badge">
-                <a href="apps.html" style="color:var(--supli);text-decoration:none;" data-es="← Apps" data-en="← Apps"></a>
-                <span style="margin:0 0.3rem;opacity:0.4;">|</span>
-                ✦ Simpli by Daniel Carrion
-            </span>
+            <span class="supli-hero-badge">✦ Simpli by Daniel Carrion</span>
             <h1>
                 <span data-es="Tu rutina de suplementos,<br><em>simple</em> y sin complicaciones" data-en="Your supplement routine,<br><em>simple</em> and effortless"></span>
             </h1>
@@ -561,9 +636,6 @@
             <p data-es="Descarga mySupli gratis y organiza tus suplementos de forma simple y efectiva." data-en="Download mySupli for free and organize your supplements simply and effectively."></p>
             <span class="coming-soon-badge" data-es="Gratis · Disponible proximamente en App Store" data-en="Free · Coming soon to the App Store"></span>
             <p class="supli-cta-note" data-es="Para iPhone con iOS 17 o superior" data-en="For iPhone with iOS 17 or later"></p>
-            <p class="supli-cta-note" style="margin-top:0.5rem;">
-                <a href="privacy-mysupli.html" style="color:rgba(255,255,255,0.45);border-bottom:1px solid rgba(255,255,255,0.15);text-decoration:none;font-size:0.8rem;" data-es="Politica de Privacidad" data-en="Privacy Policy"></a>
-            </p>
         </div>
     </section>
 
