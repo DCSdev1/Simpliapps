@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mySupli — Tu rutina de suplementos, simple y sin complicaciones</title>
+    <meta name="description" content="Gestiona tus suplementos diarios de forma simple, humana y sin distracciones. Una app de Simpli.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ====== MYSUPLI COLOR ====== */
+        :root {
+            --supli: #417E86;
+            --supli-light: #E3F0F1;
+            --supli-dark: #2D5A60;
+        }
+
+        /* ====== HERO ====== */
+        .supli-hero {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 9rem 2rem 5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .supli-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: var(--supli-light);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--supli);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.2s forwards;
+        }
+
+        .supli-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--dark);
+            margin-bottom: 1.2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.3s forwards;
+        }
+
+        .supli-hero h1 em {
+            font-style: italic;
+            color: var(--supli);
+        }
+
+        .supli-hero-text > p {
+            font-size: 1.05rem;
+            color: var(--gray);
+            line-height: 1.7;
+            font-weight: 300;
+            max-width: 440px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.4s forwards;
+        }
+
+        .supli-hero-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.5s forwards;
+        }
+
+        .btn-supli {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: var(--supli);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-supli:hover {
+            background: var(--supli-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(65,126,134,0.25);
+        }
+
+        /* Screenshot carousel */
+        .supli-hero-visual {
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.6s forwards;
+        }
+
+        .screens-stack {
+            position: relative;
+            height: 520px;
+            width: 100%;
+        }
+
+        .screen-card {
+            position: absolute;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 24px 56px rgba(26,26,46,0.15), 0 0 0 1px rgba(26,26,46,0.04);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+
+        .screen-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .screen-card.pos-0 { width: 210px; height: 450px; left: 50%; transform: translateX(-50%); z-index: 4; }
+        .screen-card.pos-1 { width: 190px; height: 410px; left: 22%; transform: translateX(-50%) translateY(15px) rotate(-6deg); z-index: 3; }
+        .screen-card.pos-2 { width: 190px; height: 410px; left: 78%; transform: translateX(-50%) translateY(15px) rotate(6deg); z-index: 3; }
+        .screen-card.pos-3 { width: 170px; height: 370px; left: 10%; transform: translateX(-50%) translateY(40px) rotate(-10deg); z-index: 2; opacity: 0.6; }
+
+        .screen-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .screen-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: #E0E0E0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .screen-dot.active {
+            background: var(--supli);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* ====== FEATURES ====== */
+        .supli-features { background: var(--light); }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.04);
+            border-radius: 16px;
+            padding: 1.8rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(26,26,46,0.06);
+        }
+
+        .feature-icon {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: var(--dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-card p {
+            font-size: 0.88rem;
+            color: var(--gray);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* ====== SCREENSHOTS SECTION ====== */
+        .supli-screenshots { background: var(--white); }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            margin-top: 3rem;
+        }
+
+        .screenshot-item {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(26,26,46,0.1), 0 0 0 1px rgba(26,26,46,0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .screenshot-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 56px rgba(26,26,46,0.14);
+        }
+
+        .screenshot-item img { width: 100%; display: block; }
+
+        .screenshot-label {
+            padding: 0.75rem 1rem;
+            background: var(--white);
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--gray);
+            text-align: center;
+        }
+
+        /* ====== HOW IT WORKS ====== */
+        .supli-how {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .steps {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .step {
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.04);
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            text-align: left;
+            transition: transform 0.2s;
+        }
+
+        .step:hover { transform: translateX(4px); }
+
+        .step-num {
+            width: 40px; height: 40px;
+            flex-shrink: 0;
+            background: var(--supli-light);
+            color: var(--supli);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+        }
+
+        .step h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .step p {
+            font-size: 0.9rem;
+            color: var(--gray);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* ====== CTA ====== */
+        .supli-cta-section { padding: 0 2rem 6rem; max-width: 760px; margin: 0 auto; }
+
+        .supli-cta-box {
+            background: var(--dark);
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .supli-cta-box::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -60px;
+            width: 200px; height: 200px;
+            background: var(--supli);
+            border-radius: 50%;
+            opacity: 0.12;
+        }
+
+        .supli-cta-box::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: -40px;
+            width: 240px; height: 240px;
+            background: var(--supli);
+            border-radius: 50%;
+            opacity: 0.06;
+        }
+
+        .supli-cta-box h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            color: var(--white);
+            letter-spacing: -0.01em;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .supli-cta-box h2 em {
+            font-style: italic;
+            color: #7DC8CE;
+        }
+
+        .supli-cta-box > p {
+            color: rgba(255,255,255,0.55);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.75);
+            padding: 0.8rem 2rem;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .supli-cta-note {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.35);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 900px) {
+            .supli-hero {
+                grid-template-columns: 1fr;
+                padding-top: 7rem;
+                text-align: center;
+            }
+            .supli-hero-text > p { margin: 0 auto 2rem; }
+            .supli-hero-actions { justify-content: center; }
+            .screens-stack { height: 380px; }
+            .screen-card.pos-0 { width: 175px; height: 375px; }
+            .screen-card.pos-1 { width: 155px; height: 335px; left: 15%; }
+            .screen-card.pos-2 { width: 155px; height: 335px; left: 85%; }
+            .screen-card.pos-3 { display: none; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .screenshots-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .screenshots-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+            .supli-cta-box { padding: 3rem 1.5rem; }
+            .supli-hero-actions { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== HERO ====== -->
+    <section class="supli-hero">
+        <div class="supli-hero-text">
+            <nav class="breadcrumb" style="margin-bottom:1rem;opacity:0;transform:translateY(20px);animation:fadeUp 0.8s ease 0.1s forwards;">
+                <a href="index.html" style="font-size:0.8rem;color:var(--gray);text-decoration:none;">Simpli</a>
+                <span style="font-size:0.8rem;color:#ccc;margin:0 0.4rem;">/</span>
+                <a href="apps.html" style="font-size:0.8rem;color:var(--gray);text-decoration:none;">Apps</a>
+                <span style="font-size:0.8rem;color:#ccc;margin:0 0.4rem;">/</span>
+                <span style="font-size:0.8rem;color:var(--supli);font-weight:500;">mySupli</span>
+            </nav>
+            <span class="supli-hero-badge">✦ Simpli by Daniel Carrion</span>
+            <h1>
+                <span data-es="Tu rutina de suplementos,<br><em>simple</em> y sin complicaciones" data-en="Your supplement routine,<br><em>simple</em> and effortless"></span>
+            </h1>
+            <p data-es="Gestiona tus suplementos diarios de forma humana, minimalista y efectiva. Sin tecnicismos, sin presion, solo lo esencial." data-en="Manage your daily supplements in a human, minimalist and effective way. No jargon, no pressure — just the essentials."></p>
+            <div class="supli-hero-actions">
+                <a href="#download" class="btn-supli" data-es="Descargar gratis →" data-en="Download free →"></a>
+                <a href="#how" class="btn-secondary" data-es="Ver como funciona" data-en="See how it works"></a>
+            </div>
+        </div>
+        <div class="supli-hero-visual">
+            <div class="screens-stack" id="screensStack">
+                <div class="screen-card pos-0" onclick="rotateScreens()"><img src="icons/screen2.png" alt="HomeView"></div>
+                <div class="screen-card pos-1" onclick="rotateScreens()"><img src="icons/screen3.png" alt="ProgresoView"></div>
+                <div class="screen-card pos-2" onclick="rotateScreens()"><img src="icons/screen4.png" alt="AddView"></div>
+                <div class="screen-card pos-3" onclick="rotateScreens()"><img src="icons/screen1.png" alt="EmptyView"></div>
+            </div>
+            <div class="screen-dots">
+                <div class="screen-dot active" onclick="goToScreen(0)"></div>
+                <div class="screen-dot" onclick="goToScreen(1)"></div>
+                <div class="screen-dot" onclick="goToScreen(2)"></div>
+                <div class="screen-dot" onclick="goToScreen(3)"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FEATURES ====== -->
+    <section class="section supli-features" id="features">
+        <div class="container">
+            <div class="reveal">
+                <p class="section-label" data-es="Caracteristicas" data-en="Features"></p>
+                <h2 class="section-title">
+                    <span data-es="Todo lo que necesitas, <em style='color:var(--supli)'>nada mas</em>" data-en="Everything you need, <em style='color:var(--supli)'>nothing more</em>"></span>
+                </h2>
+                <p class="section-subtitle" data-es="Diseñada para ser simple, efectiva y agradable de usar cada dia." data-en="Designed to be simple, effective and enjoyable to use every day."></p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal"><span class="feature-icon">💳</span><h3 data-es="Completamente gratuita" data-en="Completely free"></h3><p data-es="Sin pagos, sin suscripciones, sin versiones de pago. Accede a todo el contenido gratis." data-en="No payments, no subscriptions, no premium tiers. Full access, always free."></p></div>
+                <div class="feature-card reveal"><span class="feature-icon">✅</span><h3 data-es="Simple y directo" data-en="Simple and direct"></h3><p data-es="Añade suplementos con nombre, dosis y hora. Marcalos con un solo toque." data-en="Add supplements with name, dose and time. Mark them with a single tap."></p></div>
+                <div class="feature-card reveal"><span class="feature-icon">🔔</span><h3 data-es="Recordatorios calidos" data-en="Warm reminders"></h3><p data-es="Notificaciones personalizadas y humanas que te recuerdan cada toma sin presionarte." data-en="Personalized, human notifications that remind you without any pressure."></p></div>
+                <div class="feature-card reveal"><span class="feature-icon">📊</span><h3 data-es="Progreso visual" data-en="Visual progress"></h3><p data-es="Racha actual, adherencia mensual y estadisticas con graficos claros y motivadores." data-en="Current streak, monthly adherence and clear motivating statistics."></p></div>
+                <div class="feature-card reveal"><span class="feature-icon">🔒</span><h3 data-es="Privado y local" data-en="Private and local"></h3><p data-es="Tus datos permanecen en tu dispositivo. Sin servidores externos ni rastreo." data-en="Your data stays on your device. No external servers, no tracking."></p></div>
+                <div class="feature-card reveal"><span class="feature-icon">📵</span><h3 data-es="Sin conexion" data-en="Offline first"></h3><p data-es="Funciona perfectamente sin internet. Tu rutina no depende de nada externo." data-en="Works perfectly without internet. Your routine doesn't depend on anything external."></p></div>
+                <div class="feature-card reveal"><span class="feature-icon">🎨</span><h3 data-es="Diseño cuidado" data-en="Thoughtful design"></h3><p data-es="Interfaz minimalista y moderna que hace que quieras usarla cada dia." data-en="Minimalist, modern interface that makes you want to use it every day."></p></div>
+                <div class="feature-card reveal"><span class="feature-icon">♥️</span><h3>Apple Health</h3><p data-es="Conectado con la central de salud de Apple para un seguimiento completo." data-en="Connected to Apple's health hub for complete tracking."></p></div>
+                <div class="feature-card reveal"><span class="feature-icon">📱</span><h3 data-es="Widget rapido" data-en="Quick widget"></h3><p data-es="Consulta tus suplementos del dia directamente desde la pantalla de inicio." data-en="Check today's supplements directly from your home screen."></p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== SCREENSHOTS ====== -->
+    <section class="section supli-screenshots" id="screenshots">
+        <div class="container">
+            <div class="reveal">
+                <p class="section-label" data-es="La app" data-en="The app"></p>
+                <h2 class="section-title">
+                    <span data-es="Mirala en <em style='color:var(--supli)'>accion</em>" data-en="See it in <em style='color:var(--supli)'>action</em>"></span>
+                </h2>
+            </div>
+            <div class="screenshots-grid">
+                <div class="screenshot-item reveal">
+                    <img src="icons/screen1.png" alt="Pantalla vacia">
+                    <div class="screenshot-label" data-es="Empezar desde cero" data-en="Start from scratch"></div>
+                </div>
+                <div class="screenshot-item reveal">
+                    <img src="icons/screen4.png" alt="Añadir suplemento">
+                    <div class="screenshot-label" data-es="Configurar suplemento" data-en="Configure supplement"></div>
+                </div>
+                <div class="screenshot-item reveal">
+                    <img src="icons/screen2.png" alt="HomeView">
+                    <div class="screenshot-label" data-es="Inicio · vista del dia" data-en="Home · daily view"></div>
+                </div>
+                <div class="screenshot-item reveal">
+                    <img src="icons/screen3.png" alt="Progreso">
+                    <div class="screenshot-label" data-es="Progreso · estadisticas" data-en="Progress · statistics"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== HOW IT WORKS ====== -->
+    <section class="supli-how" id="how">
+        <div class="reveal" style="text-align:center;">
+            <p class="section-label" data-es="Como funciona" data-en="How it works"></p>
+            <h2 class="section-title">
+                <span data-es="Empieza en <em style='color:var(--supli)'>3 pasos</em>" data-en="Get started in <em style='color:var(--supli)'>3 steps</em>"></span>
+            </h2>
+            <p class="section-subtitle" style="margin:0 auto;" data-es="Tu rutina de suplementos organizada en minutos." data-en="Your supplement routine organized in minutes."></p>
+        </div>
+        <div class="steps">
+            <div class="step reveal">
+                <div class="step-num">1</div>
+                <div>
+                    <h3 data-es="Añade tus suplementos" data-en="Add your supplements"></h3>
+                    <p data-es="Escribe el nombre, la dosis, selecciona un emoji y elige la hora. Asi de simple." data-en="Enter the name, dose, pick an emoji and set the time. That simple."></p>
+                </div>
+            </div>
+            <div class="step reveal">
+                <div class="step-num">2</div>
+                <div>
+                    <h3 data-es="Recibe recordatorios" data-en="Receive reminders"></h3>
+                    <p data-es="Te avisaremos con notificaciones calidas y personalizadas en el momento exacto." data-en="We'll notify you with warm, personalized notifications at exactly the right time."></p>
+                </div>
+            </div>
+            <div class="step reveal">
+                <div class="step-num">3</div>
+                <div>
+                    <h3 data-es="Marca y sigue tu progreso" data-en="Track your progress"></h3>
+                    <p data-es="Toca el check cuando tomes cada suplemento y observa como crece tu racha dia a dia." data-en="Tap the check when you take each supplement and watch your streak grow day by day."></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CTA ====== -->
+    <section class="supli-cta-section" id="download">
+        <div class="supli-cta-box reveal">
+            <h2>
+                <span data-es="Empieza hoy tu<br><em>rutina saludable</em>" data-en="Start your<br><em>healthy routine</em> today"></span>
+            </h2>
+            <p data-es="Descarga mySupli gratis y organiza tus suplementos de forma simple y efectiva." data-en="Download mySupli for free and organize your supplements simply and effectively."></p>
+            <span class="coming-soon-badge" data-es="Gratis · Disponible proximamente en App Store" data-en="Free · Coming soon to the App Store"></span>
+            <p class="supli-cta-note" data-es="Para iPhone con iOS 17 o superior" data-en="For iPhone with iOS 17 or later"></p>
+        </div>
+    </section>
+
+    <!-- ====== BACK TO ECOSYSTEM ====== -->
+    <section style="padding:3rem 2rem 5rem;text-align:center;">
+        <div class="container reveal">
+            <p style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--gray);margin-bottom:0.8rem;" data-es="Ecosistema Simpli" data-en="Simpli Ecosystem"></p>
+            <p style="font-size:1rem;color:var(--gray);font-weight:300;margin-bottom:1.5rem;" data-es="mySupli es parte del ecosistema de apps de Simpli. Descubre todas nuestras apps." data-en="mySupli is part of the Simpli app ecosystem. Discover all our apps."></p>
+            <a href="apps.html" class="btn-secondary" data-es="← Ver todas las apps" data-en="← See all apps"></a>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script>
+        /* ====== SCREENSHOT CAROUSEL ====== */
+        var positions = ['pos-0', 'pos-1', 'pos-2', 'pos-3'];
+        var currentOffset = 0;
+
+        function rotateScreens() {
+            currentOffset = (currentOffset + 1) % 4;
+            updateScreenPositions();
+        }
+
+        function goToScreen(index) {
+            currentOffset = index;
+            updateScreenPositions();
+        }
+
+        function updateScreenPositions() {
+            var cards = document.querySelectorAll('.screen-card');
+            for (var i = 0; i < cards.length; i++) {
+                cards[i].className = 'screen-card ' + positions[(i - currentOffset + 4) % 4];
+            }
+            var dots = document.querySelectorAll('.screen-dot');
+            for (var i = 0; i < dots.length; i++) {
+                if (i === currentOffset) {
+                    dots[i].classList.add('active');
+                } else {
+                    dots[i].classList.remove('active');
+                }
+            }
+        }
+
+        setInterval(rotateScreens, 3500);
+    </script>
+</body>
+</html>
