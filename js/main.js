@@ -245,10 +245,10 @@
     // 1. Ve a https://analytics.google.com
     // 2. Crea una cuenta y propiedad web
     // 3. Copia tu Measurement ID (empieza con G-)
-    // 4. Reemplaza 'G-XXXXXXXXXX' abajo con tu ID
+    // 4. Reemplaza 'G-9FVQWDBWGG' abajo con tu ID
     function initAnalytics() {
-        var GA_ID = 'G-9FVQWDBWGG'; // <-- TU ID AQUI
-        if (GA_ID === 'G-9FVQWDBWGG') return; // No cargar si no esta configurado
+        var GA_ID = 'G-9FVQWDBWGG';
+        if (!GA_ID || GA_ID.indexOf('XXXX') !== -1) return;
 
         var script = document.createElement('script');
         script.async = true;
