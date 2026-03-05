@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoya Simpli — Invitame a un cafe | Support Simpli</title>
+    <meta name="description" content="Simpli crea apps gratuitas sin anuncios ni suscripciones. Si te son utiles, puedes apoyar el proyecto invitandome a un cafe.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/apoyo.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Apoya Simpli — Apps gratuitas que necesitan tu apoyo">
+    <meta property="og:description" content="Desarrollo apps gratuitas, sin anuncios ni suscripciones. Un cafe me ayuda a seguir creando.">
+    <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/apoyo.html">
+    <meta property="og:site_name" content="Simpli">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .apoyo-hero {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 9rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .apoyo-hero .label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.1s forwards;
+        }
+
+        .apoyo-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 4.5vw, 3rem);
+            color: var(--dark);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.2s forwards;
+        }
+
+        .apoyo-hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .apoyo-hero > p {
+            font-size: 1.05rem;
+            color: var(--gray);
+            line-height: 1.7;
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto 2.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.3s forwards;
+        }
+
+        /* CTA BUTTON */
+        .kofi-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2.2rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.4s forwards;
+        }
+
+        .kofi-btn:hover {
+            background: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 36px rgba(45,91,227,0.2);
+        }
+
+        /* VALUES */
+        .apoyo-values {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .apoyo-values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .apoyo-value {
+            background: var(--white, #fff);
+            border: 1px solid rgba(0,0,0,0.04);
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .apoyo-value:hover { transform: translateY(-3px); }
+
+        .apoyo-value-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+
+        .apoyo-value h3 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .apoyo-value p {
+            font-size: 0.82rem;
+            color: var(--gray);
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        /* QUOTE */
+        .apoyo-quote {
+            max-width: 580px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+            text-align: center;
+        }
+
+        .apoyo-quote blockquote {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--dark);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .apoyo-quote cite {
+            font-family: var(--font-body);
+            font-style: normal;
+            font-size: 0.85rem;
+            color: var(--gray);
+            font-weight: 300;
+        }
+
+        /* BOTTOM CTA */
+        .apoyo-bottom {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 2rem 5rem;
+            text-align: center;
+        }
+
+        .apoyo-bottom-box {
+            background: var(--dark);
+            border-radius: 24px;
+            padding: 3.5rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .apoyo-bottom-box::before {
+            content: '';
+            position: absolute;
+            top: -50px; right: -50px;
+            width: 180px; height: 180px;
+            background: var(--accent);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .apoyo-bottom-box h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            color: white;
+            margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .apoyo-bottom-box h2 em {
+            font-style: italic;
+            color: #7BAAFF;
+        }
+
+        .apoyo-bottom-box > p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.95rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .kofi-btn-light {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: white;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .kofi-btn-light:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .apoyo-values-grid { grid-template-columns: 1fr; }
+            .apoyo-hero { padding: 7rem 1.5rem 2.5rem; }
+            .apoyo-bottom-box { padding: 2.5rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="apoyo-hero">
+        <span class="label">☕</span>
+        <h1>
+            <span data-es="Detras de Simpli hay<br>una persona, no <em>una empresa</em>" data-en="Behind Simpli there's<br>a person, not <em>a company</em>"></span>
+        </h1>
+        <p data-es="Desarrollo apps gratuitas, sin anuncios ni suscripciones, en mi tiempo libre. Si alguna te ha sido util, puedes apoyar el proyecto invitandome a un cafe." data-en="I build free apps, with no ads or subscriptions, in my spare time. If any of them has been useful to you, you can support the project by buying me a coffee."></p>
+        <a href="https://ko-fi.com/simpliapps" target="_blank" rel="noopener" class="kofi-btn">
+            ☕ <span data-es="Invitame a un cafe" data-en="Buy me a coffee"></span>
+        </a>
+    </section>
+
+    <!-- VALUES -->
+    <section class="apoyo-values">
+        <div class="apoyo-values-grid">
+            <div class="apoyo-value reveal">
+                <span class="apoyo-value-icon">🚫</span>
+                <h3 data-es="Sin anuncios" data-en="No ads"></h3>
+                <p data-es="Nunca veras un anuncio en una app de Simpli. Tu atencion no esta en venta." data-en="You'll never see an ad in a Simpli app. Your attention is not for sale."></p>
+            </div>
+            <div class="apoyo-value reveal">
+                <span class="apoyo-value-icon">🔓</span>
+                <h3 data-es="Sin suscripciones" data-en="No subscriptions"></h3>
+                <p data-es="Todo el contenido es gratis, siempre. Sin versiones premium ni paywalls." data-en="All content is free, always. No premium tiers or paywalls."></p>
+            </div>
+            <div class="apoyo-value reveal">
+                <span class="apoyo-value-icon">🤝</span>
+                <h3 data-es="Tu decides" data-en="Your choice"></h3>
+                <p data-es="El apoyo es voluntario. Sin presion, sin culpa. Solo si quieres y puedes." data-en="Support is voluntary. No pressure, no guilt. Only if you want to and can."></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="apoyo-quote reveal">
+        <blockquote data-es="Creo que el bienestar no deberia tener precio." data-en="I believe wellbeing shouldn't have a price tag."></blockquote>
+        <cite>— Dani, Simpli</cite>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="apoyo-bottom">
+        <div class="apoyo-bottom-box reveal">
+            <h2>
+                <span data-es="Cada cafe se convierte en<br><em>horas de desarrollo</em>" data-en="Every coffee becomes<br><em>hours of development</em>"></span>
+            </h2>
+            <p data-es="Servidores, licencias, cafe real... y sobre todo, motivacion para seguir creando." data-en="Servers, licenses, actual coffee... and above all, motivation to keep creating."></p>
+            <a href="https://ko-fi.com/simpliapps" target="_blank" rel="noopener" class="kofi-btn-light">
+                ☕ <span data-es="Apoyar en Ko-fi" data-en="Support on Ko-fi"></span>
+            </a>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

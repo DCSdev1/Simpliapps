@@ -42,6 +42,7 @@
         if (path.indexOf('apps') !== -1) return 'apps';
         if (path.indexOf('mysupli') !== -1) return 'apps';
         if (path.indexOf('mydose') !== -1) return 'apps';
+        if (path.indexOf('apoyo') !== -1) return 'support';
         if (path.indexOf('manifiesto') !== -1) return 'manifesto';
         if (path.indexOf('contacto') !== -1) return 'contact';
         return 'home';
@@ -64,6 +65,7 @@
         html += '<li><a href="apps.html" data-i18n="nav.apps" class="' + (currentPage === 'apps' ? 'active' : '') + '">Apps</a></li>';
         html += '<li><a href="manifiesto.html" data-i18n="nav.manifesto" class="' + (currentPage === 'manifesto' ? 'active' : '') + '">Manifiesto</a></li>';
         html += '<li><a href="contacto.html" data-i18n="nav.contact" class="' + (currentPage === 'contact' ? 'active' : '') + '">Contacto</a></li>';
+        html += '<li><a href="apoyo.html" class="nav-support ' + (currentPage === 'support' ? 'active' : '') + '">☕ <span data-es="Apoyar" data-en="Support"></span></a></li>';
         html += '<li>';
         html += '<div class="lang-toggle">';
         html += '<button class="lang-btn active" data-lang="es" id="btnES">ES</button>';
