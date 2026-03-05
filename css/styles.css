@@ -108,6 +108,20 @@ nav.nav-dark.scrolled .mobile-menu-btn span { background: var(--dark); }
 .nav-links a:hover { color: var(--dark); }
 .nav-links a.active { color: var(--dark); }
 
+.nav-support {
+    background: var(--accent-light);
+    padding: 0.4rem 1rem !important;
+    border-radius: 100px;
+    color: var(--accent) !important;
+    font-weight: 500 !important;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+}
+.nav-support:hover {
+    background: var(--accent);
+    color: white !important;
+}
+
 .lang-toggle {
     display: flex;
     align-items: center;
