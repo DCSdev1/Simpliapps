@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="hD9HzpaB0GvtFQWCCYNw6CQ1w1BYCX_IW6-DvvQ95aA">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simpli | Apps simples para salud, bienestar y una vida mejor</title>
-    <meta name="description" content="Simpli crea apps simples y utiles para salud, bienestar y productividad personal. Sin anuncios invasivos ni complicaciones. Descubre mySupli y el ecosistema Simpli.">
+    <title>Simpli | mySupli y apps simples para salud y bienestar</title>
+    <meta name="description" content="Descubre Simpli y mySupli, una app de suplementos para iPhone. Apps simples para salud y bienestar, sin anuncios invasivos ni complicaciones.">
     <meta name="author" content="Daniel Carrion - Simpli">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#FFFFFF">
@@ -13,20 +13,20 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Simpli | Apps simples para salud, bienestar y una vida mejor">
-    <meta property="og:description" content="Aplicaciones simples, utiles y accesibles para mejorar tu dia a dia. Descubre el ecosistema Simpli y la app mySupli.">
+    <meta property="og:title" content="Simpli | mySupli y apps simples para salud y bienestar">
+    <meta property="og:description" content="Descubre mySupli y el ecosistema de apps Simpli para salud, suplementos y bienestar.">
     <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/">
     <meta property="og:site_name" content="Simpli">
     <meta property="og:locale" content="es_ES">
     <meta property="og:locale:alternate" content="en_US">
-    <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-project.png">
-    <meta property="og:image:alt" content="Logotipo de Simpli">
+    <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/res/supli/screen2.png">
+    <meta property="og:image:alt" content="Captura de pantalla de mySupli">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Simpli | Apps simples para salud y bienestar">
-    <meta name="twitter:description" content="Descubre apps simples y utiles para mejorar tu vida diaria, como mySupli.">
-    <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-project.png">
+    <meta name="twitter:title" content="Simpli | mySupli y apps simples para salud y bienestar">
+    <meta name="twitter:description" content="Descubre mySupli, app de suplementos para iPhone, y el ecosistema Simpli.">
+    <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/res/supli/screen2.png">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -229,6 +229,87 @@
             font-weight: 300;
         }
 
+        .spotlight-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #ffffff 0%, #f6fbfb 100%);
+        }
+
+        .spotlight-card {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
+            background: var(--white);
+            border-radius: 28px;
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 3rem;
+            box-shadow: 0 18px 60px rgba(26,26,46,0.05);
+        }
+
+        .spotlight-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 0.95rem;
+            border-radius: 999px;
+            background: #E3F0F1;
+            color: #417E86;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .spotlight-label::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #417E86;
+        }
+
+        .spotlight-copy h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .spotlight-copy p {
+            color: var(--gray);
+            font-size: 1rem;
+            line-height: 1.8;
+            font-weight: 300;
+            max-width: 520px;
+        }
+
+        .spotlight-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.8rem;
+        }
+
+        .spotlight-visual { display: flex; justify-content: center; }
+
+        .spotlight-phone {
+            width: min(280px, 100%);
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 24px 56px rgba(65,126,134,0.18);
+            border: 1px solid rgba(26,26,46,0.06);
+            background: #fff;
+        }
+
+        .spotlight-phone img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
         /* Philosophy banner */
         .philosophy-banner {
             background: var(--dark);
@@ -270,6 +351,9 @@
 
         @media (max-width: 900px) {
             .values-grid { grid-template-columns: repeat(2, 1fr); }
+            .spotlight-card { grid-template-columns: 1fr; text-align: center; }
+            .spotlight-copy p { margin: 0 auto; }
+            .spotlight-actions { justify-content: center; }
         }
 
         @media (max-width: 600px) {
@@ -331,6 +415,25 @@
                     <div class="value-dot-lg"></div>
                     <h3 data-es="Accesibilidad" data-en="Accessibility">Accesibilidad</h3>
                     <p data-es="Para todos, sin barreras. Apps que cualquier persona puede usar y disfrutar." data-en="For everyone, without barriers. Apps anyone can use and enjoy.">Para todos, sin barreras. Apps que cualquier persona puede usar y disfrutar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="spotlight-section" id="mysupli">
+        <div class="spotlight-card reveal">
+            <div class="spotlight-copy">
+                <span class="spotlight-label" data-es="App destacada" data-en="Featured app">App destacada</span>
+                <h2 data-es="mySupli, tu app de suplementos para iPhone" data-en="mySupli, your supplements app for iPhone">mySupli, tu app de suplementos para iPhone</h2>
+                <p data-es="mySupli te ayuda a organizar suplementos, recordatorios y progreso diario desde una interfaz simple. Si buscas una app de suplementos para iPhone sin anuncios y sin complicaciones, esta es la propuesta central de Simpli." data-en="mySupli helps you organize supplements, reminders and daily progress from a simple interface. If you are looking for a supplements app for iPhone without ads or complexity, this is Simpli's core product.">mySupli te ayuda a organizar suplementos, recordatorios y progreso diario desde una interfaz simple. Si buscas una app de suplementos para iPhone sin anuncios y sin complicaciones, esta es la propuesta central de Simpli.</p>
+                <div class="spotlight-actions">
+                    <a href="https://apps.apple.com/us/app/mysupli/id6759226398" class="btn-primary" target="_blank" rel="noopener noreferrer" data-es="Descargar mySupli →" data-en="Download mySupli →">Descargar mySupli →</a>
+                    <a href="mysupli.html" class="btn-secondary" data-es="Ver ficha completa" data-en="See full page">Ver ficha completa</a>
+                </div>
+            </div>
+            <div class="spotlight-visual">
+                <div class="spotlight-phone">
+                    <img src="res/supli/screen2.png" alt="Captura de pantalla de mySupli con la vista principal del dia" loading="lazy">
                 </div>
             </div>
         </div>

@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apps de Simpli | mySupli y apps simples para salud y bienestar</title>
-    <meta name="description" content="Explora las apps de Simpli. Descubre mySupli para gestionar suplementos y conoce las proximas aplicaciones del ecosistema Simpli para salud y bienestar.">
+    <title>Apps de Simpli | mySupli, app de suplementos para iPhone</title>
+    <meta name="description" content="Explora las apps de Simpli. Descubre mySupli, una app de suplementos para iPhone ya disponible en App Store, y conoce las nuevas apps en desarrollo.">
     <meta name="author" content="Daniel Carrion - Simpli">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/apps.html">
     <meta name="theme-color" content="#FFFFFF">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Apps de Simpli | mySupli y proximas apps">
-    <meta property="og:description" content="Apps simples para salud y bienestar. Descubre mySupli y el ecosistema de aplicaciones Simpli.">
+    <meta property="og:title" content="Apps de Simpli | mySupli ya disponible en App Store">
+    <meta property="og:description" content="Descubre mySupli, app de suplementos para iPhone, y las nuevas apps de Simpli.">
     <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/apps.html">
     <meta property="og:site_name" content="Simpli">
-    <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-project.png">
-    <meta property="og:image:alt" content="Ecosistema de aplicaciones Simpli">
+    <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/res/supli/screen2.png">
+    <meta property="og:image:alt" content="Captura de pantalla de mySupli">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Apps de Simpli | Ecosistema para tu bienestar">
-    <meta name="twitter:description" content="Conoce mySupli y las nuevas apps de Simpli para una vida mas simple.">
-    <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-project.png">
+    <meta name="twitter:title" content="Apps de Simpli | mySupli en App Store">
+    <meta name="twitter:description" content="Descubre mySupli, app de suplementos para iPhone, y el ecosistema Simpli.">
+    <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/res/supli/screen2.png">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -32,13 +32,7 @@
                 "@type": "SoftwareApplication",
                 "name": "mySupli",
                 "url": "https://dcsdev1.github.io/Simpliapps/mysupli.html",
-                "applicationCategory": "HealthApplication",
-                "operatingSystem": "iOS"
-            },
-            {
-                "@type": "SoftwareApplication",
-                "name": "myDose",
-                "url": "https://dcsdev1.github.io/Simpliapps/en-construccion.html",
+                "downloadUrl": "https://apps.apple.com/us/app/mysupli/id6759226398",
                 "applicationCategory": "HealthApplication",
                 "operatingSystem": "iOS"
             }
@@ -183,6 +177,56 @@
 
         .app-store-link svg { width: 16px; height: 16px; }
 
+        .app-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-top: 1.5rem;
+        }
+
+        .app-card-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.75rem 1.15rem;
+            border-radius: 999px;
+            background: #417E86;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            line-height: 1;
+            box-shadow: 0 12px 30px rgba(26,26,46,0.16);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+
+        .app-card-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 36px rgba(65,126,134,0.24);
+            background: #2D5A60;
+        }
+
+        .app-card-download svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        .app-card[data-app="supli"] {
+            padding-bottom: 5.8rem;
+        }
+
+        .app-card-footer {
+            position: absolute;
+            left: 2rem;
+            right: 2rem;
+            bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
         /* Ecosystem note */
         .ecosystem-note {
             padding: 5rem 2rem;
@@ -240,12 +284,18 @@
                 <article class="app-card reveal reveal-delay-1" data-app="supli" id="mysupli-card">
                     <div class="app-icon"><img src="icon/icon-supli.png" alt="Icono de la app mySupli"></div>
                     <h3>mySupli</h3>
-                    <span class="app-tag" data-es="Suplementacion" data-en="Supplements">Suplementacion</span>
+                    <span class="app-tag" data-es="Suplementacion · Ya disponible" data-en="Supplements · Available now">Suplementacion · Ya disponible</span>
                     <p data-es="Gestion inteligente de tu suplementacion diaria. Control simple de lo que tu cuerpo necesita. Registra, organiza y nunca olvides tus suplementos." data-en="Smart daily supplement management. Simple tracking of what your body needs. Log, organize and never forget your supplements.">Gestion inteligente de tu suplementacion diaria. Control simple de lo que tu cuerpo necesita. Registra, organiza y nunca olvides tus suplementos.</p>
-                    <a href="mysupli.html" class="app-store-link">
-                        <span data-es="Descubre mySupli" data-en="Learn more about mySupli">Descubre mySupli</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-                    </a>
+                    <div class="app-card-footer">
+                        <a href="mysupli.html" class="app-store-link">
+                            <span data-es="Ver mas" data-en="See more">Ver mas</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="https://apps.apple.com/us/app/mysupli/id6759226398" class="app-card-download" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                            <span data-es="Descargar" data-en="Download">Descargar</span>
+                        </a>
+                    </div>
                 </article>
                 <article class="app-card reveal reveal-delay-2" data-app="dose" id="mydose-card">
                     <div class="app-icon"><img src="icon/icon-dose.png" alt="Icono de la app myDose"></div>
