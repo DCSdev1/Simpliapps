@@ -1,226 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="google-site-verification" content="hD9HzpaB0GvtFQWCCYNw6CQ1w1BYCX_IW6-DvvQ95aA">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="hD9HzpaB0GvtFQWCCYNw6CQ1w1BYCX_IW6-DvvQ95aA">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simpli | Apps simples para salud, bienestar y una vida mejor</title>
+    <meta name="description" content="Simpli crea apps simples y utiles para salud, bienestar y productividad personal. Sin anuncios invasivos ni complicaciones. Descubre mySupli y el ecosistema Simpli.">
+    <meta name="author" content="Daniel Carrion - Simpli">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#FFFFFF">
+    <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/">
 
-<title>Habit, Medication & Supplement Tracking Apps | Simpli</title>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Simpli | Apps simples para salud, bienestar y una vida mejor">
+    <meta property="og:description" content="Aplicaciones simples, utiles y accesibles para mejorar tu dia a dia. Descubre el ecosistema Simpli y la app mySupli.">
+    <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/">
+    <meta property="og:site_name" content="Simpli">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-project.png">
+    <meta property="og:image:alt" content="Logotipo de Simpli">
 
-<meta name="description" content="Simple apps to track habits, medication and supplements. Simpli helps you see your daily routines clearly with minimalist tracking apps.">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Simpli | Apps simples para salud y bienestar">
+    <meta name="twitter:description" content="Descubre apps simples y utiles para mejorar tu vida diaria, como mySupli.">
+    <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-project.png">
 
-<meta name="keywords" content="habit tracker, medication tracker, supplement tracker, simple tracking apps, daily tracker, personal progress tracker">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "name": "Simpli",
+                "description": "Proyecto independiente dedicado a crear aplicaciones simples, efectivas y accesibles.",
+                "url": "https://dcsdev1.github.io/Simpliapps/",
+                "logo": "https://dcsdev1.github.io/Simpliapps/icon/icon-project.png",
+                "founder": {
+                    "@type": "Person",
+                    "name": "Daniel Carrion"
+                }
+            },
+            {
+                "@type": "WebSite",
+                "name": "Simpli",
+                "url": "https://dcsdev1.github.io/Simpliapps/",
+                "inLanguage": ["es", "en"],
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Simpli"
+                }
+            }
+        ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* ====== HOME-SPECIFIC ====== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-<meta name="author" content="Daniel Carrion - Simpli">
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%; right: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(67,97,238,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
 
-<meta name="robots" content="index, follow">
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%; left: -5%;
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(46,196,182,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
 
-<link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/">
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            background: var(--accent-light);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.2s forwards;
+        }
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Simpli — Simple apps for a better life">
-<meta property="og:description" content="Track habits, medication and supplements with simple apps designed to give you clarity.">
-<meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/">
+        .hero-badge .badge-dot {
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
 
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Simpli — Simple tracking apps">
-<meta name="twitter:description" content="Minimalist apps to track habits, supplements and medication.">
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.4s forwards;
+        }
 
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "Organization",
- "name": "Simpli",
- "url": "https://dcsdev1.github.io/Simpliapps/",
- "founder": {
- "@type": "Person",
- "name": "Daniel Carrion"
- }
-}
-</script>
+        .hero h1 .accent { color: var(--accent); }
 
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "SoftwareApplication",
- "name": "Simpli Apps",
- "applicationCategory": "HealthApplication",
- "operatingSystem": "Web",
- "description": "Simple apps to track habits, medication and supplements."
-}
-</script>
+        .hero-subtitle {
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            color: var(--gray);
+            max-width: 520px;
+            line-height: 1.7;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.6s forwards;
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease 0.8s forwards;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans&family=DM+Serif+Display&display=swap" rel="stylesheet">
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 1.2s forwards;
+        }
 
-<link rel="stylesheet" href="css/styles.css">
+        .scroll-indicator span {
+            font-size: 0.7rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
 
+        .scroll-line {
+            width: 1px; height: 40px;
+            background: linear-gradient(to bottom, var(--gray), transparent);
+            animation: scrollBounce 2s infinite;
+        }
+
+        /* Values preview */
+        .values-preview {
+            background: var(--light);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            padding: 2rem;
+            border-radius: 16px;
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(26,26,46,0.06);
+        }
+
+        .value-dot-lg {
+            width: 12px; height: 12px;
+            border-radius: 50%;
+            margin-bottom: 1.2rem;
+        }
+
+        .value-card:nth-child(1) .value-dot-lg { background: var(--accent); }
+        .value-card:nth-child(2) .value-dot-lg { background: var(--success); }
+        .value-card:nth-child(3) .value-dot-lg { background: var(--warm); }
+        .value-card:nth-child(4) .value-dot-lg { background: var(--gold); }
+
+        .value-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-card p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Philosophy banner */
+        .philosophy-banner {
+            background: var(--dark);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .philosophy-banner blockquote {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            color: var(--white);
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        /* CTA section */
+        .cta-section {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--gray);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; }
+
+        @media (max-width: 900px) {
+            .values-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .values-grid { grid-template-columns: 1fr; }
+            .hero-cta { flex-direction: column; align-items: center; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+    </style>
 </head>
-
 <body>
+    <main>
 
-<!-- HERO -->
+    <!-- ====== HERO ====== -->
+    <section class="hero">
+        <div class="hero-badge">
+            <span class="badge-dot"></span>
+            <span data-es="Ecosistema de apps para tu bienestar" data-en="An app ecosystem for your wellbeing">Ecosistema de apps para tu bienestar</span>
+        </div>
+        <h1>
+            <span data-es="Apps simples" data-en="Simple apps">Apps simples</span><br>
+            <span data-es="para una vida " data-en="for a ">para una vida </span><span class="accent" data-es="mejor" data-en="better life">mejor</span>
+        </h1>
+        <p class="hero-subtitle" data-es="Creamos herramientas digitales que mejoran tu calidad de vida sin complicaciones. Simplicidad, calidad y bienestar en cada app." data-en="We create digital tools that improve your quality of life without complications. Simplicity, quality and wellbeing in every app.">Creamos herramientas digitales que mejoran tu calidad de vida sin complicaciones. Simplicidad, calidad y bienestar en cada app.</p>
+        <div class="hero-cta">
+            <a href="apps.html" class="btn-primary" data-es="Descubre nuestras apps →" data-en="Discover our apps →">Descubre nuestras apps →</a>
+            <a href="manifiesto.html" class="btn-secondary" data-es="Nuestro manifiesto" data-en="Our manifesto">Nuestro manifiesto</a>
+        </div>
+        <div class="scroll-indicator">
+            <span data-es="Explora" data-en="Explore">Explora</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
 
-<section class="hero">
+    <!-- ====== VALUES ====== -->
+    <section class="section values-preview" id="values">
+        <div class="container">
+            <div class="reveal">
+                <p class="section-label" data-es="Nuestros valores" data-en="Our values">Nuestros valores</p>
+                <h2 class="section-title" data-es="Lo que nos mueve" data-en="What drives us">Lo que nos mueve</h2>
+                <p class="section-subtitle" data-es="Cuatro pilares que guian cada decision, cada diseño, cada linea de codigo." data-en="Four pillars that guide every decision, every design, every line of code.">Cuatro pilares que guian cada decision, cada diseño, cada linea de codigo.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card reveal reveal-delay-1">
+                    <div class="value-dot-lg"></div>
+                    <h3 data-es="Simplicidad" data-en="Simplicity">Simplicidad</h3>
+                    <p data-es="Lo simple es poderoso. Cada interaccion esta diseñada para ser intuitiva y clara." data-en="Simplicity is powerful. Every interaction is designed to be intuitive and clear.">Lo simple es poderoso. Cada interaccion esta diseñada para ser intuitiva y clara.</p>
+                </div>
+                <div class="value-card reveal reveal-delay-2">
+                    <div class="value-dot-lg"></div>
+                    <h3 data-es="Calidad" data-en="Quality">Calidad</h3>
+                    <p data-es="Cada detalle importa. Buscamos la excelencia en cada app que creamos." data-en="Every detail matters. We pursue excellence in every app we create.">Cada detalle importa. Buscamos la excelencia en cada app que creamos.</p>
+                </div>
+                <div class="value-card reveal reveal-delay-3">
+                    <div class="value-dot-lg"></div>
+                    <h3 data-es="Bienestar" data-en="Wellbeing">Bienestar</h3>
+                    <p data-es="Nuestro proposito es mejorar vidas. Impactar positivamente en tu dia a dia." data-en="Our purpose is to improve lives. To positively impact your daily life.">Nuestro proposito es mejorar vidas. Impactar positivamente en tu dia a dia.</p>
+                </div>
+                <div class="value-card reveal reveal-delay-4">
+                    <div class="value-dot-lg"></div>
+                    <h3 data-es="Accesibilidad" data-en="Accessibility">Accesibilidad</h3>
+                    <p data-es="Para todos, sin barreras. Apps que cualquier persona puede usar y disfrutar." data-en="For everyone, without barriers. Apps anyone can use and enjoy.">Para todos, sin barreras. Apps que cualquier persona puede usar y disfrutar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<h1>
-Simple apps to track your
-<span class="accent">daily life</span>
-</h1>
+    <!-- ====== QUOTE ====== -->
+    <section class="philosophy-banner">
+        <div class="container reveal">
+            <blockquote data-es="«Hacemos que lo complejo sea simple, no lo simple complicado.»" data-en="«We make the complex simple, not the simple complicated.»">«Hacemos que lo complejo sea simple, no lo simple complicado.»</blockquote>
+        </div>
+    </section>
 
-<p class="hero-subtitle">
-Track medication, supplements, habits and personal progress with simple apps designed to give you clarity.
-</p>
+    <!-- ====== CTA ====== -->
+    <section class="cta-section">
+        <div class="container reveal">
+            <h2 data-es="Tu vida, simplificada" data-en="Your life, simplified">Tu vida, simplificada</h2>
+            <p data-es="Descubre el ecosistema de apps diseñado para hacerte la vida mas facil." data-en="Discover the app ecosystem designed to make your life easier.">Descubre el ecosistema de apps diseñado para hacerte la vida mas facil.</p>
+            <div class="cta-buttons">
+                <a href="apps.html" class="btn-primary" data-es="Ver apps →" data-en="See apps →">Ver apps →</a>
+                <a href="contacto.html" class="btn-secondary" data-es="Contacto" data-en="Contact">Contacto</a>
+            </div>
+        </div>
+    </section>
+    </main>
 
-<div class="hero-cta">
-<a href="apps.html" class="btn-primary">Discover our apps →</a>
-<a href="manifiesto.html" class="btn-secondary">Our philosophy</a>
-</div>
-
-</section>
-
-
-<!-- SEO SECTION -->
-
-<section class="section">
-<div class="container">
-
-<h2>Track the things that matter in your life</h2>
-
-<p>
-Simpli creates simple tracking apps that help you organize important parts of your daily life.
-Track medication schedules, supplement routines, habits and personal progress
-with clear and minimalist tools designed to reduce complexity.
-</p>
-
-</div>
-</section>
-
-
-<!-- FEATURES -->
-
-<section class="section">
-<div class="container">
-
-<h2>What you can track with Simpli</h2>
-
-<h3>Medication tracker</h3>
-
-<p>
-Track your medication schedules and never forget a dose again.
-Our app <a href="apps.html">myDose</a> helps you manage medication routines with clarity.
-</p>
-
-<h3>Supplement tracker</h3>
-
-<p>
-Keep track of vitamins and supplements easily.
-<a href="apps.html">mySupli</a> lets you monitor your supplement routine in a simple interface.
-</p>
-
-<h3>Habit tracker</h3>
-
-<p>
-Build better habits and see your progress without complicated tools.
-Simpli apps focus on clarity and consistency.
-</p>
-
-<h3>Personal progress tracker</h3>
-
-<p>
-Track the changes you want to make in your life and visualize your improvement over time.
-</p>
-
-</div>
-</section>
-
-
-<!-- VALUES -->
-
-<section class="section values-preview">
-
-<div class="container">
-
-<h2>Our philosophy</h2>
-
-<p>
-We believe technology should simplify life, not complicate it.
-Every Simpli app is designed with clarity, accessibility and wellbeing in mind.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- FAQ SEO -->
-
-<section class="section">
-
-<div class="container">
-
-<h2>Frequently asked questions</h2>
-
-<h3>What is a supplement tracker?</h3>
-
-<p>
-A supplement tracker helps you record the vitamins and supplements you take daily.
-<a href="apps.html">mySupli</a> allows you to track supplement routines with a clear and simple interface.
-</p>
-
-<h3>How can I track my medication?</h3>
-
-<p>
-A medication tracker helps you manage doses and schedules.
-<a href="apps.html">myDose</a> is designed to make medication routines easy to follow.
-</p>
-
-<h3>Why should I track supplements and medication?</h3>
-
-<p>
-Tracking helps you stay consistent and understand your routines.
-Apps like mySupli and myDose make this simple.
-</p>
-
-<h3>Are there simple apps to track health routines?</h3>
-
-<p>
-Yes. Simpli creates minimalist apps that focus on clarity.
-Each app tracks a specific part of your daily life.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- CTA -->
-
-<section class="cta-section">
-
-<div class="container">
-
-<h2>Your life, simplified</h2>
-
-<p>
-Discover the ecosystem of apps designed to make everyday routines easier.
-</p>
-
-<div class="cta-buttons">
-
-<a href="apps.html" class="btn-primary">See apps →</a>
-
-<a href="contacto.html" class="btn-secondary">Contact</a>
-
-</div>
-
-</div>
-
-</section>
-
-<script src="js/main.js"></script>
-
+    <script src="js/main.js"></script>
 </body>
 </html>

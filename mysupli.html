@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mySupli — Tu rutina de suplementos, simple y sin complicaciones | Simpli</title>
     <meta name="description" content="Gestiona tus suplementos diarios de forma simple y gratuita. Recordatorios, progreso visual, Apple Health. Sin anuncios ni suscripciones. Para iPhone.">
-    <meta name="keywords" content="mySupli, app suplementos, suplementos diarios, recordatorio suplementos, control suplementos, app salud iPhone, Simpli">
     <meta name="author" content="Daniel Carrion - Simpli">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/mysupli.html">
+    <meta name="theme-color" content="#FFFFFF">
     <meta property="og:type" content="website">
     <meta property="og:title" content="mySupli — App de suplementos simple y gratuita">
     <meta property="og:description" content="Gestiona tu rutina de suplementos de forma humana y minimalista. Sin tecnicismos, sin presion, solo lo esencial.">
     <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/mysupli.html">
     <meta property="og:site_name" content="Simpli">
+    <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-supli.png">
+    <meta property="og:image:alt" content="Icono de la app mySupli">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="mySupli — App de suplementos simple y gratuita">
     <meta name="twitter:description" content="Gestiona tus suplementos diarios de forma simple. Gratis, sin anuncios.">
+    <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-supli.png">
 
     <!-- Structured Data - Software App -->
     <script type="application/ld+json">
@@ -413,7 +416,9 @@
         }
 
         .coming-soon-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background: rgba(255,255,255,0.08);
             border: 1px solid rgba(255,255,255,0.15);
             color: rgba(255,255,255,0.75);
@@ -422,6 +427,11 @@
             font-size: 0.9rem;
             position: relative;
             z-index: 1;
+        }
+        .coming-soon-badge svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
         }
 
         .supli-cta-note {
@@ -492,11 +502,12 @@
     </style>
 </head>
 <body>
+    <main>
 
     <!-- ====== PRIVACY BUTTON ====== -->
     <a href="privacy-mysupli.html" class="privacy-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span data-es="Privacidad" data-en="Privacy"></span>
+        <span data-es="Privacidad" data-en="Privacy">Privacidad</span>
     </a>
 
     <!-- ====== BREADCRUMB ====== -->
@@ -515,20 +526,20 @@
         <div class="supli-hero-text">
             <span class="supli-hero-badge">✦ Simpli by Daniel Carrion</span>
             <h1>
-                <span data-es="Tu rutina de suplementos,<br><em>simple</em> y sin complicaciones" data-en="Your supplement routine,<br><em>simple</em> and effortless"></span>
+                <span data-es="Tu rutina de suplementos,<br><em>simple</em> y sin complicaciones" data-en="Your supplement routine,<br><em>simple</em> and effortless">Tu rutina de suplementos,<br><em>simple</em> y sin complicaciones</span>
             </h1>
-            <p data-es="Gestiona tus suplementos diarios de forma humana, minimalista y efectiva. Sin tecnicismos, sin presion, solo lo esencial." data-en="Manage your daily supplements in a human, minimalist and effective way. No jargon, no pressure — just the essentials."></p>
+            <p data-es="Gestiona tus suplementos diarios de forma humana, minimalista y efectiva. Sin tecnicismos, sin presion, solo lo esencial." data-en="Manage your daily supplements in a human, minimalist and effective way. No jargon, no pressure — just the essentials.">Gestiona tus suplementos diarios de forma humana, minimalista y efectiva. Sin tecnicismos, sin presion, solo lo esencial.</p>
             <div class="supli-hero-actions">
-                <a href="#download" class="btn-supli" data-es="Descargar gratis →" data-en="Download free →"></a>
-                <a href="#how" class="btn-secondary" data-es="Ver como funciona" data-en="See how it works"></a>
+                <a href="#download" class="btn-supli" data-es="Descargar gratis →" data-en="Download free →">Descargar gratis →</a>
+                <a href="#how" class="btn-secondary" data-es="Ver como funciona" data-en="See how it works">Ver como funciona</a>
             </div>
         </div>
         <div class="supli-hero-visual">
             <div class="screens-stack" id="screensStack">
-                <div class="screen-card pos-0" onclick="rotateScreens()"><img src="res/supli/screen2.png" alt="HomeView"></div>
-                <div class="screen-card pos-1" onclick="rotateScreens()"><img src="res/supli/screen3.png" alt="ProgresoView"></div>
-                <div class="screen-card pos-2" onclick="rotateScreens()"><img src="res/supli/screen4.png" alt="AddView"></div>
-                <div class="screen-card pos-3" onclick="rotateScreens()"><img src="res/supli/screen1.png" alt="EmptyView"></div>
+                <div class="screen-card pos-0" onclick="rotateScreens()"><img src="res/supli/screen2.png" alt="Vista principal de mySupli" loading="eager"></div>
+                <div class="screen-card pos-1" onclick="rotateScreens()"><img src="res/supli/screen3.png" alt="Pantalla de progreso en mySupli" loading="lazy"></div>
+                <div class="screen-card pos-2" onclick="rotateScreens()"><img src="res/supli/screen4.png" alt="Pantalla para añadir suplementos en mySupli" loading="lazy"></div>
+                <div class="screen-card pos-3" onclick="rotateScreens()"><img src="res/supli/screen1.png" alt="Pantalla inicial de mySupli" loading="lazy"></div>
             </div>
             <div class="screen-dots">
                 <div class="screen-dot active" onclick="goToScreen(0)"></div>
@@ -543,11 +554,11 @@
     <section class="section supli-features" id="features">
         <div class="container">
             <div class="reveal">
-                <p class="section-label" data-es="Caracteristicas" data-en="Features"></p>
+                <p class="section-label" data-es="Caracteristicas" data-en="Features">Caracteristicas</p>
                 <h2 class="section-title">
-                    <span data-es="Todo lo que necesitas, <em style='color:var(--supli)'>nada mas</em>" data-en="Everything you need, <em style='color:var(--supli)'>nothing more</em>"></span>
+                    <span data-es="Todo lo que necesitas, <em style='color:var(--supli)'>nada mas</em>" data-en="Everything you need, <em style='color:var(--supli)'>nothing more</em>">Todo lo que necesitas, <em style='color:var(--supli)'>nada mas</em></span>
                 </h2>
-                <p class="section-subtitle" data-es="Diseñada para ser simple, efectiva y agradable de usar cada dia." data-en="Designed to be simple, effective and enjoyable to use every day."></p>
+                <p class="section-subtitle" data-es="Diseñada para ser simple, efectiva y agradable de usar cada dia." data-en="Designed to be simple, effective and enjoyable to use every day.">Diseñada para ser simple, efectiva y agradable de usar cada dia.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card reveal"><span class="feature-icon">💳</span><h3 data-es="Completamente gratuita" data-en="Completely free"></h3><p data-es="Sin pagos, sin suscripciones, sin versiones de pago. Accede a todo el contenido gratis." data-en="No payments, no subscriptions, no premium tiers. Full access, always free."></p></div>
@@ -567,27 +578,27 @@
     <section class="section supli-screenshots" id="screenshots">
         <div class="container">
             <div class="reveal">
-                <p class="section-label" data-es="La app" data-en="The app"></p>
+                <p class="section-label" data-es="La app" data-en="The app">La app</p>
                 <h2 class="section-title">
-                    <span data-es="Mirala en <em style='color:var(--supli)'>accion</em>" data-en="See it in <em style='color:var(--supli)'>action</em>"></span>
+                    <span data-es="Mirala en <em style='color:var(--supli)'>accion</em>" data-en="See it in <em style='color:var(--supli)'>action</em>">Mirala en <em style='color:var(--supli)'>accion</em></span>
                 </h2>
             </div>
             <div class="screenshots-grid">
                 <div class="screenshot-item reveal">
-                    <img src="res/supli/screen1.png" alt="Pantalla vacia">
-                    <div class="screenshot-label" data-es="Empezar desde cero" data-en="Start from scratch"></div>
+                    <img src="res/supli/screen1.png" alt="Pantalla vacia de mySupli" loading="lazy">
+                    <div class="screenshot-label" data-es="Empezar desde cero" data-en="Start from scratch">Empezar desde cero</div>
                 </div>
                 <div class="screenshot-item reveal">
-                    <img src="res/supli/screen4.png" alt="Añadir suplemento">
-                    <div class="screenshot-label" data-es="Configurar suplemento" data-en="Configure supplement"></div>
+                    <img src="res/supli/screen4.png" alt="Formulario para configurar un suplemento" loading="lazy">
+                    <div class="screenshot-label" data-es="Configurar suplemento" data-en="Configure supplement">Configurar suplemento</div>
                 </div>
                 <div class="screenshot-item reveal">
-                    <img src="res/supli/screen2.png" alt="HomeView">
-                    <div class="screenshot-label" data-es="Inicio · vista del dia" data-en="Home · daily view"></div>
+                    <img src="res/supli/screen2.png" alt="Pantalla de inicio con vista del dia en mySupli" loading="lazy">
+                    <div class="screenshot-label" data-es="Inicio · vista del dia" data-en="Home · daily view">Inicio · vista del dia</div>
                 </div>
                 <div class="screenshot-item reveal">
-                    <img src="res/supli/screen3.png" alt="Progreso">
-                    <div class="screenshot-label" data-es="Progreso · estadisticas" data-en="Progress · statistics"></div>
+                    <img src="res/supli/screen3.png" alt="Pantalla de progreso y estadisticas de mySupli" loading="lazy">
+                    <div class="screenshot-label" data-es="Progreso · estadisticas" data-en="Progress · statistics">Progreso · estadisticas</div>
                 </div>
             </div>
         </div>
@@ -596,11 +607,11 @@
     <!-- ====== HOW IT WORKS ====== -->
     <section class="supli-how" id="how">
         <div class="reveal" style="text-align:center;">
-            <p class="section-label" data-es="Como funciona" data-en="How it works"></p>
+            <p class="section-label" data-es="Como funciona" data-en="How it works">Como funciona</p>
             <h2 class="section-title">
-                <span data-es="Empieza en <em style='color:var(--supli)'>3 pasos</em>" data-en="Get started in <em style='color:var(--supli)'>3 steps</em>"></span>
+                <span data-es="Empieza en <em style='color:var(--supli)'>3 pasos</em>" data-en="Get started in <em style='color:var(--supli)'>3 steps</em>">Empieza en <em style='color:var(--supli)'>3 pasos</em></span>
             </h2>
-            <p class="section-subtitle" style="margin:0 auto;" data-es="Tu rutina de suplementos organizada en minutos." data-en="Your supplement routine organized in minutes."></p>
+            <p class="section-subtitle" style="margin:0 auto;" data-es="Tu rutina de suplementos organizada en minutos." data-en="Your supplement routine organized in minutes.">Tu rutina de suplementos organizada en minutos.</p>
         </div>
         <div class="steps">
             <div class="step reveal">
@@ -631,22 +642,23 @@
     <section class="supli-cta-section" id="download">
         <div class="supli-cta-box reveal">
             <h2>
-                <span data-es="Empieza hoy tu<br><em>rutina saludable</em>" data-en="Start your<br><em>healthy routine</em> today"></span>
+                <span data-es="Empieza hoy tu<br><em>rutina saludable</em>" data-en="Start your<br><em>healthy routine</em> today">Empieza hoy tu<br><em>rutina saludable</em></span>
             </h2>
-            <p data-es="Descarga mySupli gratis y organiza tus suplementos de forma simple y efectiva." data-en="Download mySupli for free and organize your supplements simply and effectively."></p>
-            <span class="coming-soon-badge" data-es="Gratis · Disponible proximamente en App Store" data-en="Free · Coming soon to the App Store"></span>
-            <p class="supli-cta-note" data-es="Para iPhone con iOS 17 o superior" data-en="For iPhone with iOS 17 or later"></p>
+            <p data-es="Descarga mySupli gratis y organiza tus suplementos de forma simple y efectiva." data-en="Download mySupli for free and organize your supplements simply and effectively.">Descarga mySupli gratis y organiza tus suplementos de forma simple y efectiva.</p>
+            <span class="coming-soon-badge"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg><span data-es="Gratis · Disponible proximamente en App Store" data-en="Free · Coming soon to the App Store">Gratis · Disponible proximamente en App Store</span></span>
+            <p class="supli-cta-note" data-es="Para iPhone con iOS 17 o superior" data-en="For iPhone with iOS 17 or later">Para iPhone con iOS 17 o superior</p>
         </div>
     </section>
 
     <!-- ====== BACK TO ECOSYSTEM ====== -->
     <section style="padding:3rem 2rem 5rem;text-align:center;">
         <div class="container reveal">
-            <p style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--gray);margin-bottom:0.8rem;" data-es="Ecosistema Simpli" data-en="Simpli Ecosystem"></p>
-            <p style="font-size:1rem;color:var(--gray);font-weight:300;margin-bottom:1.5rem;" data-es="mySupli es parte del ecosistema de apps de Simpli. Descubre todas nuestras apps." data-en="mySupli is part of the Simpli app ecosystem. Discover all our apps."></p>
-            <a href="apps.html" class="btn-secondary" data-es="← Ver todas las apps" data-en="← See all apps"></a>
+            <p style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--gray);margin-bottom:0.8rem;" data-es="Ecosistema Simpli" data-en="Simpli Ecosystem">Ecosistema Simpli</p>
+            <p style="font-size:1rem;color:var(--gray);font-weight:300;margin-bottom:1.5rem;" data-es="mySupli es parte del ecosistema de apps de Simpli. Descubre todas nuestras apps." data-en="mySupli is part of the Simpli app ecosystem. Discover all our apps.">mySupli es parte del ecosistema de apps de Simpli. Descubre todas nuestras apps.</p>
+            <a href="apps.html" class="btn-secondary" data-es="← Ver todas las apps" data-en="← See all apps">← Ver todas las apps</a>
         </div>
     </section>
+    </main>
 
     <script src="js/main.js"></script>
     <script>

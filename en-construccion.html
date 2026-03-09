@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En construccion | Simpli</title>
+    <meta name="description" content="Esta seccion de Simpli esta en construccion. Vuelve pronto para descubrirla.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/en-construccion.html">
+    <meta name="theme-color" content="#F8F9FA">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="En construccion | Simpli">
+    <meta property="og:description" content="Estamos preparando esta seccion de Simpli. Vuelve pronto.">
+    <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/en-construccion.html">
+    <meta property="og:site_name" content="Simpli">
+    <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-project.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="En construccion | Simpli">
+    <meta name="twitter:description" content="Esta seccion de Simpli estara disponible proximamente.">
+    <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-project.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .construction-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 5rem;
+            background:
+                radial-gradient(circle at top right, rgba(67,97,238,0.08), transparent 32%),
+                radial-gradient(circle at bottom left, rgba(46,196,182,0.10), transparent 28%),
+                var(--light);
+        }
+
+        .construction-card {
+            width: min(720px, 100%);
+            background: rgba(255,255,255,0.82);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(26,26,46,0.06);
+            border-radius: 28px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(26,26,46,0.08);
+        }
+
+        .construction-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.55rem 1rem;
+            border-radius: 999px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .construction-label::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulseDot 1.8s ease-in-out infinite;
+        }
+
+        .construction-card h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .construction-card p {
+            max-width: 520px;
+            margin: 0 auto;
+            color: var(--gray);
+            font-size: 1.02rem;
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        .construction-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .construction-note {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.35); opacity: 0.55; }
+        }
+
+        @media (max-width: 640px) {
+            .construction-card {
+                padding: 2.25rem 1.5rem;
+                border-radius: 22px;
+            }
+
+            .construction-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="construction-page">
+        <section class="construction-card">
+            <span class="construction-label" data-es="En construccion" data-en="Under construction">En construccion</span>
+            <h1 data-es="Estamos preparando esta parte de Simpli" data-en="We are preparing this part of Simpli">Estamos preparando esta parte de Simpli</h1>
+            <p data-es="Esta seccion todavia no esta lista para publicarse. Estamos trabajando en ella para que mantenga el mismo nivel de simplicidad, calidad y detalle que el resto del proyecto." data-en="This section is not ready to be published yet. We are still working on it so it matches the same level of simplicity, quality and detail as the rest of the project.">Esta seccion todavia no esta lista para publicarse. Estamos trabajando en ella para que mantenga el mismo nivel de simplicidad, calidad y detalle que el resto del proyecto.</p>
+            <div class="construction-actions">
+                <a href="index.html" class="btn-primary" data-es="Volver al inicio" data-en="Back to home">Volver al inicio</a>
+                <a href="mailto:dcarrion.desarrollo@gmail.com?subject=Comentario%20sobre%20seccion%20en%20construccion" class="btn-secondary" data-es="Enviar comentarios" data-en="Send feedback">Enviar comentarios</a>
+            </div>
+            <p class="construction-note" data-es="Si quieres dejar un comentario o sugerencia, puedes escribir a dcarrion.desarrollo@gmail.com." data-en="If you want to leave feedback or a suggestion, you can write to dcarrion.desarrollo@gmail.com.">Si quieres dejar un comentario o sugerencia, puedes escribir a dcarrion.desarrollo@gmail.com.</p>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

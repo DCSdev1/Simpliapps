@@ -99,7 +99,6 @@
         html += '    <div class="footer-col">';
         html += '      <h5>Apps</h5>';
         html += '      <a href="mysupli.html">mySupli</a>';
-        html += '      <a href="apps.html">myDose</a>';
         html += '    </div>';
         html += '    <div class="footer-col">';
         html += '      <h5 data-i18n="footer.pages">Paginas</h5>';
@@ -109,8 +108,8 @@
         html += '    </div>';
         html += '    <div class="footer-col">';
         html += '      <h5 data-i18n="footer.legal">Legal</h5>';
-        html += '      <a href="#" data-i18n="footer.privacy">Privacidad</a>';
-        html += '      <a href="#" data-i18n="footer.terms">Terminos</a>';
+        html += '      <a href="privacy-mysupli.html" data-i18n="footer.privacy">Privacidad</a>';
+        html += '      <a href="contacto.html">Soporte</a>';
         html += '    </div>';
         html += '  </div>';
         html += '</div>';

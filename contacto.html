@@ -5,17 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto — Soporte y sugerencias | Simpli</title>
     <meta name="description" content="Contacta con Simpli. Soporte tecnico, sugerencias y feedback sobre nuestras apps. Te respondemos en menos de 48 horas.">
-    <meta name="keywords" content="contacto Simpli, soporte mySupli, ayuda apps Simpli, sugerencias apps">
     <meta name="author" content="Daniel Carrion - Simpli">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/contacto.html">
+    <meta name="theme-color" content="#FFFFFF">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Contacto Simpli — Estamos aqui para ti">
     <meta property="og:description" content="Soporte, sugerencias y feedback. Te respondemos en menos de 48 horas.">
     <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/contacto.html">
     <meta property="og:site_name" content="Simpli">
+    <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-project.png">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Contacto Simpli">
+    <meta name="twitter:description" content="Soporte tecnico, sugerencias y ayuda sobre las apps de Simpli.">
+    <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-project.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "ContactPage",
+                "name": "Contacto Simpli",
+                "url": "https://dcsdev1.github.io/Simpliapps/contacto.html",
+                "description": "Pagina de contacto y soporte de Simpli."
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "¿Que es Simpli?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Simpli es una firma personal dedicada a crear apps de calidad: simples, efectivas y accesibles."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Las apps son gratuitas?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Cada app tiene su propio modelo, aunque el objetivo es que las funciones esenciales sean accesibles para todos."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿En que plataformas estan disponibles?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Actualmente las apps de Simpli estan disponibles para iOS en el App Store de Apple."
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
@@ -286,6 +331,18 @@
 
         .form-success button:hover { opacity: 0.7; }
 
+        .form-result {
+            min-height: 1.4rem;
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: var(--gray);
+        }
+
+        .form-result.error { color: #C0392B; }
+        .form-result.success { color: #1E8449; }
+
         .faq-section { padding: 6rem 2rem; }
         .faq-inner { max-width: 700px; margin: 0 auto; }
 
@@ -375,11 +432,12 @@
     </style>
 </head>
 <body>
+    <main>
 
     <!-- ====== HERO ====== -->
     <section class="contact-hero">
-        <h1 data-es="Hablemos" data-en="Let's talk"></h1>
-        <p data-es="¿Tienes alguna pregunta, sugerencia o necesitas ayuda? Estamos aqui para ti." data-en="Have a question, suggestion or need help? We're here for you."></p>
+        <h1 data-es="Hablemos" data-en="Let's talk">Hablemos</h1>
+        <p data-es="¿Tienes alguna pregunta, sugerencia o necesitas ayuda? Estamos aqui para ti." data-en="Have a question, suggestion or need help? We're here for you.">¿Tienes alguna pregunta, sugerencia o necesitas ayuda? Estamos aqui para ti.</p>
     </section>
 
     <!-- ====== FORM ====== -->
@@ -388,35 +446,41 @@
             <div class="form-layout">
 
                 <div class="form-info reveal">
-                    <h2 data-es="Escribenos" data-en="Write to us"></h2>
-                    <p data-es="Rellena el formulario y te responderemos lo antes posible. Cada mensaje importa." data-en="Fill out the form and we'll get back to you as soon as possible. Every message matters."></p>
+                    <h2 data-es="Escribenos" data-en="Write to us">Escribenos</h2>
+                    <p data-es="Rellena el formulario y te responderemos lo antes posible. Cada mensaje importa." data-en="Fill out the form and we'll get back to you as soon as possible. Every message matters.">Rellena el formulario y te responderemos lo antes posible. Cada mensaje importa.</p>
                     <div class="info-card">
                         <div class="info-card-icon">✉️</div>
                         <div>
-                            <h4 data-es="Soporte tecnico" data-en="Technical support"></h4>
-                            <p data-es="¿Problemas con alguna app? Te ayudamos." data-en="Issues with an app? We'll help."></p>
-                            <a href="mailto:support@simpli.app">support@simpli.app</a>
+                            <h4 data-es="Soporte tecnico" data-en="Technical support">Soporte tecnico</h4>
+                            <p data-es="¿Problemas con alguna app? Te ayudamos." data-en="Issues with an app? We'll help.">¿Problemas con alguna app? Te ayudamos.</p>
+                            <a href="mailto:dcarrion.desarrollo@gmail.com">dcarrion.desarrollo@gmail.com</a>
                         </div>
                     </div>
                     <div class="info-card">
                         <div class="info-card-icon">💬</div>
                         <div>
-                            <h4 data-es="Ideas y sugerencias" data-en="Ideas & feedback"></h4>
-                            <p data-es="Tu opinion nos ayuda a mejorar." data-en="Your feedback helps us improve."></p>
-                            <a href="mailto:hello@simpli.app">hello@simpli.app</a>
+                            <h4 data-es="Ideas y sugerencias" data-en="Ideas & feedback">Ideas y sugerencias</h4>
+                            <p data-es="Tu opinion nos ayuda a mejorar." data-en="Your feedback helps us improve.">Tu opinion nos ayuda a mejorar.</p>
+                            <a href="mailto:dcarrion.desarrollo@gmail.com">dcarrion.desarrollo@gmail.com</a>
                         </div>
                     </div>
                     <div class="info-card">
                         <div class="info-card-icon">⏱️</div>
                         <div>
-                            <h4 data-es="Tiempo de respuesta" data-en="Response time"></h4>
-                            <p data-es="Normalmente respondemos en menos de 48 horas." data-en="We usually respond within 48 hours."></p>
+                            <h4 data-es="Tiempo de respuesta" data-en="Response time">Tiempo de respuesta</h4>
+                            <p data-es="Normalmente respondemos en menos de 48 horas." data-en="We usually respond within 48 hours.">Normalmente respondemos en menos de 48 horas.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-card reveal reveal-delay-1">
-                    <div id="contactForm">
+                    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="c3296198-ad40-4abc-868c-af870bb1e2e6">
+                        <input type="hidden" name="subject" id="fieldSubject" value="">
+                        <input type="hidden" name="from_name" id="fieldFromName" value="">
+                        <input type="hidden" name="replyto" id="fieldReplyTo" value="">
+                        <input type="hidden" name="tipo" id="fieldType" value="">
+                        <input type="checkbox" name="botcheck" id="fieldBotcheck" style="display:none;">
                         <div class="type-selector">
                             <div class="type-pill active" data-value="soporte" onclick="selectType(this)">
                                 <span class="pill-icon">🛠️</span>
@@ -435,17 +499,17 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label data-es="Nombre" data-en="Name"></label>
-                                <input type="text" id="fieldName" data-es-placeholder="Tu nombre" data-en-placeholder="Your name" placeholder="Tu nombre" required>
+                                <input type="text" id="fieldName" name="name" data-es-placeholder="Tu nombre" data-en-placeholder="Your name" placeholder="Tu nombre" required>
                             </div>
                             <div class="form-group">
                                 <label data-es="Email" data-en="Email"></label>
-                                <input type="email" id="fieldEmail" data-es-placeholder="tu@email.com" data-en-placeholder="you@email.com" placeholder="tu@email.com" required>
+                                <input type="email" id="fieldEmail" name="email" data-es-placeholder="tu@email.com" data-en-placeholder="you@email.com" placeholder="tu@email.com" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label data-es="App relacionada" data-en="Related app"></label>
-                            <select id="fieldApp">
+                            <select id="fieldApp" name="app">
                                 <option value="" data-es="Selecciona una app (opcional)" data-en="Select an app (optional)"></option>
                                 <option value="mySupli">mySupli</option>
                                 <option value="myBloom">myBloom</option>
@@ -457,19 +521,20 @@
 
                         <div class="form-group">
                             <label data-es="Mensaje" data-en="Message"></label>
-                            <textarea id="fieldMessage" data-es-placeholder="Cuentanos en que podemos ayudarte..." data-en-placeholder="Tell us how we can help..." placeholder="Cuentanos en que podemos ayudarte..." required></textarea>
+                            <textarea id="fieldMessage" name="message" data-es-placeholder="Cuentanos en que podemos ayudarte..." data-en-placeholder="Tell us how we can help..." placeholder="Cuentanos en que podemos ayudarte..." required></textarea>
                         </div>
 
-                        <button type="button" class="form-submit" id="submitBtn" onclick="submitForm()">
-                            <span data-es="Enviar mensaje →" data-en="Send message →"></span>
+                        <button type="submit" class="form-submit" id="submitBtn">
+                            <span data-es="Enviar mensaje →" data-en="Send message →">Enviar mensaje →</span>
                         </button>
-                    </div>
+                        <p class="form-result" id="formResult" aria-live="polite"></p>
+                    </form>
 
                     <div class="form-success" id="formSuccess">
                         <div class="success-icon">✓</div>
-                        <h3 data-es="¡Mensaje enviado!" data-en="Message sent!"></h3>
-                        <p data-es="Gracias por escribirnos. Te responderemos lo antes posible." data-en="Thanks for reaching out. We'll get back to you as soon as possible."></p>
-                        <button onclick="resetForm()" data-es="← Enviar otro mensaje" data-en="← Send another message"></button>
+                        <h3 data-es="¡Mensaje enviado!" data-en="Message sent!">¡Mensaje enviado!</h3>
+                        <p data-es="Gracias por escribirnos. Te responderemos lo antes posible." data-en="Thanks for reaching out. We'll get back to you as soon as possible.">Gracias por escribirnos. Te responderemos lo antes posible.</p>
+                        <button onclick="resetForm()" data-es="← Enviar otro mensaje" data-en="← Send another message">← Enviar otro mensaje</button>
                     </div>
                 </div>
 
@@ -481,43 +546,43 @@
     <section class="faq-section">
         <div class="faq-inner">
             <div class="reveal">
-                <p class="section-label" data-es="Preguntas frecuentes" data-en="FAQ"></p>
-                <h2 class="section-title" data-es="¿Tienes dudas?" data-en="Have questions?"></h2>
+                <p class="section-label" data-es="Preguntas frecuentes" data-en="FAQ">Preguntas frecuentes</p>
+                <h2 class="section-title" data-es="¿Tienes dudas?" data-en="Have questions?">¿Tienes dudas?</h2>
             </div>
             <div class="faq-item reveal" onclick="toggleFaq(this)">
                 <div class="faq-question">
-                    <h3 data-es="¿Que es Simpli?" data-en="What is Simpli?"></h3>
+                    <h3 data-es="¿Que es Simpli?" data-en="What is Simpli?">¿Que es Simpli?</h3>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p data-es="Simpli es una firma personal dedicada a crear apps de calidad: simples, efectivas y accesibles. No somos una empresa tradicional, somos una filosofia de desarrollo que pone a las personas en el centro." data-en="Simpli is a personal brand dedicated to creating quality apps: simple, effective and accessible. We're not a traditional company, we're a development philosophy that puts people at the center."></p>
+                    <p data-es="Simpli es una firma personal dedicada a crear apps de calidad: simples, efectivas y accesibles. No somos una empresa tradicional, somos una filosofia de desarrollo que pone a las personas en el centro." data-en="Simpli is a personal brand dedicated to creating quality apps: simple, effective and accessible. We're not a traditional company, we're a development philosophy that puts people at the center.">Simpli es una firma personal dedicada a crear apps de calidad: simples, efectivas y accesibles. No somos una empresa tradicional, somos una filosofia de desarrollo que pone a las personas en el centro.</p>
                 </div>
             </div>
             <div class="faq-item reveal reveal-delay-1" onclick="toggleFaq(this)">
                 <div class="faq-question">
-                    <h3 data-es="¿Las apps son gratuitas?" data-en="Are the apps free?"></h3>
+                    <h3 data-es="¿Las apps son gratuitas?" data-en="Are the apps free?">¿Las apps son gratuitas?</h3>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p data-es="Cada app tiene su propio modelo. Nuestro objetivo es que las funciones esenciales sean siempre accesibles para todos." data-en="Each app has its own model. Our goal is to keep essential features always accessible for everyone."></p>
+                    <p data-es="Cada app tiene su propio modelo. Nuestro objetivo es que las funciones esenciales sean siempre accesibles para todos." data-en="Each app has its own model. Our goal is to keep essential features always accessible for everyone.">Cada app tiene su propio modelo. Nuestro objetivo es que las funciones esenciales sean siempre accesibles para todos.</p>
                 </div>
             </div>
             <div class="faq-item reveal reveal-delay-2" onclick="toggleFaq(this)">
                 <div class="faq-question">
-                    <h3 data-es="¿En que plataformas estan disponibles?" data-en="What platforms are they available on?"></h3>
+                    <h3 data-es="¿En que plataformas estan disponibles?" data-en="What platforms are they available on?">¿En que plataformas estan disponibles?</h3>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p data-es="Actualmente nuestras apps estan disponibles para iOS en el App Store de Apple." data-en="Currently our apps are available for iOS on the Apple App Store."></p>
+                    <p data-es="Actualmente nuestras apps estan disponibles para iOS en el App Store de Apple." data-en="Currently our apps are available for iOS on the Apple App Store.">Actualmente nuestras apps estan disponibles para iOS en el App Store de Apple.</p>
                 </div>
             </div>
             <div class="faq-item reveal reveal-delay-3" onclick="toggleFaq(this)">
                 <div class="faq-question">
-                    <h3 data-es="¿Como puedo sugerir una nueva app o funcion?" data-en="How can I suggest a new app or feature?"></h3>
+                    <h3 data-es="¿Como puedo sugerir una nueva app o funcion?" data-en="How can I suggest a new app or feature?">¿Como puedo sugerir una nueva app o funcion?</h3>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p data-es="¡Nos encanta recibir ideas! Usa el formulario de arriba seleccionando 'Sugerencia' o escribenos a hello@simpli.app." data-en="We love receiving ideas! Use the form above selecting 'Suggestion' or write to hello@simpli.app."></p>
+                    <p data-es="¡Nos encanta recibir ideas! Usa el formulario de arriba seleccionando 'Sugerencia' o escribenos a dcarrion.desarrollo@gmail.com." data-en="We love receiving ideas! Use the form above selecting 'Suggestion' or write to dcarrion.desarrollo@gmail.com.">¡Nos encanta recibir ideas! Usa el formulario de arriba seleccionando 'Sugerencia' o escribenos a dcarrion.desarrollo@gmail.com.</p>
                 </div>
             </div>
         </div>
@@ -527,19 +592,18 @@
     <section class="contact-cta">
         <div class="container reveal">
             <h2>Simpli Apps for a Simpli Life</h2>
-            <p data-es="Gracias por confiar en Simpli." data-en="Thank you for trusting Simpli."></p>
+            <p data-es="Gracias por confiar en Simpli." data-en="Thank you for trusting Simpli.">Gracias por confiar en Simpli.</p>
         </div>
     </section>
+    </main>
 
     <script src="js/main.js"></script>
     <script>
         /* ============================================
-           CONTACT FORM — Formspree Integration
+           CONTACT FORM — Web3Forms
            ============================================ */
 
-        // ⚠️ REEMPLAZA con tu endpoint de Formspree
-        // Crea tu formulario gratis en https://formspree.io
-        const FORMSPREE_URL = 'https://formspree.io/f/TU_ID_AQUI';
+        const CONTACT_EMAIL = 'dcarrion.desarrollo@gmail.com';
 
         let selectedType = 'soporte';
 
@@ -549,7 +613,8 @@
             selectedType = pill.dataset.value;
         }
 
-        async function submitForm() {
+        async function submitForm(event) {
+            event.preventDefault();
             const name = document.getElementById('fieldName').value.trim();
             const email = document.getElementById('fieldEmail').value.trim();
             const app = document.getElementById('fieldApp').value;
@@ -557,20 +622,27 @@
             const lang = document.documentElement.lang || 'es';
 
             if (!name || !email || !message) {
-                alert(lang === 'es'
-                    ? 'Por favor, completa los campos obligatorios (nombre, email y mensaje).'
-                    : 'Please fill in the required fields (name, email and message).');
+                setFormResult(
+                    lang === 'es'
+                        ? 'Por favor, completa los campos obligatorios.'
+                        : 'Please fill in the required fields.',
+                    'error'
+                );
                 return;
             }
 
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                alert(lang === 'es' ? 'Por favor, introduce un email valido.' : 'Please enter a valid email.');
+                setFormResult(
+                    lang === 'es' ? 'Por favor, introduce un email valido.' : 'Please enter a valid email.',
+                    'error'
+                );
                 return;
             }
 
             const btn = document.getElementById('submitBtn');
             btn.disabled = true;
             btn.querySelector('span').textContent = lang === 'es' ? 'Enviando...' : 'Sending...';
+            setFormResult('', '');
 
             const typeLabels = {
                 soporte:    { es: 'Soporte', en: 'Support' },
@@ -579,32 +651,61 @@
             };
 
             try {
-                const response = await fetch(FORMSPREE_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify({
-                        _subject: '[Simpli ' + typeLabels[selectedType][lang] + '] ' + name,
-                        tipo: typeLabels[selectedType][lang],
-                        nombre: name,
-                        email: email,
-                        app: app || (lang === 'es' ? 'No especificada' : 'Not specified'),
-                        mensaje: message
-                    })
+                const selectedApp = app || (lang === 'es' ? 'No especificada' : 'Not specified');
+                const subjectApp = app ? '[' + app + ']' : '[Simpli]';
+                const subjectType = '[' + typeLabels[selectedType].en + ']';
+                const subjectMessage = message.split('\n')[0].trim() || name;
+                document.getElementById('fieldSubject').value = subjectApp + subjectType + ' - ' + subjectMessage;
+                document.getElementById('fieldFromName').value = name;
+                document.getElementById('fieldReplyTo').value = email;
+                document.getElementById('fieldType').value = typeLabels[selectedType][lang];
+
+                const form = document.getElementById('contactForm');
+                const formData = new FormData(form);
+                formData.set('email', email);
+                formData.set('app', selectedApp);
+                formData.set('contact_email', CONTACT_EMAIL);
+                formData.set('nombre', name);
+                formData.set('remitente', email);
+                formData.set('mensaje', message);
+
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
                 });
 
-                if (response.ok) {
-                    document.getElementById('contactForm').style.display = 'none';
-                    document.getElementById('formSuccess').classList.add('show');
-                } else {
-                    throw new Error('Error');
+                const result = await response.json();
+
+                if (!response.ok || !result.success) {
+                    throw new Error('Submission failed');
                 }
+
+                setFormResult(
+                    lang === 'es' ? 'Mensaje enviado correctamente.' : 'Message sent successfully.',
+                    'success'
+                );
+                document.getElementById('contactForm').style.display = 'none';
+                document.getElementById('formSuccess').classList.add('show');
             } catch (err) {
-                alert(lang === 'es'
-                    ? 'Hubo un error al enviar. Intentalo de nuevo o escribenos a support@simpli.app.'
-                    : 'Error sending message. Please try again or write to support@simpli.app.');
+                setFormResult(
+                    lang === 'es'
+                        ? 'Hubo un error al enviar. Intentalo de nuevo o escribenos a dcarrion.desarrollo@gmail.com.'
+                        : 'There was an error sending the form. Please try again or write to dcarrion.desarrollo@gmail.com.',
+                    'error'
+                );
                 btn.disabled = false;
                 btn.querySelector('span').textContent = lang === 'es' ? 'Enviar mensaje →' : 'Send message →';
             }
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', submitForm);
+
+        function setFormResult(message, state) {
+            const result = document.getElementById('formResult');
+            result.textContent = message;
+            result.className = 'form-result';
+            if (state) result.classList.add(state);
         }
 
         function resetForm() {
@@ -617,6 +718,7 @@
             document.querySelector('.type-pill[data-value="soporte"]').classList.add('active');
             document.getElementById('formSuccess').classList.remove('show');
             document.getElementById('contactForm').style.display = 'block';
+            setFormResult('', '');
             const lang = document.documentElement.lang || 'es';
             document.getElementById('submitBtn').disabled = false;
             document.getElementById('submitBtn').querySelector('span').textContent =
