@@ -496,12 +496,20 @@
             .supli-cta-box { padding: 3rem 1.5rem; }
             .supli-hero-actions { flex-direction: column; align-items: center; }
         }
-        /* ====== PRIVACY BUTTON ====== */
-        .privacy-btn {
+        /* ====== UTILITY BUTTONS ====== */
+        .utility-buttons {
             position: fixed;
             top: 5rem;
             right: 1.5rem;
             z-index: 900;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+
+        .privacy-btn,
+        .changelog-btn {
+            position: fixed;
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
@@ -518,13 +526,20 @@
             transition: all 0.3s;
         }
 
-        .privacy-btn:hover {
+        .privacy-btn,
+        .changelog-btn {
+            position: static;
+        }
+
+        .privacy-btn:hover,
+        .changelog-btn:hover {
             color: var(--supli);
             border-color: var(--supli);
             box-shadow: 0 4px 16px rgba(65,126,134,0.12);
         }
 
-        .privacy-btn svg {
+        .privacy-btn svg,
+        .changelog-btn svg {
             width: 12px;
             height: 12px;
             opacity: 0.5;
@@ -534,11 +549,17 @@
 <body>
     <main>
 
-    <!-- ====== PRIVACY BUTTON ====== -->
-    <a href="privacy-mysupli.html" class="privacy-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span data-es="Privacidad" data-en="Privacy">Privacidad</span>
-    </a>
+    <!-- ====== UTILITY BUTTONS ====== -->
+    <div class="utility-buttons">
+        <a href="privacy-mysupli.html" class="privacy-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span data-es="Privacidad" data-en="Privacy">Privacidad</span>
+        </a>
+        <a href="mysupli-changelog.html" class="changelog-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>
+            <span data-es="Changelog" data-en="Changelog">Changelog</span>
+        </a>
+    </div>
 
     <!-- ====== BREADCRUMB ====== -->
     <div class="supli-breadcrumb">
@@ -562,6 +583,7 @@
             <div class="supli-hero-actions">
                 <a href="https://apps.apple.com/us/app/mysupli/id6759226398" class="btn-supli" target="_blank" rel="noopener noreferrer" data-es="Descargar en App Store →" data-en="Download on the App Store →">Descargar en App Store →</a>
                 <a href="#how" class="btn-secondary" data-es="Ver como funciona" data-en="See how it works">Ver como funciona</a>
+                <a href="mysupli-changelog.html" class="btn-secondary" data-es="Ver changelog" data-en="View changelog">Ver changelog</a>
             </div>
         </div>
         <div class="supli-hero-visual">

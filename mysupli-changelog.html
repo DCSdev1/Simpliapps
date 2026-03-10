@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mySupli Changelog | Historia completa de desarrollo v1.2</title>
+    <meta name="description" content="Changelog completo de mySupli desde Dia 0 hasta v1.2 Restyle. Arquitectura, notificaciones, localizacion, restyle y roadmap del proyecto.">
+    <meta name="author" content="Daniel Carrion - Simpli">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/mysupli-changelog.html">
+    <meta name="theme-color" content="#F8F7F4">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="mySupli Changelog | Historia completa de desarrollo v1.2">
+    <meta property="og:description" content="Consulta el desarrollo completo de mySupli: fundacion, features core, localizacion, App Store y restyle v1.2.">
+    <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/mysupli-changelog.html">
+    <meta property="og:site_name" content="Simpli">
+    <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/res/supli/screen2.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="mySupli Changelog | Historia completa de desarrollo v1.2">
+    <meta name="twitter:description" content="Arquitectura, UX, localizacion, App Store y restyle del proyecto mySupli en una sola pagina.">
+    <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/res/supli/screen2.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "mySupli - Complete Development Changelog",
+        "description": "Historia completa del desarrollo de mySupli desde Dia 0 hasta v1.2 Restyle.",
+        "author": {
+            "@type": "Person",
+            "name": "Daniel Carrion"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Simpli",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://dcsdev1.github.io/Simpliapps/icon/icon-project.png"
+            }
+        },
+        "mainEntityOfPage": "https://dcsdev1.github.io/Simpliapps/mysupli-changelog.html"
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        :root {
+            --supli: #417E86;
+            --supli-dark: #2D5A60;
+            --supli-light: #E3F0F1;
+            --ink-soft: #5F6772;
+            --paper: #FCFCFB;
+        }
+
+        body { background: var(--paper); }
+
+        .changelog-shell {
+            padding: 6rem 2rem 5rem;
+            background:
+                radial-gradient(circle at top right, rgba(65,126,134,0.08), transparent 28%),
+                radial-gradient(circle at bottom left, rgba(26,26,46,0.06), transparent 30%),
+                var(--paper);
+        }
+
+        .changelog-breadcrumb {
+            max-width: 1140px;
+            margin: 0 auto 2rem;
+            color: var(--gray);
+            font-size: 0.82rem;
+        }
+
+        .changelog-breadcrumb a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .changelog-breadcrumb a:hover { color: var(--supli); }
+
+        .changelog-hero {
+            max-width: 1140px;
+            margin: 0 auto 2rem;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .hero-copy,
+        .hero-side {
+            background: rgba(255,255,255,0.88);
+            border: 1px solid rgba(26,26,46,0.05);
+            border-radius: 28px;
+            box-shadow: 0 18px 54px rgba(26,26,46,0.06);
+            padding: 2.5rem;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            background: var(--supli-light);
+            color: var(--supli);
+            font-size: 0.76rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-label::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--supli);
+        }
+
+        .hero-copy h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.3rem, 4.6vw, 4.4rem);
+            line-height: 1.02;
+            letter-spacing: -0.04em;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .hero-copy h1 em {
+            font-style: italic;
+            color: var(--supli);
+        }
+
+        .hero-copy p {
+            max-width: 640px;
+            color: var(--ink-soft);
+            font-size: 1.04rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+            margin-top: 1.8rem;
+        }
+
+        .hero-side h2 {
+            font-family: var(--font-display);
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-list {
+            display: grid;
+            gap: 0.85rem;
+        }
+
+        .hero-list-item {
+            padding: 1rem 1.1rem;
+            border-radius: 18px;
+            background: var(--white);
+            border: 1px solid rgba(26,26,46,0.05);
+        }
+
+        .hero-list-item strong {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--supli);
+            margin-bottom: 0.25rem;
+        }
+
+        .hero-list-item span {
+            color: var(--dark);
+            font-size: 0.96rem;
+            line-height: 1.6;
+        }
+
+        .stats-grid {
+            max-width: 1140px;
+            margin: 0 auto 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 1.4rem;
+            border: 1px solid rgba(26,26,46,0.05);
+            box-shadow: 0 10px 30px rgba(26,26,46,0.04);
+        }
+
+        .stat-card strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 2rem;
+            line-height: 1;
+            color: var(--dark);
+            margin-bottom: 0.45rem;
+        }
+
+        .stat-card span {
+            color: var(--gray);
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .content-grid {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .phase-card {
+            background: var(--white);
+            border: 1px solid rgba(26,26,46,0.05);
+            border-radius: 28px;
+            padding: 2.2rem;
+            box-shadow: 0 14px 44px rgba(26,26,46,0.04);
+        }
+
+        .phase-overline {
+            color: var(--supli);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-weight: 700;
+            margin-bottom: 0.9rem;
+        }
+
+        .phase-card h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.7rem, 3vw, 2.5rem);
+            line-height: 1.08;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.6rem;
+        }
+
+        .phase-block + .phase-block { margin-top: 1.8rem; }
+
+        .phase-block h3 {
+            font-size: 1.02rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--dark);
+            margin-bottom: 0.9rem;
+        }
+
+        .log-list {
+            display: grid;
+            gap: 0.7rem;
+        }
+
+        .log-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.9rem;
+            align-items: start;
+            padding: 0.9rem 1rem;
+            border-radius: 16px;
+            background: #FBFBFB;
+            border: 1px solid rgba(26,26,46,0.05);
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 56px;
+            height: 28px;
+            padding: 0 0.7rem;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .status-done {
+            background: rgba(65,126,134,0.12);
+            color: var(--supli-dark);
+        }
+
+        .status-fix {
+            background: rgba(255,107,107,0.12);
+            color: #B63D3D;
+        }
+
+        .status-next {
+            background: rgba(255,209,102,0.18);
+            color: #8F6A00;
+        }
+
+        .status-nope {
+            background: rgba(108,117,125,0.12);
+            color: #58606B;
+        }
+
+        .log-item p {
+            color: var(--ink-soft);
+            line-height: 1.65;
+            font-size: 0.95rem;
+        }
+
+        .split-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .metric-table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 1px solid rgba(26,26,46,0.06);
+        }
+
+        .metric-table th,
+        .metric-table td {
+            padding: 1rem 1.1rem;
+            text-align: left;
+            font-size: 0.94rem;
+        }
+
+        .metric-table th {
+            background: var(--supli-light);
+            color: var(--supli-dark);
+            font-weight: 700;
+        }
+
+        .metric-table td {
+            border-top: 1px solid rgba(26,26,46,0.05);
+            color: var(--ink-soft);
+        }
+
+        .highlights-grid,
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .mini-card {
+            padding: 1.4rem;
+            border-radius: 20px;
+            background: #FBFBFB;
+            border: 1px solid rgba(26,26,46,0.05);
+        }
+
+        .mini-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .mini-card p,
+        .mini-card li {
+            color: var(--ink-soft);
+            line-height: 1.65;
+            font-size: 0.93rem;
+        }
+
+        .mini-card ul {
+            list-style: none;
+            display: grid;
+            gap: 0.55rem;
+        }
+
+        .mini-card li::before {
+            content: '• ';
+            color: var(--supli);
+            font-weight: 700;
+        }
+
+        .closing-note {
+            max-width: 1140px;
+            margin: 1.2rem auto 0;
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 980px) {
+            .changelog-hero,
+            .split-grid,
+            .highlights-grid,
+            .deliverables-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .changelog-shell { padding: 5rem 1rem 4rem; }
+            .hero-copy,
+            .hero-side,
+            .phase-card { padding: 1.6rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .log-item { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <main class="changelog-shell">
+        <div class="changelog-breadcrumb reveal">
+            <a href="index.html">Simpli</a> / <a href="apps.html">Apps</a> / <a href="mysupli.html">mySupli</a> / <span>Changelog</span>
+        </div>
+
+        <section class="changelog-hero">
+            <div class="hero-copy reveal">
+                <span class="hero-label">mySupli v1.2</span>
+                <h1>Complete Development <em>Changelog</em></h1>
+                <p>Historia publica del proyecto desde Dia 0 hasta el restyle v1.2. Arquitectura, notificaciones, localizacion, App Store, diseno y evolucion general de mySupli en una sola pantalla con el lenguaje visual de Simpli.</p>
+                <div class="hero-actions">
+                    <a href="https://apps.apple.com/us/app/mysupli/id6759226398" class="btn-supli" target="_blank" rel="noopener noreferrer">Descargar en App Store</a>
+                    <a href="mysupli.html" class="btn-secondary">Volver a mySupli</a>
+                </div>
+            </div>
+            <aside class="hero-side reveal reveal-delay-1">
+                <h2>Resumen rapido</h2>
+                <div class="hero-list">
+                    <div class="hero-list-item"><strong>Periodo</strong><span>Febrero 2026</span></div>
+                    <div class="hero-list-item"><strong>Version</strong><span>1.0-prod, 1.2-dev</span></div>
+                    <div class="hero-list-item"><strong>Estado</strong><span>Desarrollo v1.2</span></div>
+                </div>
+            </aside>
+        </section>
+
+        <section class="stats-grid">
+            <div class="stat-card reveal"><strong>470+</strong><span>strings localizados ES/EN</span></div>
+            <div class="stat-card reveal reveal-delay-1"><strong>80+</strong><span>suplementos mapeados</span></div>
+        </section>
+
+        <section class="content-grid">
+            <article class="phase-card reveal">
+                <div class="phase-overline">01 · Fase de Fundacion</div>
+                <h2>Wireframes, arquitectura base y onboarding</h2>
+                <div class="split-grid">
+                    <div class="phase-block">
+                        <h3>Wireframes y arquitectura base</h3>
+                        <div class="log-list">
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>Diseno completo de wireframes HTML para 11 pantallas principales.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>Arquitectura SwiftUI + SwiftData implementada con modelos Supplement y SupplementIntake relacionados.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>11 archivos Swift generados, incluyendo HomeView, ProgressView, OnboardingView y SettingsView.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>Sistema de notificaciones basico con NotificationManager y dark mode completo.</p></div>
+                        </div>
+                    </div>
+                    <div class="phase-block">
+                        <h3>Catalogo y onboarding</h3>
+                        <div class="log-list">
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>Sistema de catalogo predefinido con mas de 50 suplementos comunes.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>Modelos PredefinedSupplement y SupplementCategory definidos.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>Onboarding redisenado con privacy-first approach, sin Apple Sign In.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>SettingsView completado con herramientas de gestion para el usuario.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="phase-card reveal">
+                <div class="phase-overline">02 · Features Core</div>
+                <h2>Notificaciones inteligentes, interacciones y CSV import</h2>
+                <div class="split-grid">
+                    <div class="phase-block">
+                        <h3>Notificaciones inteligentes</h3>
+                        <div class="log-list">
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>Mensajes calidos personalizados en notificaciones y quick actions para Tomar o Saltar.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>Smart reminders escalonados a 30 min, 1 h y 2 h con midnight refresh automatico.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>Perfect Days tracking y adherence calculation realista desde fecha de creacion.</p></div>
+                        </div>
+                    </div>
+                    <div class="phase-block">
+                        <h3>Interacciones y CSV import</h3>
+                        <div class="log-list">
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>HomeView con tap a confirmationDialog, swipe para editar o eliminar y skip con estado visual diferenciado.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>ImportCSVView completo con parser, validacion y formato name, dosage, scheduleTime y notes sin emoji.</p></div>
+                            <div class="log-item"><span class="status-pill status-fix">Fix</span><p>Corregidos el bug de Perfect Days y la cancelacion de notificaciones despues de tomar o saltar.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="phase-card reveal">
+                <div class="phase-overline">03 · Web Presence y Localizacion</div>
+                <h2>Landing, privacidad, widget y localizacion completa</h2>
+                <div class="split-grid">
+                    <div class="phase-block">
+                        <h3>Privacidad y landing page</h3>
+                        <div class="log-list">
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>Privacy Policy HTML bilingue y landing page con screenshots y language toggle.</p></div>
+                            <div class="log-item"><span class="status-pill status-fix">Fix</span><p>Ajustes de estabilidad y consistencia en notificaciones durante el pre-lanzamiento.</p></div>
+                        </div>
+                    </div>
+                    <div class="phase-block">
+                        <h3>Widget y localizacion completa</h3>
+                        <div class="log-list">
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>WidgetKit extension inicial con acciones rapidas para marcar suplementos.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>470+ strings localizados ES/EN y 11 vistas completadas.</p></div>
+                            <div class="log-item"><span class="status-pill status-nope">Removed</span><p>Widget eliminado en v1.0.2 por simplicidad first.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="phase-card reveal">
+                <div class="phase-overline">04 · Lanzamiento y App Store</div>
+                <h2>Preparacion publica del lanzamiento</h2>
+                <div class="split-grid">
+                    <div class="phase-block">
+                        <h3>Version y presentacion</h3>
+                        <div class="log-list">
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>AboutSheet con version history integrado y politica de privacidad actualizada para conformidad.</p></div>
+                            <div class="log-item"><span class="status-pill status-fix">Fix</span><p>Corregidos detalles de navegacion en la seccion About de SettingsView.</p></div>
+                        </div>
+                    </div>
+                    <div class="phase-block">
+                        <h3>Material de lanzamiento</h3>
+                        <div class="log-list">
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>App Store descriptions ES/EN, Simpli Brand Guidelines y materiales de lanzamiento completados.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>Roadmap de evolucion preparado para orientar las siguientes fases del producto.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="phase-card reveal">
+                <div class="phase-overline">05 · Restyle v1.2</div>
+                <h2>Simpli Design System, icon system y migracion completa</h2>
+                <div class="phase-block">
+                    <h3>Diseno y sistema de componentes</h3>
+                    <div class="log-list">
+                        <div class="log-item"><span class="status-pill status-done">Done</span><p>Analisis UX sobre 11 pantallas con aspecto generico y creacion de Simpli Design System v1.0.</p></div>
+                        <div class="log-item"><span class="status-pill status-done">Done</span><p>Paleta Simpli con Teal #5A9A93, Navy #1A1A2E, Beige #F8F7F4 y tipografia DM Serif Display + DM Sans.</p></div>
+                        <div class="log-item"><span class="status-pill status-done">Done</span><p>Sistema de espaciado 4pt, componentes reutilizables, elevacion y accesibilidad WCAG AA con touch targets de 44pt.</p></div>
+                    </div>
+                </div>
+                <div class="split-grid" style="margin-top:1.4rem;">
+                    <div class="phase-block">
+                        <h3>Icon system</h3>
+                        <div class="log-list">
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>IconSystem.swift con reemplazo total de emojis por SF Symbols.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>SupplementIcon, IconColor, IconCategory e IconSuggestionEngine con 80+ suplementos detectados automaticamente.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>IconPickerView con categorias, busqueda y migracion del modelo de emoji a icon.</p></div>
+                        </div>
+                    </div>
+                    <div class="phase-block">
+                        <h3>Migracion de vistas</h3>
+                        <div class="log-list">
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>15 archivos actualizados, incluyendo Theme.swift, HomeView, ProgressView, MainTabView, ImportCSVView y SettingsView.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>Modelos adicionales creados: PredefinedSupplement, SupplementCategory y SupplementCatalog.</p></div>
+                            <div class="log-item"><span class="status-pill status-done">Done</span><p>Decisiones clave: zero emojis, icon containers obligatorios, accesibilidad first y dark mode adaptativo.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="phase-card reveal">
+                <div class="phase-overline">06 · Ajustes y Estabilidad</div>
+                <h2>Mejoras realizadas durante el restyle</h2>
+                <div class="log-list">
+                    <div class="log-item"><span class="status-pill status-fix">Fix</span><p>Consolidacion del sistema visual para mejorar consistencia entre pantallas.</p></div>
+                    <div class="log-item"><span class="status-pill status-fix">Fix</span><p>Migracion completa desde emojis a iconografia SF Symbols en toda la app.</p></div>
+                    <div class="log-item"><span class="status-pill status-fix">Fix</span><p>Mejoras de legibilidad en Light y Dark Mode con colores adaptativos.</p></div>
+                    <div class="log-item"><span class="status-pill status-fix">Fix</span><p>Ajustes del catalogo, los iconos sugeridos y las vistas de progreso para cerrar inconsistencias visuales.</p></div>
+                </div>
+            </article>
+
+            <article class="phase-card reveal">
+                <div class="phase-overline">07 · Proximos Pasos</div>
+                <h2>Pendientes v1.2 y roadmap post-restyle</h2>
+                <div class="split-grid">
+                    <div class="phase-block">
+                        <h3>Pendientes v1.2</h3>
+                        <div class="log-list">
+                            <div class="log-item"><span class="status-pill status-next">Next</span><p>Instalar fuentes custom DMSerifDisplay y variantes de DMSans.</p></div>
+                            <div class="log-item"><span class="status-pill status-next">Next</span><p>Crear Color Assets adaptativos en Xcode, testing exhaustivo y nuevo App Icon.</p></div>
+                            <div class="log-item"><span class="status-pill status-next">Next</span><p>Preparar 10 screenshots nuevos para App Store.</p></div>
+                        </div>
+                    </div>
+                    <div class="phase-block">
+                        <h3>Roadmap post-restyle</h3>
+                        <div class="log-list">
+                            <div class="log-item"><span class="status-pill status-next">Sprint</span><p>Sprint 2: frecuencias flexibles para esporadicos, temporales y dias especificos.</p></div>
+                            <div class="log-item"><span class="status-pill status-next">Sprint</span><p>Sprint 3: Smart Supplement Scan MVP con barcode y nutrition OCR.</p></div>
+                            <div class="log-item"><span class="status-pill status-next">Sprint</span><p>Sprint 4: complejos vitaminicos y mejoras para seguimiento avanzado.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="phase-card reveal">
+                <div class="phase-overline">08 · Estadisticas, Highlights y Entregables</div>
+                <h2>Medicion del proyecto y material entregado</h2>
+                <div class="phase-block">
+                    <h3>Estadisticas del proyecto</h3>
+                    <table class="metric-table">
+                        <thead>
+                            <tr><th>Metrica</th><th>Valor</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Duracion total</td><td>25 dias (Feb 15 - Mar 10, 2026)</td></tr>
+                            <tr><td>Archivos Swift creados</td><td>30+ archivos</td></tr>
+                            <tr><td>Vistas completadas</td><td>15 vistas con Design System</td></tr>
+                            <tr><td>Strings localizados</td><td>470+ claves ES/EN</td></tr>
+                            <tr><td>Iconos SF Symbols</td><td>80+ suplementos mapeados</td></tr>
+                            <tr><td>Bugs resueltos</td><td>15+ issues criticos</td></tr>
+                            <tr><td>Version actual</td><td>v1.2 Restyle completo</td></tr>
+                            <tr><td>Estado</td><td>Listo para testing y produccion</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="phase-block" style="margin-top:1.6rem;">
+                    <h3>Highlights clave</h3>
+                    <div class="highlights-grid">
+                        <div class="mini-card">
+                            <h4>Logros principales</h4>
+                            <ul>
+                                <li>Zero emojis y 100% SF Symbols.</li>
+                                <li>Simpli Design System reusable.</li>
+                                <li>Deteccion automatica de 80+ suplementos.</li>
+                                <li>Dark mode adaptativo y accesibilidad WCAG AA.</li>
+                            </ul>
+                        </div>
+                        <div class="mini-card">
+                            <h4>Arquitectura tecnica</h4>
+                            <ul>
+                                <li>SwiftUI + SwiftData como base reactiva.</li>
+                                <li>Sistema de notificaciones con smart reminders.</li>
+                                <li>IconSuggestionEngine y CSV Import robusto.</li>
+                                <li>Persistencia preparada para continuidad entre dispositivos.</li>
+                            </ul>
+                        </div>
+                        <div class="mini-card">
+                            <h4>Filosofia de diseno</h4>
+                            <ul>
+                                <li>Simple pero no generico.</li>
+                                <li>DNA visual compartido entre apps.</li>
+                                <li>Iconografia nativa, profesional y limpia.</li>
+                                <li>Accesible por diseno desde el principio.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="phase-block" style="margin-top:1.6rem;">
+                    <h3>Entregables</h3>
+                    <div class="deliverables-grid">
+                        <div class="mini-card">
+                            <h4>Codigo</h4>
+                            <ul>
+                                <li>30+ archivos Swift funcionales.</li>
+                                <li>Theme.swift con sistema completo.</li>
+                                <li>IconSystem.swift con 80+ iconos inteligentes.</li>
+                                <li>15 vistas adaptadas al Design System.</li>
+                            </ul>
+                        </div>
+                        <div class="mini-card">
+                            <h4>Documentacion</h4>
+                            <ul>
+                                <li>Simpli Design System v1.0.</li>
+                                <li>App Store copy ES/EN.</li>
+                                <li>Privacy Policy y textos de soporte.</li>
+                                <li>Roadmap de evolucion del producto.</li>
+                            </ul>
+                        </div>
+                        <div class="mini-card">
+                            <h4>Assets</h4>
+                            <ul>
+                                <li>Privacy Policy HTML ES/EN.</li>
+                                <li>Landing Page HTML ES/EN.</li>
+                                <li>Simpli Brand Guidelines.</li>
+                                <li>470+ localized strings ES/EN.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <p class="closing-note reveal">Simpli · Simpli Apps for a Simpli Life · mySupli v1.2 · Marzo 2026</p>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
