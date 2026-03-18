@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politica de Privacidad — myDose | Simpli</title>
+    <meta name="description" content="Politica de privacidad de myDose. Informacion clara sobre almacenamiento local, notificaciones y tratamiento de datos de la app.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/privacy-mydose.html">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Politica de Privacidad de myDose | Simpli">
+    <meta property="og:description" content="Consulta como myDose trata la informacion de medicacion y protege la privacidad del usuario.">
+    <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/privacy-mydose.html">
+    <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-dose.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Privacidad de myDose">
+    <meta name="twitter:description" content="Politica de privacidad y tratamiento de datos de la app myDose.">
+    <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-dose.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        :root {
+            --dose: #3B7293;
+            --dose-light: #E0ECF3;
+        }
+
+        .privacy-hero {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 9rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .privacy-hero .label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--dose);
+            background: var(--dose-light);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.2rem;
+        }
+
+        .privacy-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--dark);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.8rem;
+        }
+
+        .privacy-hero h1 em {
+            font-style: italic;
+            color: var(--dose);
+        }
+
+        .privacy-hero .meta {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .privacy-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        .privacy-section {
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.04);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .privacy-section .num {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            color: var(--dose);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .privacy-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .privacy-section p {
+            font-size: 0.92rem;
+            color: var(--gray);
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 0.6rem;
+        }
+
+        .privacy-section p:last-child { margin-bottom: 0; }
+
+        .privacy-section ul {
+            list-style: none;
+            margin: 0.8rem 0;
+            padding: 0;
+        }
+
+        .privacy-section ul li {
+            font-size: 0.92rem;
+            color: var(--gray);
+            font-weight: 300;
+            padding: 0.3rem 0 0.3rem 1.2rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .privacy-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background: var(--dose);
+            border-radius: 50%;
+        }
+
+        .highlight-box {
+            background: var(--dose-light);
+            border-left: 3px solid var(--dose);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin: 0.8rem 0;
+        }
+
+        .highlight-box p {
+            color: var(--dose) !important;
+            font-weight: 500;
+            margin: 0 !important;
+        }
+
+        .privacy-section a {
+            color: var(--dose);
+            text-decoration: none;
+            border-bottom: 1px solid var(--dose-light);
+            transition: border-color 0.2s;
+        }
+
+        .privacy-section a:hover {
+            border-color: var(--dose);
+        }
+
+        .privacy-back {
+            text-align: center;
+            padding: 0 2rem 4rem;
+        }
+
+        .privacy-back a {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 100px;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .privacy-back a:hover {
+            border-color: var(--dose);
+            color: var(--dose);
+        }
+
+        @media (max-width: 600px) {
+            .privacy-hero { padding: 7rem 1.2rem 2rem; }
+            .privacy-content { padding: 0 1.2rem 3rem; }
+            .privacy-section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="privacy-hero">
+        <span class="label" data-es="Legal · myDose" data-en="Legal · myDose"></span>
+        <h1>
+            <span data-es="Politica de <em>Privacidad</em>" data-en="<em>Privacy</em> Policy"></span>
+        </h1>
+        <p class="meta" data-es="Ultima actualizacion: marzo de 2026" data-en="Last updated: March 2026"></p>
+    </section>
+
+    <div class="privacy-content" data-es>
+        <div class="privacy-section reveal">
+            <div class="num">01</div>
+            <h2>Responsable del tratamiento</h2>
+            <p>Daniel Carrion Santiago, desarrollador particular.</p>
+            <p>Contacto: <a href="mailto:dcarrion.desarrollo@gmail.com">dcarrion.desarrollo@gmail.com</a></p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">02</div>
+            <h2>Datos que tratamos</h2>
+            <div class="highlight-box"><p>myDose esta planteada para funcionar con almacenamiento local en tu dispositivo, sin crear una cuenta y sin enviar tus datos medicos a servidores propios.</p></div>
+            <p>La informacion que introduces en la app puede incluir nombre del medicamento, dosis, horarios, instrucciones y estado de las tomas. Esa informacion se utiliza para mostrar recordatorios, historial y seguimiento dentro de la propia app.</p>
+            <p>En la fase actual de prelanzamiento, la politica se publica con base en el comportamiento previsto del producto. Si antes del lanzamiento se incorporase una funcion adicional de sincronizacion o tratamiento externo, esta pagina se actualizara antes de publicarla.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">03</div>
+            <h2>Finalidad del tratamiento</h2>
+            <p>Los datos introducidos en myDose se utilizan exclusivamente para:</p>
+            <ul>
+                <li>Configurar recordatorios de medicacion</li>
+                <li>Mostrar tomas pendientes, pospuestas o confirmadas</li>
+                <li>Generar historial y seguimiento personal</li>
+                <li>Permitir una experiencia de uso clara y consistente dentro de la app</li>
+            </ul>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">04</div>
+            <h2>Notificaciones</h2>
+            <p>myDose utiliza notificaciones locales para avisarte de tus tomas. Estas notificaciones se generan en tu dispositivo a partir de la configuracion que tu hayas definido y no requieren el envio de datos medicos a un servidor propio.</p>
+            <p>Puedes desactivar las notificaciones en cualquier momento desde los ajustes de tu iPhone.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">05</div>
+            <h2>Face ID y proteccion de acceso</h2>
+            <p>myDose puede utilizar Face ID o los mecanismos de autenticacion del propio dispositivo para proteger el acceso a la app y a la informacion mostrada en pantalla.</p>
+            <div class="highlight-box"><p>myDose no recibe ni almacena tus datos biometricos. La comprobacion biometrica se gestiona localmente por iOS mediante las APIs de seguridad del dispositivo.</p></div>
+            <p>Si decides activar esta proteccion, la app solo recibe la confirmacion de que la autenticacion ha sido valida o no. En cualquier momento puedes desactivar Face ID desde los ajustes de tu iPhone o desde la configuracion disponible en la app, si procede.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">06</div>
+            <h2>Comparticion de datos con terceros</h2>
+            <div class="highlight-box"><p>No vendemos ni compartimos tus datos de medicacion con terceros.</p></div>
+            <p>myDose no esta planteada para incluir publicidad ni rastreo invasivo. Tampoco se describe en esta politica el uso de SDKs de analitica o marketing externos. Si eso cambiase en una version futura, la politica se modificaria de forma expresa antes de aplicar el cambio.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">07</div>
+            <h2>Conservacion y control de los datos</h2>
+            <p>Mientras la informacion permanezca almacenada en tu dispositivo, el control principal de esos datos es tuyo. Si eliminas la app o borras su contenido, dejaras de conservar la informacion guardada localmente, salvo que exista alguna funcion de copia o sincronizacion que se haya activado expresamente en una version futura.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">08</div>
+            <h2>Tus derechos</h2>
+            <p>Puedes contactarnos en cualquier momento para solicitar informacion sobre esta politica o el tratamiento previsto de datos en myDose:</p>
+            <ul>
+                <li>Correo de contacto: <a href="mailto:dcarrion.desarrollo@gmail.com">dcarrion.desarrollo@gmail.com</a></li>
+                <li>Eliminar los datos que guardes localmente desde la app o eliminando la aplicacion</li>
+                <li>Revocar permisos de notificaciones desde los ajustes del dispositivo</li>
+            </ul>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">09</div>
+            <h2>Menores de edad</h2>
+            <p>myDose no esta especificamente dirigida a menores de 13 anos. Si en futuras versiones se incorporasen funciones que requieran un tratamiento adicional de datos, se revisara esta politica antes del lanzamiento correspondiente.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">10</div>
+            <h2>Cambios en esta politica</h2>
+            <p>Esta politica puede actualizarse antes del lanzamiento definitivo de la app o con versiones posteriores si cambia el comportamiento real del producto. La fecha de ultima actualizacion aparece al inicio de este documento.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">11</div>
+            <h2>Contacto</h2>
+            <p>Para cualquier consulta sobre privacidad o proteccion de datos:</p>
+            <p><a href="mailto:dcarrion.desarrollo@gmail.com">dcarrion.desarrollo@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="privacy-content" data-en>
+        <div class="privacy-section reveal">
+            <div class="num">01</div>
+            <h2>Data Controller</h2>
+            <p>Daniel Carrion Santiago, independent developer.</p>
+            <p>Contact: <a href="mailto:dcarrion.desarrollo@gmail.com">dcarrion.desarrollo@gmail.com</a></p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">02</div>
+            <h2>Data We Process</h2>
+            <div class="highlight-box"><p>myDose is intended to work with local storage on your device, without requiring an account and without sending your medication data to our own servers.</p></div>
+            <p>Information entered in the app may include medication name, dose, schedules, instructions and intake status. That information is used to show reminders, history and tracking within the app itself.</p>
+            <p>At the current prelaunch stage, this policy is published based on the intended product behavior. If any sync or external processing feature is added before launch, this page will be updated before that version is released.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">03</div>
+            <h2>Purpose of Processing</h2>
+            <p>Data entered in myDose is used exclusively to:</p>
+            <ul>
+                <li>Set up medication reminders</li>
+                <li>Display pending, postponed or confirmed intakes</li>
+                <li>Generate personal history and tracking</li>
+                <li>Provide a clear and consistent in-app experience</li>
+            </ul>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">04</div>
+            <h2>Notifications</h2>
+            <p>myDose uses local notifications to remind you about your medication. These notifications are generated on your device based on the schedule you configure and do not require sending your medical data to our own server.</p>
+            <p>You can disable notifications at any time from your iPhone settings.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">05</div>
+            <h2>Face ID and access protection</h2>
+            <p>myDose may use Face ID or the device's own authentication mechanisms to protect access to the app and to the information displayed on screen.</p>
+            <div class="highlight-box"><p>myDose does not receive or store your biometric data. Biometric verification is handled locally by iOS through the device security APIs.</p></div>
+            <p>If you choose to enable this protection, the app only receives confirmation of whether authentication succeeded or not. You can disable Face ID at any time from your iPhone settings or from the in-app settings if available.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">06</div>
+            <h2>Sharing with Third Parties</h2>
+            <div class="highlight-box"><p>We do not sell or share your medication data with third parties.</p></div>
+            <p>myDose is not intended to include advertising or invasive tracking. This policy also does not describe the use of external analytics or marketing SDKs. If that changes in a future version, the policy will be updated explicitly before the change is applied.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">07</div>
+            <h2>Data Retention and Control</h2>
+            <p>As long as the information remains stored on your device, primary control over that data stays with you. If you delete the app or erase its content, you will stop retaining that locally stored information, unless a backup or sync feature has been expressly enabled in a future version.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">08</div>
+            <h2>Your Rights</h2>
+            <p>You can contact us at any time to request information about this policy or the intended processing of data in myDose:</p>
+            <ul>
+                <li>Contact email: <a href="mailto:dcarrion.desarrollo@gmail.com">dcarrion.desarrollo@gmail.com</a></li>
+                <li>Delete locally stored data from the app or by deleting the application</li>
+                <li>Revoke notification permissions from the device settings</li>
+            </ul>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">09</div>
+            <h2>Children</h2>
+            <p>myDose is not specifically directed at children under 13. If future versions add features that require additional data processing, this policy will be reviewed before the corresponding release.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">10</div>
+            <h2>Changes to This Policy</h2>
+            <p>This policy may be updated before the app's final launch or in later versions if the actual product behavior changes. The last updated date appears at the top of this document.</p>
+        </div>
+        <div class="privacy-section reveal">
+            <div class="num">11</div>
+            <h2>Contact</h2>
+            <p>For any privacy or data protection inquiries:</p>
+            <p><a href="mailto:dcarrion.desarrollo@gmail.com">dcarrion.desarrollo@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="privacy-back">
+        <a href="mydose_landing.html" data-es="← Volver a myDose" data-en="← Back to myDose"></a>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

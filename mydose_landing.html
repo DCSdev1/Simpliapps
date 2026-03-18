@@ -161,6 +161,12 @@
       box-shadow: var(--shadow-lg); background: var(--white);
       border: 1px solid rgba(59,114,147,.08);
     }
+    .screen-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .screen-card.c4 { width: 160px; height: 346px; left: 50%; top: 50%; transform: translate(-185%, -44%) rotate(-11deg); z-index: 0; opacity: .5; }
     .screen-card.c1 { width: 190px; height: 410px; left: 50%; top: 50%; transform: translate(-130%, -50%) rotate(-6deg); z-index: 1; }
     .screen-card.c2 { width: 210px; height: 455px; left: 50%; top: 50%; transform: translate(-50%, -52%); z-index: 3; box-shadow: 0 16px 60px rgba(59,114,147,.22); animation: float 5s ease-in-out infinite; }
@@ -251,39 +257,19 @@
     .step-body h3 { font-size: 17px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
     .step-body p  { font-size: 14px; color: var(--gray); line-height: 1.6; }
 
-    .how-visual { position: relative; height: 480px; }
+    .how-visual { position: relative; height: 560px; }
     .how-card {
-      position: absolute; background: var(--white); border-radius: var(--radius);
-      padding: 20px 22px; box-shadow: var(--shadow-lg);
+      position: absolute; background: var(--white); border-radius: 28px;
+      overflow: hidden; box-shadow: var(--shadow-lg);
       border: 1px solid rgba(59,114,147,.08);
     }
-    .how-card.hc1 { top: 20px; left: 0; right: 40px; }
-    .how-card.hc2 { top: 50%; left: 30px; right: 0; transform: translateY(-40%); }
-    .how-card.hc3 { bottom: 20px; left: 0; right: 60px; }
-
-    .notif-preview { display: flex; align-items: center; gap: 12px; }
-    .notif-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
-    .notif-text .nt-title { font-size: 13px; font-weight: 600; color: var(--navy); }
-    .notif-text .nt-body  { font-size: 12px; color: var(--gray); margin-top: 2px; }
-    .notif-time { font-size: 11px; color: var(--gray-lt); margin-left: auto; }
-    .notif-actions { display: flex; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--gray-xlt); }
-    .notif-btn { flex: 1; padding: 7px; border-radius: 8px; font-size: 12px; font-weight: 600; text-align: center; }
-    .notif-btn.confirm { background: var(--accent); color: #fff; }
-    .notif-btn.skip    { background: var(--gray-xlt); color: var(--gray); }
-
-    .med-row { display: flex; align-items: center; gap: 12px; padding: 10px 0; }
-    .med-row + .med-row { border-top: 1px solid var(--gray-xlt); }
-    .med-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
-    .med-dot.done { background: #27AE60; }
-    .med-info { flex: 1; }
-    .med-info .mi-name { font-size: 14px; font-weight: 600; color: var(--navy); }
-    .med-info .mi-dose { font-size: 12px; color: var(--gray); }
-    .med-time { font-size: 13px; font-weight: 600; color: var(--accent); }
-
-    .streak-row { display: flex; align-items: center; gap: 6px; }
-    .streak-day { flex: 1; height: 6px; border-radius: 3px; background: var(--gray-xlt); }
-    .streak-day.ok { background: var(--accent); }
-    .streak-label { font-size: 12px; color: var(--gray-lt); margin-top: 8px; text-align: center; }
+    .how-card.hc1 { top: 0; left: 0; right: 54px; }
+    .how-card.hc2 { top: 180px; left: 54px; right: 0; }
+    .how-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
     /* SCREENS */
     .screens-section { background: var(--white); }
@@ -299,6 +285,12 @@
       width: 200px; height: 430px; border-radius: 28px; overflow: hidden;
       box-shadow: var(--shadow-lg); background: var(--white);
       border: 1px solid rgba(59,114,147,.08); margin: 0 auto 14px;
+    }
+    .si-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .si-label { font-size: 13px; font-weight: 500; color: var(--gray); }
 
@@ -356,7 +348,8 @@
       .features-grid { grid-template-columns: repeat(2, 1fr); }
       .feat-card.wide { grid-column: span 2; }
       .how-grid      { grid-template-columns: 1fr; }
-      .how-visual    { display: none; }
+      .how-visual    { height: auto; display: grid; gap: 18px; }
+      .how-card { position: static; }
       .trustbar-inner { gap: 18px; }
       .launch-strip-inner { flex-direction: column; align-items: flex-start; }
       .screens-scroll { justify-content: flex-start; }
@@ -380,6 +373,7 @@
       <li><a href="apps.html" class="active">Apps</a></li>
       <li><a href="manifiesto.html">Manifiesto</a></li>
       <li><a href="contacto.html">Contacto</a></li>
+      <li><a href="privacy-mydose.html">Privacidad</a></li>
       <li><a href="apoyo.html" class="nav-support">☕ Apoyar</a></li>
     </ul>
   </nav>
@@ -419,16 +413,16 @@
 
         <div class="hero-screens">
           <div class="screen-card c4">
-            <div class="screen-ph ph-settings"><span class="ph-icon">⚙️</span><span>Ajustes</span></div>
+            <img src="res/dose/medicamentos.png" alt="Pantalla de medicamentos activos en myDose" loading="lazy">
           </div>
           <div class="screen-card c1">
-            <div class="screen-ph ph-history"><span class="ph-icon">📋</span><span>Historial</span></div>
+            <img src="res/dose/historial.png" alt="Pantalla de historial de medicacion en myDose" loading="lazy">
           </div>
           <div class="screen-card c2">
-            <div class="screen-ph ph-today"><span class="ph-icon">💊</span><span>Hoy</span></div>
+            <img src="res/dose/hoy-pendiente.png" alt="Pantalla principal de myDose con una toma pendiente" loading="eager">
           </div>
           <div class="screen-card c3">
-            <div class="screen-ph ph-add"><span class="ph-icon">➕</span><span>Añadir</span></div>
+            <img src="res/dose/quicktake.png" alt="Pantalla QuickTake para registrar una toma puntual en myDose" loading="lazy">
           </div>
         </div>
       </div>
@@ -442,7 +436,10 @@
           <strong>Prelanzamiento</strong>
           <span>myDose ya tiene landing publica. La estructura esta lista para sumar capturas, copy final y la futura ficha de App Store.</span>
         </div>
-        <a href="contacto.html" class="btn-primary">Enviar feedback</a>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="contacto.html" class="btn-primary">Enviar feedback</a>
+          <a href="privacy-mydose.html" class="btn-ghost">Ver privacidad →</a>
+        </div>
       </div>
     </div>
   </section>
@@ -450,7 +447,7 @@
   <!-- TRUST BAR -->
   <div class="trustbar">
     <div class="trustbar-inner">
-      <div class="trust-item"><span class="ti">💳</span> Gratis</div>
+      <div class="trust-item"><span class="ti">💳</span> Gratis en España</div>
       <div class="trust-item"><span class="ti">📵</span> Sin anuncios</div>
       <div class="trust-item"><span class="ti">🔒</span> Sin tracking · Solo local</div>
       <div class="trust-item"><span class="ti">📱</span> iOS 17+</div>
@@ -495,6 +492,11 @@
           <p>Tus datos nunca salen del dispositivo. Sin servidores, sin cuentas, sin anuncios.</p>
         </div>
         <div class="feat-card">
+          <span class="feat-icon">🧬</span>
+          <h3>Protección con Face ID</h3>
+          <p>Bloquea el acceso a tu medicación y tu historial con Face ID para añadir una capa extra de privacidad.</p>
+        </div>
+        <div class="feat-card">
           <span class="feat-icon">🎨</span>
           <h3>Diseño limpio</h3>
           <p>Interfaz pensada para que cualquier persona encuentre lo que necesita sin instrucciones.</p>
@@ -502,7 +504,7 @@
         <div class="feat-card">
           <span class="feat-icon">📵</span>
           <h3>Sin suscripciones</h3>
-          <p>Pago único. La app es tuya para siempre, con todas las actualizaciones incluidas.</p>
+          <p>Gratis en España en su lanzamiento. Sin suscripciones, sin anuncios y sin pagos recurrentes.</p>
         </div>
       </div>
     </div>
@@ -544,47 +546,11 @@
 
         <div class="how-visual">
           <div class="how-card hc1">
-            <div class="notif-preview">
-              <div class="notif-icon">💊</div>
-              <div class="notif-text">
-                <div class="nt-title">Hora de tu medicación</div>
-                <div class="nt-body">Omeprazol 20mg · Antes de desayunar</div>
-              </div>
-              <span class="notif-time">ahora</span>
-            </div>
-            <div class="notif-actions">
-              <div class="notif-btn confirm">Tomada ✓</div>
-              <div class="notif-btn skip">Omitir</div>
-            </div>
+            <img src="res/dose/alerta.png" alt="Alerta y recordatorio de medicacion en myDose" loading="lazy">
           </div>
 
           <div class="how-card hc2">
-            <div style="font-size:12px;font-weight:600;color:var(--gray-lt);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;">Hoy · Martes</div>
-            <div class="med-row">
-              <div class="med-dot done"></div>
-              <div class="med-info"><div class="mi-name">Omeprazol 20mg</div><div class="mi-dose">Antes de desayunar</div></div>
-              <div class="med-time" style="color:#27AE60;">✓ 08:02</div>
-            </div>
-            <div class="med-row">
-              <div class="med-dot"></div>
-              <div class="med-info"><div class="mi-name">Enalapril 10mg</div><div class="mi-dose">Con el almuerzo</div></div>
-              <div class="med-time">14:00</div>
-            </div>
-            <div class="med-row">
-              <div class="med-dot"></div>
-              <div class="med-info"><div class="mi-name">Atorvastatina 20mg</div><div class="mi-dose">Antes de dormir</div></div>
-              <div class="med-time">22:00</div>
-            </div>
-          </div>
-
-          <div class="how-card hc3">
-            <div style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:10px;">Esta semana</div>
-            <div class="streak-row">
-              <div class="streak-day ok"></div><div class="streak-day ok"></div>
-              <div class="streak-day ok"></div><div class="streak-day ok"></div>
-              <div class="streak-day ok"></div><div class="streak-day"></div><div class="streak-day"></div>
-            </div>
-            <div class="streak-label">5 días seguidos · Sigue así 💪</div>
+            <img src="res/dose/pendientes.png" alt="Pantalla de pendientes en myDose" loading="lazy">
           </div>
         </div>
       </div>
@@ -603,20 +569,24 @@
     <div style="padding:0 24px;">
       <div class="screens-scroll">
         <div class="screen-item">
-          <div class="si-frame"><div class="screen-ph ph-today" style="height:100%;"><span class="ph-icon">💊</span><span>Tomas de hoy</span></div></div>
-          <div class="si-label">Tomas de hoy</div>
+          <div class="si-frame"><img src="res/dose/hoy-pendiente.png" alt="Pantalla Hoy de myDose con una toma pendiente" loading="lazy"></div>
+          <div class="si-label">Hoy · toma pendiente</div>
         </div>
         <div class="screen-item">
-          <div class="si-frame"><div class="screen-ph ph-add" style="height:100%;"><span class="ph-icon">➕</span><span>Añadir medicamento</span></div></div>
-          <div class="si-label">Añadir medicamento</div>
+          <div class="si-frame"><img src="res/dose/medicamentos.png" alt="Pantalla de medicamentos activos en myDose" loading="lazy"></div>
+          <div class="si-label">Medicamentos activos</div>
         </div>
         <div class="screen-item">
-          <div class="si-frame"><div class="screen-ph ph-history" style="height:100%;"><span class="ph-icon">📋</span><span>Historial</span></div></div>
+          <div class="si-frame"><img src="res/dose/historial.png" alt="Pantalla de historial completo en myDose" loading="lazy"></div>
           <div class="si-label">Historial completo</div>
         </div>
         <div class="screen-item">
-          <div class="si-frame"><div class="screen-ph ph-settings" style="height:100%;"><span class="ph-icon">⚙️</span><span>Ajustes</span></div></div>
-          <div class="si-label">Ajustes</div>
+          <div class="si-frame"><img src="res/dose/quicktake.png" alt="Pantalla QuickTake de myDose" loading="lazy"></div>
+          <div class="si-label">QuickTake</div>
+        </div>
+        <div class="screen-item">
+          <div class="si-frame"><img src="res/dose/live-activity.png" alt="Live Activity y recordatorio de myDose en la pantalla de bloqueo" loading="lazy"></div>
+          <div class="si-label">Recordatorio en pantalla</div>
         </div>
       </div>
     </div>
@@ -640,7 +610,7 @@
   <section class="cta-final" id="download">
     <div class="container">
       <h2>Empieza hoy.<br>Tu salud no puede esperar.</h2>
-      <p>myDose entra en fase de prelanzamiento. La ficha de App Store llegara mas adelante.</p>
+      <p>myDose entra en fase de prelanzamiento. En España sera gratuita en su lanzamiento. La ficha de App Store llegara mas adelante.</p>
       <span class="coming-soon-note" style="background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.18);">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         <span>Prelanzamiento · lanzamiento proximo</span>
@@ -658,6 +628,7 @@
           <a href="apps.html">Apps</a>
           <a href="novedades.html">Novedades</a>
           <a href="mysupli.html">mySupli</a>
+          <a href="privacy-mydose.html">Privacidad</a>
           <a href="contacto.html">Contacto</a>
           <a href="apoyo.html">Apoyar</a>
         </div>
