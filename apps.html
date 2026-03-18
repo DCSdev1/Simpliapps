@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apps de Simpli | mySupli, app de suplementos para iPhone</title>
-    <meta name="description" content="Explora las apps de Simpli. Descubre mySupli, una app de suplementos para iPhone ya disponible en App Store, y conoce las nuevas apps en desarrollo.">
+    <title>Apps de Simpli | mySupli disponible y myDose en prelanzamiento</title>
+    <meta name="description" content="Explora las apps de Simpli. Descubre mySupli en App Store y sigue el prelanzamiento de myDose con una estructura clara para nuevos lanzamientos.">
     <meta name="author" content="Daniel Carrion - Simpli">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/apps.html">
     <meta name="theme-color" content="#FFFFFF">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Apps de Simpli | mySupli ya disponible en App Store">
-    <meta property="og:description" content="Descubre mySupli, app de suplementos para iPhone, y las nuevas apps de Simpli.">
+    <meta property="og:title" content="Apps de Simpli | mySupli y myDose">
+    <meta property="og:description" content="mySupli ya esta disponible y myDose entra en prelanzamiento dentro del ecosistema Simpli.">
     <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/apps.html">
     <meta property="og:site_name" content="Simpli">
     <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/res/supli/screen2.png">
     <meta property="og:image:alt" content="Captura de pantalla de mySupli">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Apps de Simpli | mySupli en App Store">
-    <meta name="twitter:description" content="Descubre mySupli, app de suplementos para iPhone, y el ecosistema Simpli.">
+    <meta name="twitter:title" content="Apps de Simpli | mySupli y myDose">
+    <meta name="twitter:description" content="mySupli ya esta disponible y myDose se prepara para su lanzamiento.">
     <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/res/supli/screen2.png">
     <script type="application/ld+json">
     {
@@ -33,6 +33,13 @@
                 "name": "mySupli",
                 "url": "https://dcsdev1.github.io/Simpliapps/mysupli.html",
                 "downloadUrl": "https://apps.apple.com/us/app/mysupli/id6759226398",
+                "applicationCategory": "HealthApplication",
+                "operatingSystem": "iOS"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "myDose",
+                "url": "https://dcsdev1.github.io/Simpliapps/mydose_landing.html",
                 "applicationCategory": "HealthApplication",
                 "operatingSystem": "iOS"
             }
@@ -212,7 +219,7 @@
             flex-shrink: 0;
         }
 
-        .app-card[data-app="supli"] {
+        .app-card.has-footer {
             padding-bottom: 5.8rem;
         }
 
@@ -273,7 +280,7 @@
     <!-- ====== HERO ====== -->
     <section class="apps-hero">
         <h1 data-es="Nuestras Apps" data-en="Our Apps">Nuestras Apps</h1>
-        <p data-es="Cada app del ecosistema Simpli esta diseñada con un unico proposito: hacer tu vida un poco mas facil." data-en="Every app in the Simpli ecosystem is designed with a single purpose: to make your life a little easier.">Cada app del ecosistema Simpli esta diseñada con un unico proposito: hacer tu vida un poco mas facil.</p>
+        <p data-es="Cada app del ecosistema Simpli esta diseñada con un unico proposito: hacer tu vida un poco mas facil. mySupli sigue creciendo y myDose ya entra en prelanzamiento." data-en="Every app in the Simpli ecosystem is designed with a single purpose: to make your life a little easier. mySupli keeps growing and myDose is now entering prelaunch.">Cada app del ecosistema Simpli esta diseñada con un unico proposito: hacer tu vida un poco mas facil. mySupli sigue creciendo y myDose ya entra en prelanzamiento.</p>
     </section>
 
     <!-- ====== APPS GRID ====== -->
@@ -281,10 +288,10 @@
         <div class="container">
             <div class="apps-grid">
                 <!-- mySupli -->
-                <article class="app-card reveal reveal-delay-1" data-app="supli" id="mysupli-card">
+                <article class="app-card has-footer reveal reveal-delay-1" data-app="supli" id="mysupli-card">
                     <div class="app-icon"><img src="icon/icon-supli.png" alt="Icono de la app mySupli"></div>
                     <h3>mySupli</h3>
-                    <span class="app-tag" data-es="Suplementacion · Ya disponible" data-en="Supplements · Available now">Suplementacion · Ya disponible</span>
+                    <span class="app-tag" data-es="Suplementacion · Disponible · 1.2.2 en camino" data-en="Supplements · Available now · 1.2.2 coming soon">Suplementacion · Disponible · 1.2.2 en camino</span>
                     <p data-es="Gestion inteligente de tu suplementacion diaria. Control simple de lo que tu cuerpo necesita. Registra, organiza y nunca olvides tus suplementos." data-en="Smart daily supplement management. Simple tracking of what your body needs. Log, organize and never forget your supplements.">Gestion inteligente de tu suplementacion diaria. Control simple de lo que tu cuerpo necesita. Registra, organiza y nunca olvides tus suplementos.</p>
                     <div class="app-card-footer">
                         <a href="mysupli.html" class="app-store-link">
@@ -297,15 +304,21 @@
                         </a>
                     </div>
                 </article>
-                <article class="app-card reveal reveal-delay-2" data-app="dose" id="mydose-card">
+                <article class="app-card has-footer reveal reveal-delay-2" data-app="dose" id="mydose-card">
                     <div class="app-icon"><img src="icon/icon-dose.png" alt="Icono de la app myDose"></div>
                     <h3>myDose</h3>
-                    <span class="app-tag" data-es="Medicacion" data-en="Medication">Medicacion</span>
-                    <p data-es="Control de dosis y medicacion sin complicaciones. Tu salud, organizada y segura. Recordatorios inteligentes para que nunca se te pase una toma." data-en="Dose and medication tracking without complications. Your health, organized and safe. Smart reminders so you never miss a dose.">Control de dosis y medicacion sin complicaciones. Tu salud, organizada y segura. Recordatorios inteligentes para que nunca se te pase una toma.</p>
-                    <a href="en-construccion.html" class="app-store-link">
-                        <span data-es="Proximamente" data-en="Coming soon">Proximamente</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-                    </a>
+                    <span class="app-tag" data-es="Medicacion · Prelanzamiento" data-en="Medication · Prelaunch">Medicacion · Prelanzamiento</span>
+                    <p data-es="Control de dosis y medicacion sin complicaciones. Tu salud, organizada y segura. La landing ya esta preparada para empezar a contar el producto antes del lanzamiento." data-en="Dose and medication tracking without complications. Your health, organized and safe. The landing is now ready to start presenting the product before launch.">Control de dosis y medicacion sin complicaciones. Tu salud, organizada y segura. La landing ya esta preparada para empezar a contar el producto antes del lanzamiento.</p>
+                    <div class="app-card-footer">
+                        <a href="mydose_landing.html" class="app-store-link">
+                            <span data-es="Ver mas" data-en="See more">Ver mas</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                        </a>
+                        <a href="novedades.html" class="app-card-download" style="background:#3B7293;" data-es="Prelaunch" data-en="Prelaunch">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
+                            <span data-es="Prelaunch" data-en="Prelaunch">Prelaunch</span>
+                        </a>
+                    </div>
                 </article>
             </div>
         </div>

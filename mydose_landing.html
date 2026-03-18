@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>myDose — Recordatorio de medicación simple y fiable | Simpli</title>
-  <meta name="description" content="myDose te recuerda tu medicación a tiempo, siempre. Sin suscripciones, sin anuncios, sin complicaciones. Disponible en App Store." />
-  <meta name="robots" content="noindex, nofollow" />
+  <title>myDose — App de recordatorio de medicacion en prelanzamiento | Simpli</title>
+  <meta name="description" content="Conoce myDose, la app de recordatorio de medicacion de Simpli. Prelanzamiento publico con propuesta de valor clara y lanzamiento proximo." />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/mydose_landing.html" />
   <meta name="theme-color" content="#3B7293" />
-  <meta property="og:title" content="myDose — Recordatorio de medicación simple y fiable" />
-  <meta property="og:description" content="Nunca más olvides una dosis. Sin suscripciones, sin anuncios." />
+  <meta property="og:title" content="myDose — App de recordatorio de medicacion en prelanzamiento" />
+  <meta property="og:description" content="Conoce myDose antes de su lanzamiento: recordatorios simples, privacidad y control diario." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/mydose_landing.html" />
   <meta property="og:site_name" content="Simpli" />
   <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-dose.png" />
   <meta property="og:image:alt" content="Icono de la app myDose" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="myDose — Recordatorio de medicación simple y fiable" />
-  <meta name="twitter:description" content="App de recordatorios de medicación simple, privada y sin suscripciones." />
+  <meta name="twitter:title" content="myDose — App de recordatorio de medicacion en prelanzamiento" />
+  <meta name="twitter:description" content="La nueva app de Simpli para recordar tu medicacion, ya visible en prelaunch." />
   <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-dose.png" />
   <script type="application/ld+json">
   {
@@ -187,6 +187,31 @@
     .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; color: var(--gray); }
     .trust-item .ti { font-size: 16px; }
 
+    .launch-strip {
+      padding: 24px 0;
+      background: linear-gradient(180deg, rgba(224,236,243,.55) 0%, rgba(255,255,255,.95) 100%);
+      border-bottom: 1px solid rgba(59,114,147,.10);
+    }
+    .launch-strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .launch-strip-copy strong {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .launch-strip-copy span {
+      font-size: 14px;
+      color: var(--gray);
+    }
+
     /* FEATURES */
     .features { background: var(--white); }
     .section-header { text-align: center; margin-bottom: 56px; }
@@ -333,6 +358,7 @@
       .how-grid      { grid-template-columns: 1fr; }
       .how-visual    { display: none; }
       .trustbar-inner { gap: 18px; }
+      .launch-strip-inner { flex-direction: column; align-items: flex-start; }
       .screens-scroll { justify-content: flex-start; }
     }
     @media (max-width: 540px) {
@@ -385,8 +411,9 @@
             Sin suscripciones. Sin complicaciones.
           </p>
           <div class="hero-cta">
-            <span class="coming-soon-note"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg><span>Proximamente disponible en App Store</span></span>
+            <span class="coming-soon-note"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg><span>Prelanzamiento activo</span></span>
             <a href="#como-funciona" class="btn-ghost">Cómo funciona →</a>
+            <a href="novedades.html" class="btn-ghost">Ver novedades →</a>
           </div>
         </div>
 
@@ -404,6 +431,18 @@
             <div class="screen-ph ph-add"><span class="ph-icon">➕</span><span>Añadir</span></div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="launch-strip">
+    <div class="container">
+      <div class="launch-strip-inner">
+        <div class="launch-strip-copy">
+          <strong>Prelanzamiento</strong>
+          <span>myDose ya tiene landing publica. La estructura esta lista para sumar capturas, copy final y la futura ficha de App Store.</span>
+        </div>
+        <a href="contacto.html" class="btn-primary">Enviar feedback</a>
       </div>
     </div>
   </section>
@@ -601,10 +640,10 @@
   <section class="cta-final" id="download">
     <div class="container">
       <h2>Empieza hoy.<br>Tu salud no puede esperar.</h2>
-      <p>myDose estara disponible proximamente en App Store.</p>
+      <p>myDose entra en fase de prelanzamiento. La ficha de App Store llegara mas adelante.</p>
       <span class="coming-soon-note" style="background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.18);">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        <span>Proximamente disponible</span>
+        <span>Prelanzamiento · lanzamiento proximo</span>
       </span>
     </div>
   </section>
@@ -617,6 +656,7 @@
         <div class="footer-links">
           <a href="index.html">Simpli</a>
           <a href="apps.html">Apps</a>
+          <a href="novedades.html">Novedades</a>
           <a href="mysupli.html">mySupli</a>
           <a href="contacto.html">Contacto</a>
           <a href="apoyo.html">Apoyar</a>

@@ -310,6 +310,87 @@
             height: auto;
         }
 
+        .launches-preview {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+
+        .launches-preview-grid {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            margin-top: 3rem;
+        }
+
+        .launch-preview-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 14px 44px rgba(26,26,46,0.04);
+        }
+
+        .launch-preview-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .launch-preview-card p {
+            color: var(--gray);
+            line-height: 1.75;
+            font-size: 0.96rem;
+            font-weight: 300;
+        }
+
+        .launch-preview-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .launch-preview-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .launch-preview-card[data-app="supli"] .launch-preview-badge {
+            background: #E3F0F1;
+            color: #417E86;
+        }
+
+        .launch-preview-card[data-app="dose"] .launch-preview-badge {
+            background: #E0ECF3;
+            color: #3B7293;
+        }
+
+        .launch-preview-state {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gray);
+        }
+
+        .launch-preview-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 1.4rem;
+        }
+
         /* Philosophy banner */
         .philosophy-banner {
             background: var(--dark);
@@ -354,6 +435,7 @@
             .spotlight-card { grid-template-columns: 1fr; text-align: center; }
             .spotlight-copy p { margin: 0 auto; }
             .spotlight-actions { justify-content: center; }
+            .launches-preview-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 600px) {
@@ -435,6 +517,42 @@
                 <div class="spotlight-phone">
                     <img src="res/supli/screen2.png" alt="Captura de pantalla de mySupli con la vista principal del dia" loading="lazy">
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="launches-preview">
+        <div class="container">
+            <div class="reveal">
+                <p class="section-label" data-es="Lanzamientos" data-en="Launches">Lanzamientos</p>
+                <h2 class="section-title" data-es="Lo siguiente en Simpli" data-en="What comes next in Simpli">Lo siguiente en Simpli</h2>
+                <p class="section-subtitle" data-es="La web ya esta preparada para comunicar tanto la siguiente release de mySupli como el prelanzamiento de myDose." data-en="The site is now prepared to communicate both the next mySupli release and the prelaunch of myDose.">La web ya esta preparada para comunicar tanto la siguiente release de mySupli como el prelanzamiento de myDose.</p>
+            </div>
+            <div class="launches-preview-grid">
+                <article class="launch-preview-card reveal" data-app="supli">
+                    <div class="launch-preview-top">
+                        <span class="launch-preview-badge">mySupli 1.2.2</span>
+                        <span class="launch-preview-state" data-es="Proxima release" data-en="Next release">Proxima release</span>
+                    </div>
+                    <h3 data-es="La siguiente version de mySupli entra en la fase final de comunicacion" data-en="The next mySupli version enters its final communication phase">La siguiente version de mySupli entra en la fase final de comunicacion</h3>
+                    <p data-es="Landing, changelog y pagina de novedades ya estan alineados para empujar la 1.2.2 con un mensaje publico claro." data-en="Landing, changelog and updates page are now aligned to push 1.2.2 with a clear public message.">Landing, changelog y pagina de novedades ya estan alineados para empujar la 1.2.2 con un mensaje publico claro.</p>
+                    <div class="launch-preview-actions">
+                        <a href="mysupli.html" class="btn-primary" data-es="Ver mySupli" data-en="See mySupli">Ver mySupli</a>
+                        <a href="mysupli-changelog.html" class="btn-secondary" data-es="Ver changelog" data-en="View changelog">Ver changelog</a>
+                    </div>
+                </article>
+                <article class="launch-preview-card reveal reveal-delay-1" data-app="dose">
+                    <div class="launch-preview-top">
+                        <span class="launch-preview-badge">myDose</span>
+                        <span class="launch-preview-state" data-es="Prelanzamiento" data-en="Prelaunch">Prelanzamiento</span>
+                    </div>
+                    <h3 data-es="myDose ya tiene landing propia para empezar a construir contexto" data-en="myDose now has its own landing to start building context">myDose ya tiene landing propia para empezar a construir contexto</h3>
+                    <p data-es="La app sale de la pagina temporal y entra en una fase de presentacion publica previa al lanzamiento." data-en="The app moves out of the temporary page and into a public presentation phase before launch.">La app sale de la pagina temporal y entra en una fase de presentacion publica previa al lanzamiento.</p>
+                    <div class="launch-preview-actions">
+                        <a href="mydose_landing.html" class="btn-primary" data-es="Ver myDose" data-en="See myDose">Ver myDose</a>
+                        <a href="novedades.html" class="btn-secondary" data-es="Ver novedades" data-en="See updates">Ver novedades</a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>

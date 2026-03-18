@@ -11,6 +11,7 @@
         nav: {
             home:      { es: 'Inicio',     en: 'Home' },
             apps:      { es: 'Apps',        en: 'Apps' },
+            updates:   { es: 'Novedades',   en: 'Updates' },
             manifesto: { es: 'Manifiesto',  en: 'Manifesto' },
             contact:   { es: 'Contacto',    en: 'Contact' }
         },
@@ -40,6 +41,7 @@
     function getCurrentPage() {
         var path = window.location.pathname.toLowerCase();
         if (path.indexOf('apps') !== -1) return 'apps';
+        if (path.indexOf('novedades') !== -1) return 'updates';
         if (path.indexOf('mysupli') !== -1) return 'apps';
         if (path.indexOf('mydose') !== -1) return 'apps';
         if (path.indexOf('apoyo') !== -1) return 'support';
@@ -63,6 +65,7 @@
         html += '<ul class="nav-links" id="navLinks">';
         html += '<li><a href="index.html" data-i18n="nav.home" class="' + (currentPage === 'home' ? 'active' : '') + '">Inicio</a></li>';
         html += '<li><a href="apps.html" data-i18n="nav.apps" class="' + (currentPage === 'apps' ? 'active' : '') + '">Apps</a></li>';
+        html += '<li><a href="novedades.html" data-i18n="nav.updates" class="' + (currentPage === 'updates' ? 'active' : '') + '">Novedades</a></li>';
         html += '<li><a href="manifiesto.html" data-i18n="nav.manifesto" class="' + (currentPage === 'manifesto' ? 'active' : '') + '">Manifiesto</a></li>';
         html += '<li><a href="contacto.html" data-i18n="nav.contact" class="' + (currentPage === 'contact' ? 'active' : '') + '">Contacto</a></li>';
         html += '<li><a href="apoyo.html" class="nav-support ' + (currentPage === 'support' ? 'active' : '') + '">☕ <span data-es="Apoyar" data-en="Support"></span></a></li>';
@@ -99,10 +102,12 @@
         html += '    <div class="footer-col">';
         html += '      <h5>Apps</h5>';
         html += '      <a href="mysupli.html">mySupli</a>';
+        html += '      <a href="mydose_landing.html">myDose</a>';
         html += '    </div>';
         html += '    <div class="footer-col">';
         html += '      <h5 data-i18n="footer.pages">Paginas</h5>';
         html += '      <a href="index.html" data-i18n="nav.home">Inicio</a>';
+        html += '      <a href="novedades.html" data-i18n="nav.updates">Novedades</a>';
         html += '      <a href="manifiesto.html" data-i18n="nav.manifesto">Manifiesto</a>';
         html += '      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>';
         html += '    </div>';

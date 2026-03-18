@@ -2,22 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dcsdev1.github.io/Simpliapps/</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://dcsdev1.github.io/Simpliapps/apps.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dcsdev1.github.io/Simpliapps/mysupli.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-16</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dcsdev1.github.io/Simpliapps/mysupli-changelog.html</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-03-16</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://dcsdev1.github.io/Simpliapps/novedades.html</loc>
+    <lastmod>2026-03-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcsdev1.github.io/Simpliapps/mydose_landing.html</loc>
+    <lastmod>2026-03-16</lastmod>
     <priority>0.7</priority>
   </url>
   <url>

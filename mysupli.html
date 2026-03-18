@@ -300,6 +300,92 @@
             font-weight: 300;
         }
 
+        /* ====== WHAT'S NEW ====== */
+        .supli-whats-new {
+            background:
+                radial-gradient(circle at top right, rgba(65,126,134,0.08), transparent 26%),
+                var(--white);
+        }
+
+        .whats-new-shell {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 1.2rem;
+            align-items: start;
+        }
+
+        .whats-new-intro,
+        .whats-new-list {
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 16px 40px rgba(26,26,46,0.05);
+        }
+
+        .whats-new-intro h3,
+        .whats-new-list h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 0.7rem;
+        }
+
+        .whats-new-intro p {
+            font-size: 0.96rem;
+            line-height: 1.75;
+            color: var(--gray);
+            font-weight: 300;
+            margin-bottom: 1.4rem;
+        }
+
+        .whats-new-points {
+            display: grid;
+            gap: 0.8rem;
+        }
+
+        .whats-new-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.9rem;
+            align-items: start;
+            padding: 1rem 1.05rem;
+            border-radius: 18px;
+            background: #FBFBFB;
+            border: 1px solid rgba(26,26,46,0.05);
+        }
+
+        .whats-new-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 56px;
+            height: 28px;
+            padding: 0 0.7rem;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: var(--supli-light);
+            color: var(--supli-dark);
+        }
+
+        .whats-new-item h4 {
+            font-family: var(--font-display);
+            font-size: 1.02rem;
+            color: var(--dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .whats-new-item p {
+            font-size: 0.9rem;
+            line-height: 1.65;
+            color: var(--gray);
+            font-weight: 300;
+        }
+
         /* ====== SCREENSHOTS SECTION ====== */
         .supli-screenshots { background: var(--white); }
 
@@ -488,6 +574,7 @@
             .screen-card.pos-3 { display: none; }
             .features-grid { grid-template-columns: 1fr 1fr; }
             .screenshots-grid { grid-template-columns: repeat(2, 1fr); }
+            .whats-new-shell { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 600px) {
@@ -584,6 +671,7 @@
                 <a href="https://apps.apple.com/us/app/mysupli/id6759226398" class="btn-supli" target="_blank" rel="noopener noreferrer" data-es="Descargar en App Store →" data-en="Download on the App Store →">Descargar en App Store →</a>
                 <a href="#how" class="btn-secondary" data-es="Ver como funciona" data-en="See how it works">Ver como funciona</a>
                 <a href="mysupli-changelog.html" class="btn-secondary" data-es="Ver changelog" data-en="View changelog">Ver changelog</a>
+                <a href="novedades.html" class="btn-secondary" data-es="Ver novedades" data-en="See updates">Ver novedades</a>
             </div>
         </div>
         <div class="supli-hero-visual">
@@ -622,6 +710,57 @@
                 <div class="feature-card reveal"><span class="feature-icon">🎨</span><h3 data-es="Diseño cuidado" data-en="Thoughtful design"></h3><p data-es="Interfaz minimalista y moderna que hace que quieras usarla cada dia." data-en="Minimalist, modern interface that makes you want to use it every day."></p></div>
                 <div class="feature-card reveal"><span class="feature-icon">♥️</span><h3>Apple Health</h3><p data-es="Conectado con la central de salud de Apple para un seguimiento completo." data-en="Connected to Apple's health hub for complete tracking."></p></div>
                 <div class="feature-card reveal"><span class="feature-icon">📱</span><h3 data-es="Widget rapido" data-en="Quick widget"></h3><p data-es="Consulta tus suplementos del dia directamente desde la pantalla de inicio." data-en="Check today's supplements directly from your home screen."></p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section supli-whats-new" id="whats-new">
+        <div class="container">
+            <div class="reveal">
+                <p class="section-label" data-es="Novedades" data-en="What's new">Novedades</p>
+                <h2 class="section-title">
+                    <span data-es="Lo mas interesante de <em style='color:var(--supli)'>mySupli 1.2.1</em>" data-en="The most interesting part of <em style='color:var(--supli)'>mySupli 1.2.1</em>">Lo mas interesante de <em style='color:var(--supli)'>mySupli 1.2.1</em></span>
+                </h2>
+                <p class="section-subtitle" data-es="Mientras preparamos la 1.2.2, esta es la ultima release publica con cambios visibles que ya estan en la app." data-en="While we prepare 1.2.2, this is the latest public release with visible changes already available in the app.">Mientras preparamos la 1.2.2, esta es la ultima release publica con cambios visibles que ya estan en la app.</p>
+            </div>
+            <div class="whats-new-shell">
+                <div class="whats-new-intro reveal">
+                    <h3 data-es="Mejoras que si se notan" data-en="Improvements you can feel">Mejoras que si se notan</h3>
+                    <p data-es="Hemos seleccionado solo los cambios con impacto real en el uso diario. La estructura tambien queda lista para comunicar la 1.2.2 en cuanto cierres el copy final." data-en="We selected only the changes with real daily impact. The structure is also ready to communicate 1.2.2 as soon as the final copy is closed.">Hemos seleccionado solo los cambios con impacto real en el uso diario. La estructura tambien queda lista para comunicar la 1.2.2 en cuanto cierres el copy final.</p>
+                    <a href="mysupli-changelog.html" class="btn-secondary" data-es="Ver changelog completo" data-en="View full changelog">Ver changelog completo</a>
+                </div>
+                <div class="whats-new-list">
+                    <div class="whats-new-points">
+                        <div class="whats-new-item reveal">
+                            <span class="whats-new-badge">New</span>
+                            <div>
+                                <h4 data-es="Suplementos multiples en la app" data-en="Multiple supplements in the app">Suplementos multiples en la app</h4>
+                                <p data-es="Ahora es mucho mas claro crear y editar rutinas complejas o combinadas desde iPhone." data-en="It is now much clearer to create and edit combined or more complex routines from iPhone.">Ahora es mucho mas claro crear y editar rutinas complejas o combinadas desde iPhone.</p>
+                            </div>
+                        </div>
+                        <div class="whats-new-item reveal">
+                            <span class="whats-new-badge">CSV</span>
+                            <div>
+                                <h4 data-es="Importacion CSV mas robusta" data-en="More robust CSV import">Importacion CSV mas robusta</h4>
+                                <p data-es="Importar rutinas y complejos es mas fiable, con mejor validacion y menos errores al preparar tu plan." data-en="Importing routines and complexes is more reliable, with better validation and fewer errors when setting up your plan.">Importar rutinas y complejos es mas fiable, con mejor validacion y menos errores al preparar tu plan.</p>
+                            </div>
+                        </div>
+                        <div class="whats-new-item reveal">
+                            <span class="whats-new-badge">Track</span>
+                            <div>
+                                <h4 data-es="Historial y progreso mas precisos" data-en="More accurate history and progress">Historial y progreso mas precisos</h4>
+                                <p data-es="La adherencia, la racha y el historial reflejan mejor lo que realmente tomas cada dia." data-en="Adherence, streak and history now reflect more accurately what you actually take each day.">La adherencia, la racha y el historial reflejan mejor lo que realmente tomas cada dia.</p>
+                            </div>
+                        </div>
+                        <div class="whats-new-item reveal">
+                            <span class="whats-new-badge">Flow</span>
+                            <div>
+                                <h4 data-es="Mejor soporte para ciclos y frecuencias" data-en="Better support for cycles and frequencies">Mejor soporte para ciclos y frecuencias</h4>
+                                <p data-es="mySupli entiende mejor los dias activos, los descansos y las rutinas que no siguen un patron fijo." data-en="mySupli now handles active days, off days and routines that do not follow a rigid pattern more coherently.">mySupli entiende mejor los dias activos, los descansos y las rutinas que no siguen un patron fijo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

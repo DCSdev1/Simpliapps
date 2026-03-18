@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novedades de Simpli | Lanzamientos y proximas releases</title>
+    <meta name="description" content="Sigue las novedades de Simpli: la salida de mySupli 1.2.2 y el prelanzamiento de myDose, con resumen claro y enlaces directos a cada app.">
+    <meta name="author" content="Daniel Carrion - Simpli">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/novedades.html">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Novedades de Simpli | Lanzamientos y proximas releases">
+    <meta property="og:description" content="mySupli 1.2.2 esta en camino y myDose entra en prelanzamiento. Sigue desde aqui las novedades del ecosistema Simpli.">
+    <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/novedades.html">
+    <meta property="og:site_name" content="Simpli">
+    <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/res/supli/screen2.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Novedades de Simpli">
+    <meta name="twitter:description" content="Lanzamientos, releases y proximos pasos de mySupli y myDose.">
+    <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/res/supli/screen2.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Novedades de Simpli",
+        "url": "https://dcsdev1.github.io/Simpliapps/novedades.html",
+        "description": "Pagina de lanzamientos y novedades del ecosistema Simpli."
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .news-hero {
+            padding: 10rem 2rem 4rem;
+            background:
+                radial-gradient(circle at top right, rgba(65,126,134,0.08), transparent 24%),
+                radial-gradient(circle at bottom left, rgba(59,114,147,0.08), transparent 24%),
+                #FCFCFB;
+        }
+
+        .news-hero-shell {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        .news-copy,
+        .news-summary {
+            background: rgba(255,255,255,0.88);
+            border: 1px solid rgba(26,26,46,0.05);
+            border-radius: 28px;
+            padding: 2.4rem;
+            box-shadow: 0 18px 54px rgba(26,26,46,0.05);
+        }
+
+        .news-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.45rem 0.95rem;
+            border-radius: 999px;
+            background: #F2F4F7;
+            color: #1A1A2E;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.2rem;
+        }
+
+        .news-copy h1,
+        .launch-card h2,
+        .news-summary h2 {
+            font-family: var(--font-display);
+            letter-spacing: -0.03em;
+            color: var(--dark);
+        }
+
+        .news-copy h1 {
+            font-size: clamp(2.4rem, 5vw, 4.5rem);
+            line-height: 1.03;
+            margin-bottom: 1rem;
+        }
+
+        .news-copy p,
+        .launch-card p,
+        .summary-item span {
+            color: var(--gray);
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        .news-actions {
+            display: flex;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+            margin-top: 1.7rem;
+        }
+
+        .news-summary h2 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .summary-list {
+            display: grid;
+            gap: 0.85rem;
+        }
+
+        .summary-item {
+            padding: 1rem 1.1rem;
+            border-radius: 18px;
+            background: #FBFBFB;
+            border: 1px solid rgba(26,26,46,0.05);
+        }
+
+        .summary-item strong {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.25rem;
+        }
+
+        .launches-section {
+            padding: 0 2rem 5rem;
+        }
+
+        .launches-grid {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            gap: 1.2rem;
+        }
+
+        .launch-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(26,26,46,0.05);
+            border-radius: 28px;
+            padding: 2.1rem;
+            box-shadow: 0 14px 44px rgba(26,26,46,0.04);
+        }
+
+        .launch-card[data-app="mysupli"] {
+            background: linear-gradient(180deg, rgba(227,240,241,0.45) 0%, #FFFFFF 100%);
+        }
+
+        .launch-card[data-app="mydose"] {
+            background: linear-gradient(180deg, rgba(224,236,243,0.45) 0%, #FFFFFF 100%);
+        }
+
+        .launch-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .launch-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .launch-card[data-app="mysupli"] .launch-badge {
+            background: #E3F0F1;
+            color: #2D5A60;
+        }
+
+        .launch-card[data-app="mydose"] .launch-badge {
+            background: #E0ECF3;
+            color: #2A5570;
+        }
+
+        .launch-state {
+            font-size: 0.82rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        .launch-card h2 {
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            line-height: 1.08;
+            margin-bottom: 0.9rem;
+        }
+
+        .launch-points {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.9rem;
+            margin-top: 1.5rem;
+        }
+
+        .launch-point {
+            padding: 1rem;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.82);
+            border: 1px solid rgba(26,26,46,0.05);
+        }
+
+        .launch-point strong {
+            display: block;
+            font-size: 0.88rem;
+            margin-bottom: 0.35rem;
+            color: var(--dark);
+        }
+
+        .launch-point span {
+            color: var(--gray);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .launch-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .launch-note {
+            margin-top: 1rem;
+            font-size: 0.84rem;
+            color: var(--gray);
+        }
+
+        @media (max-width: 900px) {
+            .news-hero-shell,
+            .launch-points {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="news-hero">
+            <div class="news-hero-shell">
+                <div class="news-copy reveal">
+                    <span class="news-label" data-es="Simpli updates" data-en="Simpli updates">Simpli updates</span>
+                    <h1 data-es="Preparamos la web para los siguientes lanzamientos" data-en="Preparing the site for the next launches">Preparamos la web para los siguientes lanzamientos</h1>
+                    <p data-es="Esta pagina reune lo que viene a continuacion en Simpli: la salida de mySupli 1.2.2 y el prelanzamiento de myDose. La idea es centralizar novedades, dar contexto a cada app y mantener un flujo claro de lanzamiento." data-en="This page brings together what is coming next in Simpli: the release of mySupli 1.2.2 and the prelaunch of myDose. The goal is to centralize updates, give context to each app and keep a clear launch flow.">Esta pagina reune lo que viene a continuacion en Simpli: la salida de mySupli 1.2.2 y el prelanzamiento de myDose. La idea es centralizar novedades, dar contexto a cada app y mantener un flujo claro de lanzamiento.</p>
+                    <div class="news-actions">
+                        <a href="apps.html" class="btn-primary" data-es="Ver apps" data-en="See apps">Ver apps</a>
+                        <a href="contacto.html" class="btn-secondary" data-es="Contacto" data-en="Contact">Contacto</a>
+                    </div>
+                </div>
+                <aside class="news-summary reveal reveal-delay-1">
+                    <h2 data-es="Resumen rapido" data-en="Quick summary">Resumen rapido</h2>
+                    <div class="summary-list">
+                        <div class="summary-item"><strong>mySupli</strong><span data-es="Version 1.2.2 preparada como siguiente release publica." data-en="Version 1.2.2 prepared as the next public release.">Version 1.2.2 preparada como siguiente release publica.</span></div>
+                        <div class="summary-item"><strong>myDose</strong><span data-es="Landing de prelanzamiento ya visible para empezar a captar interes." data-en="Prelaunch landing now visible to start capturing interest.">Landing de prelanzamiento ya visible para empezar a captar interes.</span></div>
+                        <div class="summary-item"><strong>Flujo</strong><span data-es="Landing, novedades, changelog y apps ya conectados entre si." data-en="Landing, updates, changelog and apps are now linked together.">Landing, novedades, changelog y apps ya conectados entre si.</span></div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="launches-section">
+            <div class="launches-grid">
+                <article class="launch-card reveal" data-app="mysupli">
+                    <div class="launch-top">
+                        <span class="launch-badge">mySupli 1.2.2</span>
+                        <span class="launch-state" data-es="Proxima release" data-en="Next release">Proxima release</span>
+                    </div>
+                    <h2 data-es="La siguiente actualizacion de mySupli ya tiene espacio propio en la web" data-en="The next mySupli update already has its own place on the site">La siguiente actualizacion de mySupli ya tiene espacio propio en la web</h2>
+                    <p data-es="La web queda lista para comunicar la 1.2.2 sin mezclar marketing con notas tecnicas. Desde aqui se puede empujar la landing, el changelog y la descarga en App Store con un mensaje coherente." data-en="The site is now ready to communicate 1.2.2 without mixing marketing with technical notes. From here we can push the landing, the changelog and the App Store download with a coherent message.">La web queda lista para comunicar la 1.2.2 sin mezclar marketing con notas tecnicas. Desde aqui se puede empujar la landing, el changelog y la descarga en App Store con un mensaje coherente.</p>
+                    <div class="launch-points">
+                        <div class="launch-point"><strong data-es="Landing actualizada" data-en="Updated landing">Landing actualizada</strong><span data-es="mySupli ya cuenta con una seccion de novedades recientes orientada a usuario." data-en="mySupli already includes a recent updates section aimed at users.">mySupli ya cuenta con una seccion de novedades recientes orientada a usuario.</span></div>
+                        <div class="launch-point"><strong data-es="Changelog preparado" data-en="Changelog prepared">Changelog preparado</strong><span data-es="La pagina de changelog permite ir sumando releases publicas sin rehacer la estructura." data-en="The changelog page lets us add public releases without rebuilding the structure.">La pagina de changelog permite ir sumando releases publicas sin rehacer la estructura.</span></div>
+                        <div class="launch-point"><strong data-es="Apps y home conectadas" data-en="Apps and home connected">Apps y home conectadas</strong><span data-es="La home y el listado de apps ya pueden empujar esta actualizacion como proxima novedad." data-en="Home and the apps listing can now push this update as the next notable release.">La home y el listado de apps ya pueden empujar esta actualizacion como proxima novedad.</span></div>
+                        <div class="launch-point"><strong data-es="Listo para publicar copy" data-en="Ready for release copy">Listo para publicar copy</strong><span data-es="Solo faltaria sustituir el texto teaser por los highlights finales de la 1.2.2." data-en="Only the teaser copy needs to be replaced by the final 1.2.2 highlights.">Solo faltaria sustituir el texto teaser por los highlights finales de la 1.2.2.</span></div>
+                    </div>
+                    <div class="launch-actions">
+                        <a href="mysupli.html" class="btn-primary" data-es="Ver mySupli" data-en="See mySupli">Ver mySupli</a>
+                        <a href="mysupli-changelog.html" class="btn-secondary" data-es="Ver changelog" data-en="View changelog">Ver changelog</a>
+                        <a href="https://apps.apple.com/us/app/mysupli/id6759226398" class="btn-secondary" target="_blank" rel="noopener noreferrer" data-es="Abrir App Store" data-en="Open App Store">Abrir App Store</a>
+                    </div>
+                </article>
+
+                <article class="launch-card reveal reveal-delay-1" data-app="mydose">
+                    <div class="launch-top">
+                        <span class="launch-badge">myDose</span>
+                        <span class="launch-state" data-es="Prelanzamiento" data-en="Prelaunch">Prelanzamiento</span>
+                    </div>
+                    <h2 data-es="myDose pasa de pagina oculta a landing de prelaunch" data-en="myDose moves from hidden page to prelaunch landing">myDose pasa de pagina oculta a landing de prelaunch</h2>
+                    <p data-es="En vez de esconder la app hasta el ultimo momento, la web ya puede empezar a construir contexto. Hay propuesta de valor, estructura de producto y una ruta publica para quien quiera seguirla antes del lanzamiento." data-en="Instead of hiding the app until the last moment, the site can now start building context. There is a value proposition, product structure and a public path for anyone who wants to follow it before launch.">En vez de esconder la app hasta el ultimo momento, la web ya puede empezar a construir contexto. Hay propuesta de valor, estructura de producto y una ruta publica para quien quiera seguirla antes del lanzamiento.</p>
+                    <div class="launch-points">
+                        <div class="launch-point"><strong data-es="Landing publica" data-en="Public landing">Landing publica</strong><span data-es="myDose deja de apuntar a una pagina generica y recupera su propia presentacion." data-en="myDose stops pointing to a generic page and gets back its own presentation page.">myDose deja de apuntar a una pagina generica y recupera su propia presentacion.</span></div>
+                        <div class="launch-point"><strong data-es="Mensaje de estado claro" data-en="Clear status messaging">Mensaje de estado claro</strong><span data-es="La pagina deja claro que todavia no esta publicada, pero ya transmite el producto." data-en="The page makes it clear that it is not published yet, while still conveying the product.">La pagina deja claro que todavia no esta publicada, pero ya transmite el producto.</span></div>
+                        <div class="launch-point"><strong data-es="Captacion temprana" data-en="Early awareness">Captacion temprana</strong><span data-es="La home, apps y novedades ya pueden empezar a llevar trafico hacia myDose." data-en="Home, apps and updates can already start driving traffic to myDose.">La home, apps y novedades ya pueden empezar a llevar trafico hacia myDose.</span></div>
+                        <div class="launch-point"><strong data-es="Lista para completar" data-en="Ready to complete">Lista para completar</strong><span data-es="Cuando tengas capturas y copy final, la estructura ya esta preparada para publicarla sin rehacer la pagina." data-en="Once screenshots and final copy are ready, the structure is already prepared to publish without rebuilding the page.">Cuando tengas capturas y copy final, la estructura ya esta preparada para publicarla sin rehacer la pagina.</span></div>
+                    </div>
+                    <div class="launch-actions">
+                        <a href="mydose_landing.html" class="btn-primary" data-es="Ver myDose" data-en="See myDose">Ver myDose</a>
+                        <a href="apps.html#mydose-card" class="btn-secondary" data-es="Ver en apps" data-en="See in apps">Ver en apps</a>
+                        <a href="contacto.html" class="btn-secondary" data-es="Enviar feedback" data-en="Send feedback">Enviar feedback</a>
+                    </div>
+                    <p class="launch-note" data-es="Cuando exista la ficha de App Store, esta pagina ya puede pasar de prelanzamiento a lanzamiento real con cambios minimos." data-en="Once the App Store page exists, this page can move from prelaunch to real launch with minimal changes.">Cuando exista la ficha de App Store, esta pagina ya puede pasar de prelanzamiento a lanzamiento real con cambios minimos.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
