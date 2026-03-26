@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apps de Simpli | mySupli disponible y myDose en prelanzamiento</title>
-    <meta name="description" content="Explora las apps de Simpli. Descubre mySupli en App Store y sigue el prelanzamiento de myDose con una estructura clara para nuevos lanzamientos.">
+    <title>Apps de Simpli | mySupli y myDose disponibles en App Store</title>
+    <meta name="description" content="Explora las apps de Simpli. Descubre mySupli y myDose en App Store, con un enfoque simple para suplementos, medicacion y bienestar.">
     <meta name="author" content="Daniel Carrion - Simpli">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/apps.html">
     <meta name="theme-color" content="#FFFFFF">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Apps de Simpli | mySupli y myDose">
-    <meta property="og:description" content="mySupli ya esta disponible y myDose entra en prelanzamiento dentro del ecosistema Simpli.">
+    <meta property="og:description" content="mySupli y myDose ya estan disponibles en App Store dentro del ecosistema Simpli.">
     <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/apps.html">
     <meta property="og:site_name" content="Simpli">
     <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/res/supli/screen2.png">
     <meta property="og:image:alt" content="Captura de pantalla de mySupli">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Apps de Simpli | mySupli y myDose">
-    <meta name="twitter:description" content="mySupli ya esta disponible y myDose se prepara para su lanzamiento.">
+    <meta name="twitter:description" content="mySupli y myDose ya estan disponibles en App Store.">
     <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/res/supli/screen2.png">
     <script type="application/ld+json">
     {
@@ -39,7 +39,8 @@
             {
                 "@type": "SoftwareApplication",
                 "name": "myDose",
-                "url": "https://dcsdev1.github.io/Simpliapps/mydose_landing.html",
+                "url": "https://dcsdev1.github.io/Simpliapps/mydose.html",
+                "downloadUrl": "https://apps.apple.com/us/app/mydose/id6760656547",
                 "applicationCategory": "HealthApplication",
                 "operatingSystem": "iOS"
             }
@@ -240,6 +241,42 @@
             text-align: center;
         }
 
+        .resources-section {
+            padding: 0 2rem 5rem;
+            background: var(--white);
+        }
+
+        .resources-grid {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 2.5rem;
+        }
+
+        .resource-card {
+            padding: 1.6rem;
+            border-radius: 18px;
+            background: #FBFBFB;
+            border: 1px solid rgba(0,0,0,0.05);
+            text-decoration: none;
+        }
+
+        .resource-card strong {
+            display: block;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .resource-card span {
+            color: var(--gray);
+            line-height: 1.6;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
         .ecosystem-note-inner {
             max-width: 600px;
             margin: 0 auto;
@@ -270,7 +307,8 @@
         }
 
         @media (max-width: 900px) {
-            .apps-grid { grid-template-columns: 1fr; }
+            .apps-grid,
+            .resources-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -280,7 +318,7 @@
     <!-- ====== HERO ====== -->
     <section class="apps-hero">
         <h1 data-es="Nuestras Apps" data-en="Our Apps">Nuestras Apps</h1>
-        <p data-es="Cada app del ecosistema Simpli esta diseñada con un unico proposito: hacer tu vida un poco mas facil. mySupli sigue creciendo y myDose ya entra en prelanzamiento." data-en="Every app in the Simpli ecosystem is designed with a single purpose: to make your life a little easier. mySupli keeps growing and myDose is now entering prelaunch.">Cada app del ecosistema Simpli esta diseñada con un unico proposito: hacer tu vida un poco mas facil. mySupli sigue creciendo y myDose ya entra en prelanzamiento.</p>
+        <p data-es="Cada app del ecosistema Simpli esta diseñada con un unico proposito: hacer tu vida un poco mas facil. mySupli y myDose ya estan disponibles con el mismo enfoque de claridad, privacidad y simplicidad." data-en="Every app in the Simpli ecosystem is designed with a single purpose: to make your life a little easier. mySupli and myDose are already available with the same focus on clarity, privacy and simplicity.">Cada app del ecosistema Simpli esta diseñada con un unico proposito: hacer tu vida un poco mas facil. mySupli y myDose ya estan disponibles con el mismo enfoque de claridad, privacidad y simplicidad.</p>
     </section>
 
     <!-- ====== APPS GRID ====== -->
@@ -291,7 +329,7 @@
                 <article class="app-card has-footer reveal reveal-delay-1" data-app="supli" id="mysupli-card">
                     <div class="app-icon"><img src="icon/icon-supli.png" alt="Icono de la app mySupli"></div>
                     <h3>mySupli</h3>
-                    <span class="app-tag" data-es="Suplementacion · Disponible · 1.2.2 en camino" data-en="Supplements · Available now · 1.2.2 coming soon">Suplementacion · Disponible · 1.2.2 en camino</span>
+                    <span class="app-tag" data-es="Suplementacion · Disponible" data-en="Supplements · Available now">Suplementacion · Disponible</span>
                     <p data-es="Gestion inteligente de tu suplementacion diaria. Control simple de lo que tu cuerpo necesita. Registra, organiza y nunca olvides tus suplementos." data-en="Smart daily supplement management. Simple tracking of what your body needs. Log, organize and never forget your supplements.">Gestion inteligente de tu suplementacion diaria. Control simple de lo que tu cuerpo necesita. Registra, organiza y nunca olvides tus suplementos.</p>
                     <div class="app-card-footer">
                         <a href="mysupli.html" class="app-store-link">
@@ -307,19 +345,35 @@
                 <article class="app-card has-footer reveal reveal-delay-2" data-app="dose" id="mydose-card">
                     <div class="app-icon"><img src="icon/icon-dose.png" alt="Icono de la app myDose"></div>
                     <h3>myDose</h3>
-                    <span class="app-tag" data-es="Medicacion · Prelanzamiento" data-en="Medication · Prelaunch">Medicacion · Prelanzamiento</span>
-                    <p data-es="Control de dosis y medicacion sin complicaciones. Tu salud, organizada y segura. La landing ya esta preparada para empezar a contar el producto antes del lanzamiento." data-en="Dose and medication tracking without complications. Your health, organized and safe. The landing is now ready to start presenting the product before launch.">Control de dosis y medicacion sin complicaciones. Tu salud, organizada y segura. La landing ya esta preparada para empezar a contar el producto antes del lanzamiento.</p>
+                    <span class="app-tag" data-es="Medicacion · Disponible" data-en="Medication · Available now">Medicacion · Disponible</span>
+                    <p data-es="Control de dosis y medicacion sin complicaciones. Recordatorios claros, historial simple y una experiencia privada desde el primer dia." data-en="Dose and medication tracking without complications. Clear reminders, simple history and a private experience from day one.">Control de dosis y medicacion sin complicaciones. Recordatorios claros, historial simple y una experiencia privada desde el primer dia.</p>
                     <div class="app-card-footer">
-                        <a href="mydose_landing.html" class="app-store-link">
+                        <a href="mydose.html" class="app-store-link">
                             <span data-es="Ver mas" data-en="See more">Ver mas</span>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                         </a>
-                        <a href="novedades.html" class="app-card-download" style="background:#3B7293;" data-es="Prelaunch" data-en="Prelaunch">
+                        <a href="https://apps.apple.com/us/app/mydose/id6760656547" class="app-card-download" style="background:#3B7293;" target="_blank" rel="noopener noreferrer" data-es="Descargar" data-en="Download">
                             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
-                            <span data-es="Prelaunch" data-en="Prelaunch">Prelaunch</span>
+                            <span data-es="Descargar" data-en="Download">Descargar</span>
                         </a>
                     </div>
                 </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="resources-section">
+        <div class="container">
+            <div class="reveal" style="text-align:center;">
+                <p class="section-label" data-es="Recursos" data-en="Resources">Recursos</p>
+                <h2 class="section-title" data-es="Guias y recursos utiles" data-en="Useful guides and resources">Guias y recursos utiles</h2>
+                <p class="section-subtitle" data-es="Contenido pensado para resolver dudas reales sobre suplementos y medicacion, con acceso directo a la app que mejor encaja en cada caso." data-en="Content designed to answer real questions about supplements and medication, with direct access to the app that best fits each case.">Contenido pensado para resolver dudas reales sobre suplementos y medicacion, con acceso directo a la app que mejor encaja en cada caso.</p>
+            </div>
+            <div class="resources-grid">
+                <a class="resource-card reveal" href="app-suplementos-iphone.html"><strong>App de suplementos para iPhone</strong><span>Guia para elegir una app de suplementos y entender donde encaja mySupli.</span></a>
+                <a class="resource-card reveal" href="organizar-suplementos-diarios.html"><strong>Como organizar suplementos diarios</strong><span>Una rutina simple para ordenar horarios, registros y seguimiento.</span></a>
+                <a class="resource-card reveal" href="app-recordatorio-medicacion-iphone.html"><strong>App para recordar medicacion en iPhone</strong><span>Lo que deberia ofrecer una app seria para no depender de alarmas sueltas.</span></a>
+                <a class="resource-card reveal" href="no-olvidar-medicacion.html"><strong>Como no olvidar la medicacion</strong><span>Consejos practicos para reducir olvidos y ganar tranquilidad cada dia.</span></a>
             </div>
         </div>
     </section>

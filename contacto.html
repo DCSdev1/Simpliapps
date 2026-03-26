@@ -285,6 +285,20 @@
             box-shadow: none;
         }
 
+        .form-legal {
+            margin-top: 0.9rem;
+            color: var(--gray);
+            font-size: 0.78rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .form-legal a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
         .form-success {
             display: none;
             text-align: center;
@@ -527,6 +541,7 @@
                         <button type="submit" class="form-submit" id="submitBtn">
                             <span data-es="Enviar mensaje →" data-en="Send message →">Enviar mensaje →</span>
                         </button>
+                        <p class="form-legal" data-es="Al enviar este formulario, aceptas que usemos tus datos para responderte. El envio se procesa mediante Web3Forms. Mas informacion en la <a href='privacy-web.html'>privacidad web</a>." data-en="By sending this form, you agree that we use your data to reply to you. Submission is processed through Web3Forms. More information in the <a href='privacy-web.html'>website privacy policy</a>.">Al enviar este formulario, aceptas que usemos tus datos para responderte. El envio se procesa mediante Web3Forms. Mas informacion en la <a href='privacy-web.html'>privacidad web</a>.</p>
                         <p class="form-result" id="formResult" aria-live="polite"></p>
                     </form>
 

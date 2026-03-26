@@ -102,7 +102,7 @@
         html += '    <div class="footer-col">';
         html += '      <h5>Apps</h5>';
         html += '      <a href="mysupli.html">mySupli</a>';
-        html += '      <a href="mydose_landing.html">myDose</a>';
+        html += '      <a href="mydose.html">myDose</a>';
         html += '    </div>';
         html += '    <div class="footer-col">';
         html += '      <h5 data-i18n="footer.pages">Paginas</h5>';
@@ -113,7 +113,9 @@
         html += '    </div>';
         html += '    <div class="footer-col">';
         html += '      <h5 data-i18n="footer.legal">Legal</h5>';
-        html += '      <a href="privacy-mysupli.html" data-i18n="footer.privacy">Privacidad</a>';
+        html += '      <a href="privacy-web.html">Privacidad web</a>';
+        html += '      <a href="privacy-mysupli.html">Privacidad mySupli</a>';
+        html += '      <a href="privacy-mydose.html">Privacidad myDose</a>';
         html += '      <a href="contacto.html">Soporte</a>';
         html += '    </div>';
         html += '  </div>';
@@ -246,14 +248,11 @@
         });
     }
 
-    // ====== GOOGLE ANALYTICS 4 ======
-    // Para activar GA4:
-    // 1. Ve a https://analytics.google.com
-    // 2. Crea una cuenta y propiedad web
-    // 3. Copia tu Measurement ID (empieza con G-)
-    // 4. Reemplaza 'G-9FVQWDBWGG' abajo con tu ID
+    // ====== ANALYTICS ======
+    // Desactivado por defecto hasta disponer de una solucion
+    // valida de informacion y consentimiento para cookies/medicion.
     function initAnalytics() {
-        var GA_ID = 'G-9FVQWDBWGG';
+        var GA_ID = '';
         if (!GA_ID || GA_ID.indexOf('XXXX') !== -1) return;
 
         var script = document.createElement('script');

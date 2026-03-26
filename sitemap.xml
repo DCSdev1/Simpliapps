@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dcsdev1.github.io/Simpliapps/</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-23</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://dcsdev1.github.io/Simpliapps/apps.html</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-23</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://dcsdev1.github.io/Simpliapps/mysupli.html</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-23</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
@@ -22,18 +22,38 @@
   </url>
   <url>
     <loc>https://dcsdev1.github.io/Simpliapps/novedades.html</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-23</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dcsdev1.github.io/Simpliapps/mydose_landing.html</loc>
-    <lastmod>2026-03-18</lastmod>
+    <loc>https://dcsdev1.github.io/Simpliapps/mydose.html</loc>
+    <lastmod>2026-03-23</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://dcsdev1.github.io/Simpliapps/privacy-mydose.html</loc>
-    <lastmod>2026-03-18</lastmod>
+    <lastmod>2026-03-19</lastmod>
     <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://dcsdev1.github.io/Simpliapps/app-suplementos-iphone.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcsdev1.github.io/Simpliapps/organizar-suplementos-diarios.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcsdev1.github.io/Simpliapps/app-recordatorio-medicacion-iphone.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcsdev1.github.io/Simpliapps/no-olvidar-medicacion.html</loc>
+    <lastmod>2026-03-19</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dcsdev1.github.io/Simpliapps/manifiesto.html</loc>
@@ -42,8 +62,13 @@
   </url>
   <url>
     <loc>https://dcsdev1.github.io/Simpliapps/contacto.html</loc>
-    <lastmod>2026-03-06</lastmod>
+    <lastmod>2026-03-23</lastmod>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://dcsdev1.github.io/Simpliapps/privacy-web.html</loc>
+    <lastmod>2026-03-23</lastmod>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://dcsdev1.github.io/Simpliapps/privacy-mysupli.html</loc>

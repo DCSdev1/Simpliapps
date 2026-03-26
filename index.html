@@ -391,6 +391,43 @@
             margin-top: 1.4rem;
         }
 
+        .guides-preview {
+            padding: 6rem 2rem;
+            background: #FCFCFB;
+        }
+
+        .guides-preview-grid {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .guide-preview-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 1.6rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            text-decoration: none;
+            box-shadow: 0 14px 44px rgba(26,26,46,0.04);
+        }
+
+        .guide-preview-card strong {
+            display: block;
+            color: var(--dark);
+            margin-bottom: 0.55rem;
+            font-size: 1rem;
+        }
+
+        .guide-preview-card span {
+            color: var(--gray);
+            line-height: 1.6;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
         /* Philosophy banner */
         .philosophy-banner {
             background: var(--dark);
@@ -435,7 +472,8 @@
             .spotlight-card { grid-template-columns: 1fr; text-align: center; }
             .spotlight-copy p { margin: 0 auto; }
             .spotlight-actions { justify-content: center; }
-            .launches-preview-grid { grid-template-columns: 1fr; }
+            .launches-preview-grid,
+            .guides-preview-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 600px) {
@@ -526,16 +564,16 @@
             <div class="reveal">
                 <p class="section-label" data-es="Lanzamientos" data-en="Launches">Lanzamientos</p>
                 <h2 class="section-title" data-es="Lo siguiente en Simpli" data-en="What comes next in Simpli">Lo siguiente en Simpli</h2>
-                <p class="section-subtitle" data-es="La web ya esta preparada para comunicar tanto la siguiente release de mySupli como el prelanzamiento de myDose." data-en="The site is now prepared to communicate both the next mySupli release and the prelaunch of myDose.">La web ya esta preparada para comunicar tanto la siguiente release de mySupli como el prelanzamiento de myDose.</p>
+                <p class="section-subtitle" data-es="Dos apps, un mismo enfoque: mySupli y myDose ya se pueden descargar con una experiencia simple, clara y centrada en la privacidad." data-en="Two apps, one shared approach: mySupli and myDose are already available with a simple, clear and privacy-focused experience.">Dos apps, un mismo enfoque: mySupli y myDose ya se pueden descargar con una experiencia simple, clara y centrada en la privacidad.</p>
             </div>
             <div class="launches-preview-grid">
                 <article class="launch-preview-card reveal" data-app="supli">
                     <div class="launch-preview-top">
                         <span class="launch-preview-badge">mySupli 1.2.2</span>
-                        <span class="launch-preview-state" data-es="Proxima release" data-en="Next release">Proxima release</span>
+                        <span class="launch-preview-state" data-es="Disponible" data-en="Available">Disponible</span>
                     </div>
-                    <h3 data-es="La siguiente version de mySupli entra en la fase final de comunicacion" data-en="The next mySupli version enters its final communication phase">La siguiente version de mySupli entra en la fase final de comunicacion</h3>
-                    <p data-es="Landing, changelog y pagina de novedades ya estan alineados para empujar la 1.2.2 con un mensaje publico claro." data-en="Landing, changelog and updates page are now aligned to push 1.2.2 with a clear public message.">Landing, changelog y pagina de novedades ya estan alineados para empujar la 1.2.2 con un mensaje publico claro.</p>
+                    <h3 data-es="mySupli sigue creciendo sin perder simplicidad" data-en="mySupli keeps growing without losing simplicity">mySupli sigue creciendo sin perder simplicidad</h3>
+                    <p data-es="La app ya esta en App Store y sigue mejorando en organizacion, seguimiento y claridad para tu rutina diaria de suplementos." data-en="The app is already on the App Store and keeps improving in organization, tracking and clarity for your daily supplement routine.">La app ya esta en App Store y sigue mejorando en organizacion, seguimiento y claridad para tu rutina diaria de suplementos.</p>
                     <div class="launch-preview-actions">
                         <a href="mysupli.html" class="btn-primary" data-es="Ver mySupli" data-en="See mySupli">Ver mySupli</a>
                         <a href="mysupli-changelog.html" class="btn-secondary" data-es="Ver changelog" data-en="View changelog">Ver changelog</a>
@@ -544,15 +582,31 @@
                 <article class="launch-preview-card reveal reveal-delay-1" data-app="dose">
                     <div class="launch-preview-top">
                         <span class="launch-preview-badge">myDose</span>
-                        <span class="launch-preview-state" data-es="Prelanzamiento" data-en="Prelaunch">Prelanzamiento</span>
+                        <span class="launch-preview-state" data-es="Disponible" data-en="Available">Disponible</span>
                     </div>
-                    <h3 data-es="myDose ya tiene landing propia para empezar a construir contexto" data-en="myDose now has its own landing to start building context">myDose ya tiene landing propia para empezar a construir contexto</h3>
-                    <p data-es="La app sale de la pagina temporal y entra en una fase de presentacion publica previa al lanzamiento." data-en="The app moves out of the temporary page and into a public presentation phase before launch.">La app sale de la pagina temporal y entra en una fase de presentacion publica previa al lanzamiento.</p>
+                    <h3 data-es="myDose se centra en recordatorios claros y privacidad" data-en="myDose focuses on clear reminders and privacy">myDose se centra en recordatorios claros y privacidad</h3>
+                    <p data-es="myDose ya esta en App Store con una propuesta clara: alertas escaladas, historial simple y control local de tu medicacion." data-en="myDose is already on the App Store with a clear promise: escalated alerts, simple history and local control of your medication.">myDose ya esta en App Store con una propuesta clara: alertas escaladas, historial simple y control local de tu medicacion.</p>
                     <div class="launch-preview-actions">
-                        <a href="mydose_landing.html" class="btn-primary" data-es="Ver myDose" data-en="See myDose">Ver myDose</a>
-                        <a href="novedades.html" class="btn-secondary" data-es="Ver novedades" data-en="See updates">Ver novedades</a>
+                        <a href="mydose.html" class="btn-primary" data-es="Ver myDose" data-en="See myDose">Ver myDose</a>
+                        <a href="https://apps.apple.com/us/app/mydose/id6760656547" class="btn-secondary" target="_blank" rel="noopener noreferrer" data-es="App Store" data-en="App Store">App Store</a>
                     </div>
                 </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="guides-preview">
+        <div class="container">
+            <div class="reveal">
+                <p class="section-label" data-es="Guias" data-en="Guides">Guias</p>
+                <h2 class="section-title" data-es="Guias utiles para empezar mejor" data-en="Useful guides to get started better">Guias utiles para empezar mejor</h2>
+                <p class="section-subtitle" data-es="Contenido pensado para resolver dudas reales sobre suplementos y medicacion, con contexto claro y enlaces directos a cada app." data-en="Content designed to answer real questions about supplements and medication, with clear context and direct links to each app.">Contenido pensado para resolver dudas reales sobre suplementos y medicacion, con contexto claro y enlaces directos a cada app.</p>
+            </div>
+            <div class="guides-preview-grid">
+                <a class="guide-preview-card reveal" href="app-suplementos-iphone.html"><strong>App de suplementos para iPhone</strong><span>Que buscar en una app de suplementos y en que destaca mySupli.</span></a>
+                <a class="guide-preview-card reveal" href="organizar-suplementos-diarios.html"><strong>Como organizar suplementos diarios</strong><span>Una guia practica para simplificar horarios, constancia y seguimiento.</span></a>
+                <a class="guide-preview-card reveal" href="app-recordatorio-medicacion-iphone.html"><strong>App para recordar medicacion</strong><span>Lo esencial para elegir una app seria cuando las alarmas se quedan cortas.</span></a>
+                <a class="guide-preview-card reveal" href="no-olvidar-medicacion.html"><strong>Como no olvidar la medicacion</strong><span>Consejos simples para reducir olvidos y ganar tranquilidad cada dia.</span></a>
             </div>
         </div>
     </section>

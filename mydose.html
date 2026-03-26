@@ -3,40 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>myDose — App de recordatorio de medicacion en prelanzamiento | Simpli</title>
-  <meta name="description" content="Conoce myDose, la app de recordatorio de medicacion de Simpli. Prelanzamiento publico con propuesta de valor clara y lanzamiento proximo." />
+  <title>myDose | App para recordar medicacion en iPhone en App Store</title>
+  <meta name="description" content="myDose es la app de Simpli para recordar medicacion en iPhone. Alertas claras, historial simple, Face ID y ya disponible en App Store." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/mydose_landing.html" />
+  <link rel="canonical" href="https://dcsdev1.github.io/Simpliapps/mydose.html" />
   <meta name="theme-color" content="#3B7293" />
-  <meta property="og:title" content="myDose — App de recordatorio de medicacion en prelanzamiento" />
-  <meta property="og:description" content="Conoce myDose antes de su lanzamiento: recordatorios simples, privacidad y control diario." />
+  <meta property="og:title" content="myDose | App para recordar medicacion en iPhone" />
+  <meta property="og:description" content="Recordatorios simples, historial diario, Face ID y ya disponible en App Store." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/mydose_landing.html" />
+  <meta property="og:url" content="https://dcsdev1.github.io/Simpliapps/mydose.html" />
   <meta property="og:site_name" content="Simpli" />
   <meta property="og:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-dose.png" />
   <meta property="og:image:alt" content="Icono de la app myDose" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="myDose — App de recordatorio de medicacion en prelanzamiento" />
-  <meta name="twitter:description" content="La nueva app de Simpli para recordar tu medicacion, ya visible en prelaunch." />
+  <meta name="twitter:title" content="myDose | App para recordar medicacion en iPhone" />
+  <meta name="twitter:description" content="Recordatorios simples, historial diario, Face ID y ya disponible en App Store." />
   <meta name="twitter:image" content="https://dcsdev1.github.io/Simpliapps/icon/icon-dose.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "myDose",
-    "url": "https://dcsdev1.github.io/Simpliapps/mydose_landing.html",
+    "url": "https://dcsdev1.github.io/Simpliapps/mydose.html",
+    "downloadUrl": "https://apps.apple.com/us/app/mydose/id6760656547",
     "applicationCategory": "HealthApplication",
     "operatingSystem": "iOS",
     "description": "Aplicacion para recordar la medicacion con alertas escaladas, historial automatico y privacidad local.",
     "offers": {
       "@type": "Offer",
       "price": "0",
-      "priceCurrency": "EUR"
+      "priceCurrency": "EUR",
+      "url": "https://apps.apple.com/us/app/mydose/id6760656547"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Simpli"
     }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿myDose está disponible en App Store?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. myDose ya está disponible en App Store para iPhone."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿myDose usa Face ID?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. myDose puede usar Face ID para proteger el acceso a la app y al historial en dispositivos compatibles."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿myDose ya está publicada?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. myDose ya está publicada y puede descargarse desde su ficha en App Store."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿myDose guarda datos médicos en servidores externos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No es el enfoque de myDose. La app se presenta con una filosofía simple y local, con privacidad clara desde el principio."
+        }
+      }
+    ]
   }
   </script>
 
@@ -305,6 +347,31 @@
     .disclaimer-text { font-size: 13px; color: var(--gray); line-height: 1.65; }
     .disclaimer-text strong { color: var(--navy); }
 
+    .faq-section { background: linear-gradient(180deg, rgba(235,243,248,.9) 0%, rgba(255,255,255,1) 100%); }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .faq-card {
+      background: var(--white);
+      border-radius: 22px;
+      padding: 24px;
+      border: 1px solid rgba(59,114,147,.10);
+      box-shadow: var(--shadow);
+    }
+    .faq-card h3 {
+      font-size: 16px;
+      line-height: 1.35;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .faq-card p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
     /* CTA FINAL */
     .cta-final { background: var(--accent); padding: 80px 0; text-align: center; position: relative; overflow: hidden; }
     .cta-final::before {
@@ -357,6 +424,7 @@
     @media (max-width: 540px) {
       section { padding: 64px 0; }
       .features-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
       .feat-card.wide { grid-column: span 1; flex-direction: column; }
       .hero-screens  { height: 320px; }
       .screen-card.c1, .screen-card.c3 { display: none; }
@@ -405,9 +473,10 @@
             Sin suscripciones. Sin complicaciones.
           </p>
           <div class="hero-cta">
-            <span class="coming-soon-note"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg><span>Prelanzamiento activo</span></span>
+            <a href="https://apps.apple.com/us/app/mydose/id6760656547" class="btn-primary" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>Descargar en App Store</a>
             <a href="#como-funciona" class="btn-ghost">Cómo funciona →</a>
             <a href="novedades.html" class="btn-ghost">Ver novedades →</a>
+            <a href="app-recordatorio-medicacion-iphone.html" class="btn-ghost">Guia sobre recordatorios →</a>
           </div>
         </div>
 
@@ -433,11 +502,11 @@
     <div class="container">
       <div class="launch-strip-inner">
         <div class="launch-strip-copy">
-          <strong>Prelanzamiento</strong>
-          <span>myDose ya tiene landing publica. La estructura esta lista para sumar capturas, copy final y la futura ficha de App Store.</span>
+          <strong>Disponible en App Store</strong>
+          <span>myDose ya puede descargarse para iPhone con una propuesta clara: recordatorios escalados, historial simple y privacidad local.</span>
         </div>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="contacto.html" class="btn-primary">Enviar feedback</a>
+          <a href="https://apps.apple.com/us/app/mydose/id6760656547" class="btn-primary" target="_blank" rel="noopener noreferrer">Descargar ahora</a>
           <a href="privacy-mydose.html" class="btn-ghost">Ver privacidad →</a>
         </div>
       </div>
@@ -504,7 +573,7 @@
         <div class="feat-card">
           <span class="feat-icon">📵</span>
           <h3>Sin suscripciones</h3>
-          <p>Gratis en España en su lanzamiento. Sin suscripciones, sin anuncios y sin pagos recurrentes.</p>
+          <p>Gratis en España. Sin suscripciones, sin anuncios y sin pagos recurrentes.</p>
         </div>
       </div>
     </div>
@@ -592,6 +661,58 @@
     </div>
   </section>
 
+  <section class="features" style="background:var(--beige);">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">Recursos</div>
+        <h2>Guias utiles para<br>entender mejor la app.</h2>
+        <p>Contenido pensado para resolver dudas concretas sobre recordatorios y organizacion de la medicacion, con contexto claro antes de descargar.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feat-card">
+          <span class="feat-icon">📱</span>
+          <h3>App para recordar medicacion en iPhone</h3>
+          <p>Guia para entender que deberia ofrecer una app de este tipo antes de elegirla.</p>
+          <a href="app-recordatorio-medicacion-iphone.html" class="btn-ghost">Leer guia →</a>
+        </div>
+        <div class="feat-card">
+          <span class="feat-icon">⏰</span>
+          <h3>Como no olvidar la medicacion</h3>
+          <p>Consejos practicos para construir una rutina mas consistente con menos olvidos.</p>
+          <a href="no-olvidar-medicacion.html" class="btn-ghost">Leer guia →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">FAQ</div>
+        <h2>Preguntas rapidas antes de descargar.</h2>
+        <p>Respuestas cortas para aclarar disponibilidad, privacidad, proteccion del acceso y funcionamiento general.</p>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-card">
+          <h3>¿myDose ya esta disponible en App Store?</h3>
+          <p>Si. myDose ya esta publicada para iPhone y puede descargarse directamente desde App Store.</p>
+        </article>
+        <article class="faq-card">
+          <h3>¿Usa Face ID?</h3>
+          <p>Si. myDose puede usar Face ID para proteger el acceso a la app y a la informacion de medicacion en dispositivos compatibles.</p>
+        </article>
+        <article class="faq-card">
+          <h3>¿Es gratuita en España?</h3>
+          <p>Si. myDose se presenta como una app gratuita en España, sin suscripciones ni pagos recurrentes.</p>
+        </article>
+        <article class="faq-card">
+          <h3>¿Depende de servidores externos para funcionar?</h3>
+          <p>myDose prioriza una experiencia simple y privada, con control local y sin depender de una cuenta para empezar.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- DISCLAIMER -->
   <section class="disclaimer">
     <div class="container">
@@ -610,11 +731,11 @@
   <section class="cta-final" id="download">
     <div class="container">
       <h2>Empieza hoy.<br>Tu salud no puede esperar.</h2>
-      <p>myDose entra en fase de prelanzamiento. En España sera gratuita en su lanzamiento. La ficha de App Store llegara mas adelante.</p>
-      <span class="coming-soon-note" style="background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.18);">
+      <p>myDose ya esta disponible en App Store. Descargala para iPhone y gestiona tu medicacion con recordatorios claros, historial simple y privacidad local.</p>
+      <a href="https://apps.apple.com/us/app/mydose/id6760656547" class="btn-white" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        <span>Prelanzamiento · lanzamiento proximo</span>
-      </span>
+        <span>Descargar en App Store</span>
+      </a>
     </div>
   </section>
 
